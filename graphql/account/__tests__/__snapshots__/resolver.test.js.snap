@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`account resolver Mutation addAccount 1`] = `
+Object {
+  "account": Object {
+    "_id": "44",
+    "balance": 0,
+    "name": "iTunes",
+    "type": "EXPENSE",
+    "userId": "admin",
+  },
+}
+`;
+
+exports[`account resolver Query: accounts 1`] = `
+Array [
+  Object {
+    "_id": "1",
+    "balance": 1500.5,
+    "name": "Bank card",
+    "type": "ASSET",
+  },
+  Object {
+    "_id": "2",
+    "balance": 143,
+    "name": "Cash",
+    "type": "ASSET",
+  },
+]
+`;

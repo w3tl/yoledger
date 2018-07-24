@@ -1,0 +1,38 @@
+version: "3"
+services:
+  mongo1:
+    image: mongo
+    restart: always
+    entrypoint: [ "/usr/bin/mongod", "--smallfiles", "--quiet", "--replSet", "rs", "--bind_ip_all"]
+
+  mongosetup:
+    image: mongo
+    volumes:
+      - ./scripts:/scripts
+    restart: always
+    depends_on:
+      - mongo1
+    entrypoint: [ "bash", "/scripts/setupreplica.sh" ]
+
+  model-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    command: npm run test:model
+    volumes:
+      - .:/app/
+    depends_on:
+      - mongosetup
+    environment:
+      NODE_ENV: test
+      MONGO_URI: mongodb://mongo1:27017/?replicaSet=rs
+
+  graphql-tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    command: npm run test:gql
+    volumes:
+      - .:/app/
+    environment:
+      NODE_ENV: test

@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`budget schema must return budget between dates: between 2018-05-10 and 2018-05-20 1`] = `
+Array [
+  Object {
+    "account": Object {
+      "name": "Food",
+    },
+    "amount": 55,
+    "date": "2018-05-10T00:00:00.000Z",
+  },
+]
+`;
+
+exports[`budget schema must return budget for account between dates: between 2018-06-21 and 2018-07-01 for Food 1`] = `
+Array [
+  Object {
+    "account": Object {
+      "name": "Food",
+    },
+    "amount": 40,
+    "date": "2018-06-21T00:00:00.000Z",
+  },
+]
+`;

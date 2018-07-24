@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`budget resolver Budget: account 1`] = `undefined`;
+
+exports[`budget resolver Mutation addBudget 1`] = `
+Object {
+  "budget": Object {
+    "_id": "50",
+    "account": "Food",
+    "amount": 564,
+    "date": 2018-05-10T00:00:00.000Z,
+    "userId": "admin",
+  },
+}
+`;
+
+exports[`budget resolver Mutation deleteBudget 1`] = `
+Object {
+  "success": true,
+}
+`;
+
+exports[`budget resolver Mutation updateBudget 1`] = `
+Object {
+  "budget": Object {
+    "_id": "2",
+    "account": "Food",
+    "amount": 55,
+    "date": 2018-05-10T00:00:00.000Z,
+  },
+}
+`;
+
+exports[`budget resolver Query: budget 1`] = `
+Array [
+  Object {
+    "_id": "2",
+    "account": "Food",
+    "amount": 55,
+    "date": 2018-05-10T00:00:00.000Z,
+  },
+]
+`;

@@ -1,0 +1,6 @@
+{
+  "mongoUri": "mongodb://localhost:31000/?replicaSet=rs",
+  "credentials": {
+    "algorithm": "argon2"
+  }
+}

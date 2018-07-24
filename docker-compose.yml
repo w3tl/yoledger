@@ -1,0 +1,27 @@
+version: "3"
+services:
+  graphql:
+    build: .
+    command: npm run dev
+    volumes:
+      - .:/app/
+      - /app/node_modules
+    ports:
+      - "3030:3030"
+    environment:
+      PORT: 3030
+      NODE_ENV: development
+      MONGO_URI: mongodb://mongo1:27017/yoledger-dev?replicaSet=rs
+  web:
+    build:
+      context: ./client/
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - graphql
+    environment:
+      GRAPHQL_ENDPOINT: http://graphql:3030

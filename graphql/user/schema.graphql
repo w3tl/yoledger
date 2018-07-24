@@ -1,0 +1,7 @@
+extend type Query {
+  user: User
+}
+
+type User {
+  username: String
+}
