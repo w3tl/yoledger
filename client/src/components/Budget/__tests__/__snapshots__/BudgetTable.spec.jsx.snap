@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetTable should render correctly 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th
+        key="firstColumn"
+      >
+        Account
+      </th>
+      <th
+        key="2018-06-10"
+      >
+        10 Jun
+      </th>
+      <th
+        key="2018-06-25"
+      >
+        25 Jun
+      </th>
+      <th
+        key="2018-07-10"
+      >
+        10 Jul
+      </th>
+      <th
+        key="nextButtonColumn"
+      >
+        <Button
+          onClick={[Function]}
+          type="button"
+        >
+          Next
+        </Button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    Rows
+  </tbody>
+</table>
+`;

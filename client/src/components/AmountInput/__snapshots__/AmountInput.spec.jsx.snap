@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AmountInput should render correctly 1`] = `
+<AmountInput
+  id=""
+  onChange={[Function]}
+  value={10}
+/>
+`;

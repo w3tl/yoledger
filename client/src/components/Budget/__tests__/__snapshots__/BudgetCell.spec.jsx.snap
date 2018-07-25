@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetCell should render correctly 1`] = `
+<div>
+  <Component
+    onChange={[Function]}
+    value={10}
+  />
+  <Button
+    onClick={[Function]}
+    type="button"
+  >
+    save
+  </Button>
+</div>
+`;

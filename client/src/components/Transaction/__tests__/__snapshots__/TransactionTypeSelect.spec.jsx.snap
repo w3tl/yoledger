@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionTypeSelect should render correctly 1`] = `
+<Component
+  value="income"
+>
+  <TransactionTypeSelect
+    id=""
+    name="switch"
+    onChange={[Function]}
+    value="income"
+  >
+    <div>
+      <input
+        checked={true}
+        id="income"
+        name="switch"
+        onChange={[Function]}
+        type="radio"
+        value="income"
+      />
+      <label
+        htmlFor="income"
+      >
+        Income
+      </label>
+      <input
+        checked={false}
+        id="expense"
+        name="switch"
+        onChange={[Function]}
+        type="radio"
+        value="expense"
+      />
+      <label
+        htmlFor="expense"
+      >
+        Expense
+      </label>
+    </div>
+  </TransactionTypeSelect>
+</Component>
+`;

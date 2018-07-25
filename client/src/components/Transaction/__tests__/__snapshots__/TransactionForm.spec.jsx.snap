@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionForm should render correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <Component
+    onChange={[Function]}
+    value="expense"
+  />
+  <Component
+    label="From"
+    onChange={[Function]}
+    required={true}
+    value=""
+  />
+  <Component
+    label="To"
+    onChange={[Function]}
+    required={true}
+    value=""
+  />
+  <Component
+    label="Amount"
+    onChange={[Function]}
+    required={true}
+    value={null}
+  />
+  <Component
+    label="When"
+    onChange={[Function]}
+    value="2018-01-01T00:00:00.000Z"
+  />
+  <Button
+    type="submit"
+  >
+    Save
+  </Button>
+</form>
+`;
