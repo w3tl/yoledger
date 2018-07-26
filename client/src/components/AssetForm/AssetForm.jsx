@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TextInput, Button } from '../Elements';
 import AmountInput from '../AmountInput';
+import withData from './AssetFormHOC';
 
 class AssetForm extends React.Component {
   constructor(props) {
@@ -27,7 +28,6 @@ class AssetForm extends React.Component {
 
   render() {
     const { balance, name } = this.state;
-
     return (
       <form onSubmit={this.handleSubmit}>
         <TextInput label="Name" value={name} onChange={this.handleChange('name')} />
@@ -50,4 +50,4 @@ AssetForm.defaultProps = {
   balance: 0,
 };
 
-export default AssetForm;
+export default withData(AssetForm);

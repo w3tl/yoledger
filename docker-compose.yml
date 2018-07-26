@@ -25,3 +25,8 @@ services:
       - graphql
     environment:
       GRAPHQL_ENDPOINT: http://graphql:3030
+  storybook:
+    build: ./client/
+    command: npm run storybook
+    ports:
+      - "9009:9009"

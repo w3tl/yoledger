@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, DateInput } from '../Elements';
-import AccountInput from '../AccountInput';
+import { AccountInput } from '../Account';
 import AmountInput from '../AmountInput';
 import TransactionTypeSelect from './TransactionTypeSelect';
 import { accountPropType } from '../propTypes';

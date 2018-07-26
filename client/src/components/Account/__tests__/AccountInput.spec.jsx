@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
-import AccountInput from './AccountInput';
+import AccountInput from '../AccountInput';
 
 configure({ adapter: new Adapter() });
 
