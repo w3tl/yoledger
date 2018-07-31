@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`TransactionForm should handle submit button click 1`] = `
+Array [
+  Object {
+    "amount": 10,
+    "date": "2018-01-01T00:00:00.000Z",
+    "destination": "Food",
+    "source": "Cash",
+  },
+]
+`;
+
 exports[`TransactionForm should render correctly 1`] = `
 <form
   onSubmit={[Function]}
@@ -12,25 +23,32 @@ exports[`TransactionForm should render correctly 1`] = `
     label="From"
     onChange={[Function]}
     required={true}
-    value=""
+    value="Cash"
   />
   <Component
     label="To"
     onChange={[Function]}
     required={true}
-    value=""
+    value="Food"
   />
   <Component
     label="Amount"
     onChange={[Function]}
     required={true}
-    value={null}
+    value={10}
   />
   <Component
     label="When"
     onChange={[Function]}
     value="2018-01-01T00:00:00.000Z"
   />
+  <Button
+    id="delete"
+    onClick={[Function]}
+    type="button"
+  >
+    Delete
+  </Button>
   <Button
     type="submit"
   >

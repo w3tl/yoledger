@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { TextInput, Button } from '../Elements';
 import AmountInput from '../AmountInput';
-import withData from './AssetFormHOC';
+import { assetPropType } from './propTypes';
 
 class AssetForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: props.name,
-      balance: props.balance,
+      name: props.asset.name,
+      balance: props.asset.balance,
     };
   }
 
@@ -23,7 +23,10 @@ class AssetForm extends React.Component {
     e.preventDefault();
     const { name, balance } = this.state;
     const { onSave } = this.props;
-    onSave({ name, balance });
+    onSave({
+      name,
+      balance,
+    });
   }
 
   render() {
@@ -41,13 +44,16 @@ class AssetForm extends React.Component {
 }
 
 AssetForm.propTypes = {
-  name: PropTypes.string,
-  balance: PropTypes.number,
-  onSave: PropTypes.func.isRequired,
+  asset: assetPropType,
+  onSave: PropTypes.func,
 };
 AssetForm.defaultProps = {
-  name: '',
-  balance: 0,
+  asset: {
+    id: null,
+    name: '',
+    balance: 0,
+  },
+  onSave: () => {},
 };
 
-export default withData(AssetForm);
+export default AssetForm;

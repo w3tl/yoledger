@@ -1,41 +1,39 @@
 import React from 'react';
 import { configure, shallow, mount } from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import TransactionForm from '../TransactionForm';
+import transactions from '../mockData';
 
 configure({ adapter: new Adapter() });
-
-const dateString = new Date('2018-01-01').toISOString();
 
 describe('TransactionForm', () => {
   it('should render correctly', () => {
     const output = shallow(
-      <TransactionForm
-        date={dateString}
-        onSave={() => {}}
-      />,
+      <TransactionForm transaction={transactions[0]} />,
     );
-    expect(shallowToJson(output)).toMatchSnapshot();
+    expect(output.state('isCreate')).toBeFalsy();
+    expect(output.find('Button')).toHaveLength(2);
+    expect(output).toMatchSnapshot();
+  });
+
+  it('should render delete button when transaction prop have\'t id field', () => {
+    const output = shallow(
+      <TransactionForm />,
+    );
+    expect(output.state('isCreate')).toBeTruthy();
+    expect(output.find('Button')).toHaveLength(1);
   });
 
   it('should handle submit button click', () => {
+    const transaction = transactions[0];
     const onSave = jest.fn();
     const output = mount(
       <TransactionForm
-        amount={10}
-        source={{ name: 'from' }}
-        destination={{ name: 'to' }}
-        date={dateString}
+        transaction={transaction}
         onSave={onSave}
       />,
     );
     output.find('form').simulate('submit');
-    expect(onSave).toHaveBeenCalledWith({
-      amount: 10,
-      source: 'from',
-      destination: 'to',
-      date: dateString,
-    });
+    expect(onSave.mock.calls[0]).toMatchSnapshot();
   });
 });

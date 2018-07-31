@@ -1,6 +1,5 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import BudgetTable from '../BudgetTable';
 
@@ -24,7 +23,7 @@ describe('BudgetTable', () => {
         Rows
       </BudgetTable>,
     );
-    expect(shallowToJson(output)).toMatchSnapshot();
+    expect(output).toMatchSnapshot();
   });
 
   it('should handle next button click', () => {

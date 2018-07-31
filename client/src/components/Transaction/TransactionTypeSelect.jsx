@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withLabel } from '../Elements/utils';
+import { transactionTypePropType } from './propTypes';
 
 class TransactionTypeSelect extends React.Component {
   static propTypes = {
     name: PropTypes.string,
-    value: PropTypes.oneOf(['income', 'expense']),
+    value: transactionTypePropType,
     onChange: PropTypes.func,
   }
 

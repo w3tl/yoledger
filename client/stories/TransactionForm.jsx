@@ -3,7 +3,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
-import { TransactionForm } from '../src/components';
+import TransactionForm from '../src/components/Transaction/TransactionForm';
 
 const transaction = {
   amount: 10,
@@ -14,4 +14,4 @@ const transaction = {
 
 storiesOf('Transaction/Form', module)
   .add('default', () => <TransactionForm onSave={action('onSave')} />)
-  .add('with value', () => <TransactionForm {...transaction} />);
+  .add('with value', () => <TransactionForm transaction={transaction} />);

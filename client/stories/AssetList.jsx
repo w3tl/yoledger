@@ -1,20 +1,22 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
-import AssetList from '../src/components/AssetList';
+import AssetList from '../src/components/Asset/AssetList';
 
-const accounts = [{
+const assets = [{
+  id: '1',
   name: 'Bank Card',
+  balance: 0,
 }, {
+  id: '2',
   name: 'Cash',
+  balance: 10,
 }, {
+  id: '3',
   name: 'Bank Card 2',
+  balance: 150,
 }];
 
 storiesOf('Asset/List', module)
-  .addDecorator(story => (
-    <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
-  ))
-  .add('with data', () => <AssetList assets={accounts} />);
+  .add('with data', () => <AssetList assets={assets} />)
+  .add('empty list', () => <AssetList />);

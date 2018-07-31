@@ -2,8 +2,14 @@ import React from 'react';
 
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import AssetForm from '../src/components/Asset/AssetForm';
 
-import AssetForm from '../src/components/AssetForm';
+const asset = {
+  id: '1',
+  name: 'Bank Card',
+  balance: 0,
+};
 
 storiesOf('Asset/Form', module)
-  .add('with value', () => <AssetForm balance={0} onSave={action('onSave')} />);
+  .add('create', () => <AssetForm />)
+  .add('edit', () => <AssetForm asset={asset} onSave={action('onSave')} />);

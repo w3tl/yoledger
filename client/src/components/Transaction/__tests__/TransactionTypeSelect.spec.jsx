@@ -1,6 +1,5 @@
 import React from 'react';
 import { configure, mount } from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import TransactionTypeSelect from '../TransactionTypeSelect';
 
@@ -11,7 +10,7 @@ describe('TransactionTypeSelect', () => {
     const output = mount(
       <TransactionTypeSelect value="income" />,
     );
-    expect(shallowToJson(output)).toMatchSnapshot();
+    expect(output.debug()).toMatchSnapshot();
   });
 
   it('should handle the input event', () => {

@@ -1,19 +1,31 @@
+/* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router } from 'react-router-dom';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from 'react-apollo';
+
 import './App.css';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import Routes from './components/Routes';
+
+const client = new ApolloClient({
+  uri: 'http://graphql:3030/graphql',
+});
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <ApolloProvider client={client}>
+        <Router>
+          <div className="App">
+            <Header />
+            <Navigation />
+            <Routes />
+          </div>
+        </Router>
+      </ApolloProvider>
     );
   }
 }

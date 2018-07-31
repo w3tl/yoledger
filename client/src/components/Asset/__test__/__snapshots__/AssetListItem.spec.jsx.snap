@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AssetListItem should render Link when run with router 1`] = `
+"<AssetListItem asset={{...}} url=\\"/home\\">
+  <li>
+    <Link to={{...}}>
+      <a href={{...}}>
+        Bank Card
+      </a>
+    </Link>
+  </li>
+</AssetListItem>"
+`;
+
+exports[`AssetListItem should render correctly 1`] = `
+"<li>
+  Bank Card
+</li>"
+`;

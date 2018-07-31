@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AssetFormHOC without router id params should successfully add asset 1`] = `
+"<MockedProvider mocks={{...}} addTypename={true}>
+  <ApolloProvider client={{...}}>
+    <Component match={{...}}>
+      <Component match={{...}}>
+        <Component match={{...}}>
+          <Mutation mutation={{...}}>
+            <Redirect to={{...}}>
+              <a href={{...}}>
+                Redirect
+              </a>
+            </Redirect>
+          </Mutation>
+        </Component>
+      </Component>
+    </Component>
+  </ApolloProvider>
+</MockedProvider>"
+`;

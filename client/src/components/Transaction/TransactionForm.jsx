@@ -4,25 +4,26 @@ import { Button, DateInput } from '../Elements';
 import { AccountInput } from '../Account';
 import AmountInput from '../AmountInput';
 import TransactionTypeSelect from './TransactionTypeSelect';
-import { accountPropType } from '../propTypes';
+import { transactionTypePropType, transactionPropType } from './propTypes';
 
 class TransactionForm extends React.Component {
   static propTypes = {
-    amount: PropTypes.number,
-    source: accountPropType,
-    destination: accountPropType,
-    date: PropTypes.string,
-    onSave: PropTypes.func.isRequired,
+    transaction: transactionPropType,
+    type: transactionTypePropType,
+    onSave: PropTypes.func,
+    onDelete: PropTypes.func,
   }
 
   constructor(props) {
     super(props);
+    const { transaction, type } = props;
     this.state = {
-      amount: props.amount,
-      source: props.source.name,
-      destination: props.destination.name,
-      date: props.date,
-      type: 'expense',
+      isCreate: !transaction.id,
+      amount: transaction.amount,
+      source: transaction.source.name,
+      destination: transaction.destination.name,
+      date: transaction.date,
+      type,
     };
   }
 
@@ -43,13 +44,18 @@ class TransactionForm extends React.Component {
     });
   }
 
+  handleDelete = () => {
+    const { onDelete } = this.props;
+    onDelete();
+  }
+
   handleTypeChange = ({ target }) => {
     this.setState({ type: target.value });
   }
 
   render() {
     const {
-      amount, source, destination, date, type,
+      amount, source, destination, date, type, isCreate,
     } = this.state;
 
     return (
@@ -59,6 +65,7 @@ class TransactionForm extends React.Component {
         <AccountInput required label="To" value={destination} onChange={this.handleChange('destination')} />
         <AmountInput required label="Amount" value={amount} onChange={this.handleChange('amount')} />
         <DateInput label="When" value={date} onChange={this.handleChange('date')} />
+        {!isCreate && <Button id="delete" onClick={this.handleDelete}>Delete</Button>}
         <Button type="submit">
           Save
         </Button>
@@ -68,14 +75,20 @@ class TransactionForm extends React.Component {
 }
 
 TransactionForm.defaultProps = {
-  amount: null,
-  source: {
-    name: '',
+  transaction: {
+    id: null,
+    amount: null,
+    source: {
+      name: '',
+    },
+    destination: {
+      name: '',
+    },
+    date: new Date().toString(),
   },
-  destination: {
-    name: '',
-  },
-  date: new Date().toString(),
+  type: 'expense',
+  onSave: () => {},
+  onDelete: () => {},
 };
 
 export default TransactionForm;

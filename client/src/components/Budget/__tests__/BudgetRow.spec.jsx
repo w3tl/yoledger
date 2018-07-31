@@ -1,6 +1,5 @@
 import React from 'react';
 import { configure, shallow, mount } from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import BudgetRow from '../BudgetRow';
 
@@ -40,7 +39,7 @@ describe('BudgetRow', () => {
         onDelete={() => {}}
       />,
     );
-    expect(shallowToJson(output)).toMatchSnapshot();
+    expect(output).toMatchSnapshot();
   });
 
   it('should add an account and a period to the events', () => {
