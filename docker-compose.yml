@@ -1,5 +1,19 @@
 version: "3"
 services:
+  mongo1:
+    image: mongo
+    restart: always
+    entrypoint: [ "/usr/bin/mongod", "--quiet", "--replSet", "rs", "--bind_ip_all"]
+
+  mongosetup:
+    image: mongo
+    volumes:
+      - ./scripts:/scripts
+    restart: always
+    depends_on:
+      - mongo1
+    entrypoint: [ "bash", "/scripts/setupreplica.sh" ]
+
   graphql:
     build: .
     command: npm run dev
@@ -8,6 +22,8 @@ services:
       - /app/node_modules
     ports:
       - "3030:3030"
+    depends_on:
+      - mongosetup
     environment:
       PORT: 3030
       NODE_ENV: development
@@ -24,9 +40,4 @@ services:
     depends_on:
       - graphql
     environment:
-      GRAPHQL_ENDPOINT: http://graphql:3030
-  storybook:
-    build: ./client/
-    command: npm run storybook
-    ports:
-      - "9009:9009"
+      GRAPHQL_ENDPOINT: http://graphql:3030/graphql
