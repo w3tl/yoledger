@@ -93,4 +93,8 @@ export const Query = {
       .limit(itemsPerPage)
       .toArray();
   },
+  transaction(_, { id }, { userId, connection }) {
+    const trans = new Model(connection.db(), userId);
+    return trans.findById(id);
+  },
 };

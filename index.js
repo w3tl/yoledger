@@ -20,7 +20,7 @@ startup().then(async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: { dataloaders: dataloaders(), connection: client, userId: 'admin' },
+    context: { dataloaders: dataloaders(client), connection: client, userId: 'admin' },
   });
 
   const app = express();

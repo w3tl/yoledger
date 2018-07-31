@@ -1,5 +1,6 @@
 extend type Query {
   accounts(type: AccountType!): [Account]
+  account(id: ID!): Account
 }
 
 extend type Mutation {

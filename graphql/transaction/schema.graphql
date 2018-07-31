@@ -1,5 +1,6 @@
 extend type Query {
   transactions(dateStart: Date!, dateEnd: Date, page: Int = 0, itemsPerPage: Int = 20): [Transaction]
+  transaction(id: ID!): Transaction
 }
 extend type Mutation {
   addTransaction(input: AddTransactionInput!): AddTransactionPayload

@@ -1,3 +1,5 @@
+import { ObjectId } from 'mongodb';
+
 export default class Model {
   constructor(db, userId) {
     this.db = db;
@@ -40,6 +42,10 @@ export default class Model {
   findOne(query = {}, options) {
     query.userId = this.userId; // eslint-disable-line no-param-reassign
     return this.collection.findOne(query, options);
+  }
+
+  findById(id, options) {
+    return this.collection.findOne({ _id: ObjectId(id) }, options);
   }
 
   findOneAndDelete(filter = {}, options) {

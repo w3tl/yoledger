@@ -10,6 +10,10 @@ export const Query = {
 
     return account.find({ type }).toArray();
   },
+  async account(root, { id }, { userId, connection }) {
+    const account = new Accounts(connection.db(), userId);
+    return account.findById(id);
+  },
 };
 
 export const Mutation = {
