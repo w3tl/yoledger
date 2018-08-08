@@ -2,11 +2,15 @@ jest.mock('mongodb');
 
 import { graphql } from 'graphql';
 import schema, { dataloaders } from '../../index';
-
-const userId = 'admin';
+import { Transaction } from '../../../model';
 
 describe('transaction schema', () => {
   const { connection } = require('mongodb');
+  const transactionModel = new Transaction(connection.db(), 'admin');
+  const context = {
+    dataloaders: dataloaders(connection), models: { transactionModel },
+  };
+
   test('should be return transaction with source and destination', async () => {
     const query = `
     query transactions($dateStart: Date!, $page: Int, $itemsPerPage: Int) {
@@ -20,9 +24,6 @@ describe('transaction schema', () => {
     }
     `;
     const rootValue = {};
-    const context = {
-      dataloaders: dataloaders(connection), userId, connection,
-    };
     const variables = {
       dateStart: '2018-06-20',
       page: 0,
@@ -49,7 +50,6 @@ describe('transaction schema', () => {
     }
     `;
     const rootValue = {};
-    const context = { dataloaders: dataloaders(connection), userId: 'admin', connection };
     const variables = {
       dateStart: '2018-06-20',
       dateEnd: '2018-06-23',

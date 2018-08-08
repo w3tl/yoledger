@@ -1,15 +1,11 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import config from '../../config';
 import Budget from './index';
-import Account from '../accounts';
 import budgets from '../../mocks/budgets';
-import accounts from '../../mocks/accounts';
 
 let db;
 let connection;
 let budgetModel;
-let budgetId;
-let accountModel;
 
 beforeAll(async () => {
   connection = await MongoClient.connect(config.get('mongoUri'), {
@@ -17,13 +13,8 @@ beforeAll(async () => {
     useNewUrlParser: true,
   });
   db = connection.db('dbbudgets');
-  budgetModel = new Budget(db, 'user1');
-  accountModel = new Account(db, 'user1');
-  await accountModel.init();
-  const expenseAccount = accounts.find(({ name }) => name === budgets[0].account);
-  await accountModel.create(expenseAccount);
+  budgetModel = new Budget(db, 'admin');
   await budgetModel.init();
-  budgetId = await budgetModel.addBudget(budgets[0]);
 });
 
 afterAll(async () => {
@@ -31,38 +22,71 @@ afterAll(async () => {
 });
 
 describe('budget', () => {
-  test('checkAccount', async () => {
-    const budgetDoc = await budgetModel.findOne({ _id: budgetId });
+  test('periods func should return correct array', () => {
+    const periodSetting = {
+      type: 'dayOfMonth',
+      options: [10, 25],
+    };
 
-    expect.assertions(2);
-    await expect(budgetModel.checkAccount('blabla'))
-      .rejects
-      .toThrowError('Account not found');
-
-    let error;
-    try {
-      await budgetModel.checkAccount(budgetDoc.account);
-    } catch (err) {
-      error = err;
-    }
-    expect(error).toBeUndefined();
+    ['2018-01-9', '2018-01-11', '2018-01-26'].forEach(dateStr => expect(
+      Budget.periods(new Date(dateStr), 3, periodSetting),
+    ).toMatchSnapshot(dateStr));
   });
 
-  test('Must add period', async () => {
-    const budgetDoc = await budgetModel.findOne({ _id: budgetId });
-    expect(budgetDoc).toMatchSnapshot({ _id: expect.any(ObjectId) }, 'New budget');
-  });
-
-  test('Must update period', async () => {
-    const newAccount = accounts.find(({ name }) => name !== budgets[0].account);
-    await accountModel.create(newAccount);
-    const { result: { nModified } } = await budgetModel.updateBudget(budgetId, {
-      account: newAccount.name,
-      date: new Date('2018-01-10'),
-      amount: 200,
+  describe('upsertBudget', () => {
+    beforeAll(async () => {
+      await budgetModel.clear();
+      await budgetModel
+        .insertMany(
+          budgets.map(({ date, ...other }) => ({ date: new Date(date), ...other })),
+        );
     });
-    expect(nModified).toEqual(1);
-    const budgetDoc = await budgetModel.findOne({ _id: budgetId });
-    expect(budgetDoc).toMatchSnapshot({ _id: expect.any(ObjectId) }, 'Updated budget period');
+
+    afterAll(async () => {
+      await budgetModel.clear();
+      await budgetModel
+        .insertMany(
+          budgets.map(({ date, ...other }) => ({ date: new Date(date), ...other })),
+        );
+    });
+
+    test('should update the amount in the existing period', async () => {
+      const { date, account } = budgets[0];
+      await budgetModel.upsertBudget({
+        account,
+        date,
+        amount: 14,
+      });
+      const doc = await budgetModel.findOne({ date: new Date(date) });
+      expect(doc).toMatchSnapshot({
+        _id: expect.any(ObjectId),
+      }, `should contain "${account}" account with amount of 14`);
+    });
+
+    test('should add a budget to the existing period', async () => {
+      const { date } = budgets[0];
+      await budgetModel.upsertBudget({
+        account: 'twix',
+        date,
+        amount: 15,
+      });
+      const doc = await budgetModel.findOne({ date: new Date(date) });
+      expect(doc).toMatchSnapshot({
+        _id: expect.any(ObjectId),
+      }, 'should contain "twix" account with amount of 15');
+    });
+
+    test('should create a non-existent period with a budget', async () => {
+      const date = new Date('2018-01-13');
+      await budgetModel.upsertBudget({
+        account: 'twix',
+        date,
+        amount: 15,
+      });
+      const doc = await budgetModel.findOne({ date });
+      expect(doc).toMatchSnapshot({
+        _id: expect.any(ObjectId),
+      }, 'should contain "twix" account with amount of 15');
+    });
   });
 });

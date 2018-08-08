@@ -1,32 +1,32 @@
 [
   {
-    "date": "2017-12-25",
+    "date": "2018-05-25",
     "account": "Food",
-    "amount": 90
+    "amount": 9,
+    "balance": 0
   },
   {
-    "date": "2017-12-25",
+    "date": "2018-05-25",
     "account": "Train",
-    "amount": 50
+    "amount": 29,
+    "balance": 20
   },
   {
-    "date": "2017-12-10",
+    "date": "2018-06-10",
     "account": "Food",
-    "amount": 100
+    "amount": 10,
+    "balance": 0
   },
   {
-    "date": "2017-12-10",
+    "date": "2018-06-10",
     "account": "Train",
-    "amount": 55
+    "amount": 30,
+    "balance": 20
   },
   {
-    "date": "2018-01-10",
+    "date": "2018-06-25",
     "account": "Food",
-    "amount": 64
-  },
-  {
-    "date": "2017-01-10",
-    "account": "Train",
-    "amount": 55
+    "amount": 11,
+    "balance": 1
   }
 ]

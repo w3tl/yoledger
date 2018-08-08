@@ -29,7 +29,7 @@ export default class Transaction extends Model {
       amount,
       createdAt,
     };
-
+    // TODO: apply to budget
     const insertedId = await this.postFunc(transObj, session);
     return insertedId;
   }
@@ -65,6 +65,7 @@ export default class Transaction extends Model {
       const Accounts = new Account(this.db, this.userId);
       await Accounts.addAmount(source.name, amount, session);
       await Accounts.addAmount(destination.name, -amount, session);
+      // TODO: apply to budget
     } catch (e) {
       await session.abortTransaction();
       throw e;

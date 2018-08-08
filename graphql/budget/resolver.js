@@ -1,48 +1,52 @@
 import { Budget as Budgets } from '../../model';
 
 export const Budget = {
-  id: ({ _id }) => _id,
-  account: ({ account }, _, { dataloaders, userId }) => dataloaders
-    .accountByName.load({ name: account, userId }),
+  account: ({ _id }, _, { dataloaders, userId }) => dataloaders
+    .accountByName.load({ name: _id.account, userId }),
+};
+
+export const BudgetPlan = {
+  async accounts({ periods }, _, { models: { budgetModel } }) {
+    const notFullAllocation = await budgetModel.aggregate([
+      { $match: { date: { $in: periods } } },
+      {
+        $group: {
+          _id: { account: '$account' },
+          allocations: {
+            $push: { date: '$date', amount: '$amount', balance: '$balance' },
+          },
+        },
+      },
+    ]).toArray();
+    const accounts = notFullAllocation.map(({ allocations, ...other }) => ({
+      ...other,
+      allocations: periods.map((date) => {
+        const allocation = allocations.find(a => a.date.getTime() === date.getTime());
+        return allocation || { date, amount: 0, balance: 0 };
+      }),
+    }));
+    return accounts;
+  },
 };
 
 export const Query = {
-  async budget(root, { dateStart, dateEnd, account }, { userId, connection }) {
-    const budget = new Budgets(connection.db(), userId);
-    const query = {
-      $and: [{
-        date: { $gte: dateStart },
-      }, {
-        date: { $lte: dateEnd },
-      }],
+  budgets(root, { dateStart, count }) {
+    if (count > 10) throw new Error('Count too long');
+    const periods = Budgets.periods(dateStart, count, {
+      type: 'dayOfMonth', options: [10, 25],
+    });
+    return {
+      periods,
     };
-    if (account) { query.account = account; }
-
-    return budget.find(query).toArray();
   },
 };
 
 export const Mutation = {
-  async addBudget(root, { input }, { userId, connection }) {
+  async upsertBudget(root, { input }, { models: { budgetModel } }) {
     const { account, date, amount } = input;
-    const budget = new Budgets(connection.db(), userId);
-    const insertedId = await budget.addBudget({ account, date, amount });
-
+    const id = await budgetModel.upsertBudget({ account, date, amount });
     return {
-      budget: await budget.findOne({ _id: insertedId }),
+      success: id,
     };
-  },
-  async updateBudget(root, { id, input: { amount } }, { userId, connection }) {
-    const budget = new Budgets(connection.db(), userId);
-    await budget.updateBudget(id, { amount });
-    return {
-      budget: await budget.findOne({ _id: id }),
-    };
-  },
-  async deleteBudget(root, { id }, { userId, connection }) {
-    const budget = new Budgets(connection.db(), userId);
-    const { deletedCount } = await budget.deleteOne({ _id: id });
-
-    return { success: deletedCount === 1 };
   },
 };

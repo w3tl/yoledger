@@ -2,9 +2,12 @@ jest.mock('mongodb');
 
 import { graphql } from 'graphql';
 import schema from '../../index';
+import { Account } from '../../../model';
 
 describe('account schema', () => {
   const { connection } = require('mongodb');
+  const accountModel = new Account(connection.db(), 'admin');
+
   it('Should be return accounts', async () => {
     const query = `
     query accounts($type: AccountType!) {
@@ -16,7 +19,7 @@ describe('account schema', () => {
     `;
 
     const rootValue = {};
-    const context = { userId: 'admin', connection };
+    const context = { models: { accountModel } };
     const variables = {
       type: 'ASSET',
     };

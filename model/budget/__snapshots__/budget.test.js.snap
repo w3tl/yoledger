@@ -1,21 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`budget Must add period: New budget 1`] = `
+exports[`budget periods func should return correct array: 2018-01-9 1`] = `
+Array [
+  2018-01-10T00:00:00.000Z,
+  2018-01-25T00:00:00.000Z,
+  2018-02-10T00:00:00.000Z,
+]
+`;
+
+exports[`budget periods func should return correct array: 2018-01-11 1`] = `
+Array [
+  2018-01-25T00:00:00.000Z,
+  2018-02-10T00:00:00.000Z,
+  2018-02-25T00:00:00.000Z,
+]
+`;
+
+exports[`budget periods func should return correct array: 2018-01-26 1`] = `
+Array [
+  2018-02-10T00:00:00.000Z,
+  2018-02-25T00:00:00.000Z,
+  2018-03-10T00:00:00.000Z,
+]
+`;
+
+exports[`budget upsertBudget should add a budget to the existing period: should contain "twix" account with amount of 15 1`] = `
 Object {
   "_id": Any<ObjectID>,
   "account": "Food",
-  "amount": 90,
-  "date": 2017-12-25T00:00:00.000Z,
-  "userId": "user1",
+  "amount": 14,
+  "balance": 0,
+  "date": 2018-05-25T00:00:00.000Z,
+  "userId": "admin",
 }
 `;
 
-exports[`budget Must update period: Updated budget period 1`] = `
+exports[`budget upsertBudget should create a non-existent period with a budget: should contain "twix" account with amount of 15 1`] = `
 Object {
   "_id": Any<ObjectID>,
-  "account": "Bank card",
-  "amount": 200,
-  "date": 2018-01-10T00:00:00.000Z,
-  "userId": "user1",
+  "account": "twix",
+  "amount": 15,
+  "date": 2018-01-13T00:00:00.000Z,
+  "userId": "admin",
+}
+`;
+
+exports[`budget upsertBudget should update the amount in the existing period: should contain "Food" account with amount of 14 1`] = `
+Object {
+  "_id": Any<ObjectID>,
+  "account": "Food",
+  "amount": 14,
+  "balance": 0,
+  "date": 2018-05-25T00:00:00.000Z,
+  "userId": "admin",
 }
 `;

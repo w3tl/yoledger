@@ -1,32 +1,32 @@
 extend type Query {
-  budget(dateStart: Date!, dateEnd: Date!, account: String): [Budget]
+  budgets(dateStart: Date!, count: Int = 3): BudgetPlan
 }
 extend type Mutation {
-  addBudget(input: AddBudgetInput!): AddBudgetPayload
-  updateBudget(id: ID!, input: UpdateBudgetInput): UpdateBudgetPayload
-  deleteBudget(id: ID!): DeleteBudgetPayload
+  upsertBudget(input: UpsertBudgetInput!): UpsertBudgetPayload
+}
+
+type BudgetPlan {
+  periods: [Date]
+  accounts: [Budget]
 }
 
 type Budget {
-  id: ID!
   account: Account!
+  allocations: [Allocation]
+}
+
+type Allocation {
   date: Date!
   amount: Float!
+  balance: Float
 }
-input AddBudgetInput {
+
+input UpsertBudgetInput {
   account: String!
   date: Date!
   amount: Float!
 }
-type AddBudgetPayload {
-  budget: Budget
-}
-input UpdateBudgetInput {
-  amount: Float
-}
-type UpdateBudgetPayload {
-  budget: Budget
-}
-type DeleteBudgetPayload {
+
+type UpsertBudgetPayload {
   success: Boolean
 }

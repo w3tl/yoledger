@@ -2,42 +2,35 @@
 
 exports[`budget resolver Budget: account 1`] = `undefined`;
 
-exports[`budget resolver Mutation addBudget 1`] = `
-Object {
-  "budget": Object {
-    "_id": "50",
-    "account": "Food",
-    "amount": 564,
-    "date": 2018-05-10T00:00:00.000Z,
-    "userId": "admin",
-  },
-}
-`;
-
-exports[`budget resolver Mutation deleteBudget 1`] = `
-Object {
-  "success": true,
-}
-`;
-
-exports[`budget resolver Mutation updateBudget 1`] = `
-Object {
-  "budget": Object {
-    "_id": "2",
-    "account": "Food",
-    "amount": 55,
-    "date": 2018-05-10T00:00:00.000Z,
-  },
-}
-`;
-
-exports[`budget resolver Query: budget 1`] = `
+exports[`budget resolver BudgetPlan 1`] = `
 Array [
   Object {
-    "_id": "2",
-    "account": "Food",
-    "amount": 55,
-    "date": 2018-05-10T00:00:00.000Z,
+    "_id": Object {
+      "account": "Train",
+    },
+    "allocations": Array [],
+  },
+  Object {
+    "_id": Object {
+      "account": "Food",
+    },
+    "allocations": Array [],
   },
 ]
+`;
+
+exports[`budget resolver Mutation upsertBudget 1`] = `
+Object {
+  "success": undefined,
+}
+`;
+
+exports[`budget resolver Query: plan with 3 periods and accounts 1`] = `
+Object {
+  "periods": Array [
+    2018-05-10T00:00:00.000Z,
+    2018-05-25T00:00:00.000Z,
+    2018-06-10T00:00:00.000Z,
+  ],
+}
 `;

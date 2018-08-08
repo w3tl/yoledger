@@ -1,13 +1,14 @@
 jest.mock('mongodb');
 
 import { Query, Mutation, Account } from '../resolver';
-
-const userId = 'admin';
+import { Account as AccountModel } from '../../../model';
 
 describe('account resolver', () => {
   const { connection } = require('mongodb');
+  const accountModel = new AccountModel(connection.db(), 'admin');
+
   test('Query', async () => {
-    const result = await Query.accounts(null, { type: 'ASSET' }, { userId, connection });
+    const result = await Query.accounts(null, { type: 'ASSET' }, { models: { accountModel } });
     expect(result).toMatchSnapshot('accounts');
   });
 
@@ -19,7 +20,7 @@ describe('account resolver', () => {
     test('addAccount', async () => {
       const result = await Mutation.addAccount(null, {
         input: { name: 'iTunes', type: 'EXPENSE' },
-      }, { userId, connection });
+      }, { models: { accountModel } });
       expect(result).toMatchSnapshot();
     });
   });

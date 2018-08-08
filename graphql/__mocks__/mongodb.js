@@ -10,7 +10,7 @@ const mongodb = jest.genMockFromModule('mongodb');
 const addCreatedAt = ({ createdAt, ...other }) => ({ ...other, createdAt: new Date(createdAt) });
 const addDate = ({ date, ...other }) => ({ ...other, date: new Date(date) });
 const transactions = transactionsJson.map(addCreatedAt);
-let budgets = budgetsJson.map(addDate);
+const budgets = budgetsJson.map(addDate);
 
 const mockSession = {
   startTransaction: () => Promise.resolve(),
@@ -54,35 +54,33 @@ const mockCollections = {
     updateOne: () => Promise.resolve(),
   },
   budget: {
-    find: ({ account, $and: [{ date: { $gte } }, { date: { $lte } }] }) => ({
-      toArray: () => {
-        const dateFiltered = budgets.filter(({ date }) => date >= $gte && date <= $lte);
-        if (!account) return Promise.resolve(dateFiltered);
-        return Promise.resolve(dateFiltered.filter(budget => budget.account === account));
-      },
-    }),
-    deleteOne: ({ _id }) => {
-      const deletedCount = budgets.filter(b => b._id === _id).length;
-      budgets = budgets.filter(b => b._id !== _id);
-      return Promise.resolve({
-        deletedCount,
-      });
-    },
-    findOne: ({ _id }) => {
+    findOne: ({ _id, date }) => {
       if (_id) { return Promise.resolve(budgets.find(t => t._id === _id)); }
+      if (date) { return Promise.resolve(budgets.find(t => t.date.getTime() === date.getTime())); }
       return budgets[0];
     },
-    insertOne: (budget) => {
-      budgets.push({ _id: '50', ...budget });
-      return Promise.resolve({ insertedId: '50' });
-    },
-    updateOne: ({ _id }, { $set }) => {
-      const idx = budgets.find(b => b._id === _id);
+    updateOne: ({ date, account }, { $set }) => {
+      const idx = budgets.find(b => b.date.getTime() === date.getTime() && b.account === account);
       if (idx) {
         budgets[idx] = { ...budgets[idx], ...$set.modificator };
       }
-      return Promise.resolve();
+      return Promise.resolve({ upsertedId: budgets[idx]._id });
     },
+    aggregate: () => ({
+      toArray: () => ([{
+        _id: { account: 'Train' },
+        allocations: [
+          { date: new Date('2018-06-10'), amount: 14, balance: 0 },
+        ],
+      }, {
+        _id: { account: 'Food' },
+        allocations: [
+          { date: new Date('2018-05-10'), amount: 50, balance: 0 },
+          { date: new Date('2018-05-25'), amount: 55, balance: 0 },
+          { date: new Date('2018-06-10'), amount: 60, balance: 0 },
+        ],
+      }]),
+    }),
   },
 };
 

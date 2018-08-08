@@ -1,29 +1,5 @@
 import Model from '../Model';
-import Account from '../accounts';
-
-const schema = {
-  type: 'object',
-  required: ['account', 'date', 'amount', 'userId'],
-  additionalProperties: false,
-  properties: {
-    _id: {
-      bsonType: 'objectId',
-    },
-    account: {
-      type: 'string',
-    },
-    date: {
-      bsonType: 'date',
-    },
-    amount: {
-      type: 'number',
-    },
-    userId: {
-      type: 'string',
-    },
-  },
-};
-
+import schema from './schema';
 
 export default class Budget extends Model {
   constructor(db, userId) {
@@ -32,35 +8,49 @@ export default class Budget extends Model {
     this.schema = schema;
   }
 
-  async checkAccount(account) {
-    const accountModel = new Account(this.db, this.userId);
-    const accountDoc = await accountModel.findByName(account);
-    if (!accountDoc) {
-      throw new Error('Account not found');
-    }
-  }
-
-  async addBudget({ account, date, amount }) {
-    await this.checkAccount(account);
-    const { insertedId } = await super.insertOne({
-      date: new Date(date),
-      account,
-      amount,
+  async upsertBudget({ account, date, amount }) {
+    const periodDate = typeof date === 'string'
+      ? new Date(date) : date;
+    const { upsertedId } = await super.updateOne({
+      date: periodDate, account,
+    }, {
+      $set: { amount },
+    }, {
+      upsert: true,
     });
-    return insertedId;
+    return upsertedId;
   }
 
-  async updateBudget(_id, {
-    date, account, amount,
+  /**
+   * Returns an array with the `count` of dates
+   *
+   * @param {Date} dateStart The date of the beginning
+   * @param {Number} count Number of periods
+   * @param {Object} params Rules for the formation of periods
+   * @return {Array} Dates, starting with `dateStart`
+   */
+  static periods(dateStart, count, {
+    type, options,
   }) {
-    const modificator = {};
-    if (date) { modificator.date = date; }
-    if (account) {
-      await this.checkAccount(account);
-      modificator.account = account;
+    switch (type) {
+      case 'dayOfMonth': {
+        const periods = [];
+        const currentDate = new Date(dateStart);
+        // прибавляется длина на случай если день в dateStart позже чем день в options
+        for (let i = 0; i < count / options.length + options.length; i += 1) {
+          const daysOfMonth = options.map((day) => {
+            const date = new Date(Date.UTC(currentDate.getFullYear(), currentDate.getMonth(), day));
+            return date;
+          });
+          periods.push(...daysOfMonth);
+          currentDate.setMonth(currentDate.getMonth() + 1);
+        }
+        // находим дату >= dateStart
+        const startIdx = periods.findIndex(date => date.getTime() >= dateStart);
+        return periods.slice(startIdx, startIdx + count);
+      }
+      default:
+        return [];
     }
-    if (amount) { modificator.amount = amount; }
-
-    return super.updateOne({ _id }, { $set: modificator });
   }
 }

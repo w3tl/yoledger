@@ -67,4 +67,14 @@ export default class Model {
     filter.userId = this.userId; // eslint-disable-line no-param-reassign
     return this.collection.updateOne(filter, update, options);
   }
+
+  aggregate(pipeline, options) {
+    let [firstPipe, ...pipes] = pipeline; // eslint-disable-line prefer-const
+    if ('$match' in firstPipe) {
+      firstPipe.$match.userId = this.userId;
+      return this.collection.aggregate([firstPipe, ...pipes], options);
+    }
+    firstPipe = { $match: { userId: this.userId } };
+    return this.collection.aggregate([firstPipe, ...pipeline], options);
+  }
 }

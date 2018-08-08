@@ -16,6 +16,7 @@ import {
   Query as BudgetQuery,
   Mutation as BudgetMutation,
   Budget,
+  BudgetPlan,
 } from './budget';
 import dateResolver from './date';
 
@@ -26,5 +27,6 @@ export default {
   Account,
   Transaction,
   Budget,
+  BudgetPlan,
   Date: dateResolver,
 };

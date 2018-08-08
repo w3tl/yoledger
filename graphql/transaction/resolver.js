@@ -1,5 +1,4 @@
 import { GraphQLError } from 'graphql';
-import { Transaction as Model } from '../../model';
 
 export const Transaction = {
   id: ({ _id }) => _id,
@@ -13,7 +12,7 @@ export const Transaction = {
 };
 
 export const Mutation = {
-  async addTransaction(root, { input }, { userId, connection }) {
+  async addTransaction(root, { input }, { models: { transactionModel }, connection }) {
     const {
       source, destination, amount, date: createdAt,
     } = input;
@@ -24,22 +23,20 @@ export const Mutation = {
       createdAt,
     };
 
-    const trans = new Model(connection.db(), userId);
     let _id;
     await connection.withSession(async (session) => {
-      _id = await trans.post(transObj, session);
+      _id = await transactionModel.post(transObj, session);
     });
 
-    const transaction = await trans.findOne({ _id });
+    const transaction = await transactionModel.findOne({ _id });
 
     return {
       transaction,
     };
   },
-  async deleteTransaction(root, { id }, { userId, connection }) {
-    const trans = new Model(connection.db(), userId);
+  async deleteTransaction(root, { id }, { models: { transactionModel }, connection }) {
     try {
-      await connection.withSession(session => trans.unpost(id, session));
+      await connection.withSession(session => transactionModel.unpost(id, session));
     } catch (err) {
       return {
         success: false,
@@ -50,8 +47,7 @@ export const Mutation = {
       success: true,
     };
   },
-  async updateTransaction(root, { id, input }, { userId, connection }) {
-    const trans = new Model(connection.db(), userId);
+  async updateTransaction(root, { id, input }, { models: { transactionModel }, connection }) {
     const {
       amount, source, destination, date: createdAt,
     } = input;
@@ -64,9 +60,9 @@ export const Mutation = {
     try {
       let updatedId;
       await connection.withSession(async (session) => {
-        updatedId = await trans.update(id, updates, session);
+        updatedId = await transactionModel.update(id, updates, session);
       });
-      const transaction = await trans.findOne({ _id: updatedId });
+      const transaction = await transactionModel.findOne({ _id: updatedId });
       return { transaction };
     } catch (err) {
       throw new GraphQLError(err.message);
@@ -75,9 +71,9 @@ export const Mutation = {
 };
 
 export const Query = {
-  /* eslint-disable-next-line object-curly-newline */
-  async transactions(_, { dateStart, dateEnd, page, itemsPerPage }, { userId, connection }) {
-    const trans = new Model(connection.db(), userId);
+  async transactions(_, /* eslint-disable-next-line object-curly-newline */
+    { dateStart, dateEnd, page, itemsPerPage },
+    { models: { transactionModel } }) {
     const query = {};
     if (dateEnd) {
       query.$and = [
@@ -88,13 +84,12 @@ export const Query = {
       query.createdAt = { $gte: dateStart };
     }
 
-    return trans.find(query)
+    return transactionModel.find(query)
       .skip(page * itemsPerPage)
       .limit(itemsPerPage)
       .toArray();
   },
-  transaction(_, { id }, { userId, connection }) {
-    const trans = new Model(connection.db(), userId);
-    return trans.findById(id);
+  transaction(_, { id }, { models: { transactionModel } }) {
+    return transactionModel.findById(id);
   },
 };

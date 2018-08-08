@@ -2,7 +2,7 @@ import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { MongoClient } from 'mongodb';
 import config from './config';
-import { dataloaders } from './graphql';
+import { dataloaders, models } from './graphql';
 import typeDefs from './graphql/schema';
 import resolvers from './graphql/resolvers';
 import startup from './startup';
@@ -20,7 +20,12 @@ startup().then(async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: { dataloaders: dataloaders(client), connection: client, userId: 'admin' },
+    context: {
+      dataloaders: dataloaders(client),
+      connection: client,
+      userId: 'admin',
+      models: models(client, 'admin'),
+    },
   });
 
   const app = express();

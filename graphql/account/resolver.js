@@ -1,33 +1,27 @@
-import { Account as Accounts } from '../../model';
-
 export const Account = {
   id: ({ _id }) => _id,
 };
 
 export const Query = {
-  async accounts(root, { type }, { userId, connection }) {
-    const account = new Accounts(connection.db(), userId);
-
-    return account.find({ type }).toArray();
+  async accounts(root, { type }, { models: { accountModel } }) {
+    return accountModel.find({ type }).toArray();
   },
-  async account(root, { id }, { userId, connection }) {
-    const account = new Accounts(connection.db(), userId);
-    return account.findById(id);
+  async account(root, { id }, { models: { accountModel } }) {
+    return accountModel.findById(id);
   },
 };
 
 export const Mutation = {
-  async addAccount(root, { input }, { userId, connection }) {
+  async addAccount(root, { input }, { models: { accountModel } }) {
     const { name, type, balance } = input;
-    const account = new Accounts(connection.db(), userId);
-    const { insertedId } = await account.create({
+    const { insertedId } = await accountModel.create({
       name,
       balance,
       type,
     });
 
     return {
-      account: await account.findOne({ _id: insertedId }),
+      account: await accountModel.findOne({ _id: insertedId }),
     };
   },
 };
