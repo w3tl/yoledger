@@ -2,9 +2,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Button({ type, children, ...props }) {
+function Button({
+  type, onClick, disabled, children, // eslint-disable-line react/prop-types
+}) {
   return (
-    <button type={type} {...props}>
+    <button type={type} onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );

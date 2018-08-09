@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import NumberFormat from 'react-number-format';
 import { withLabel } from '../Elements/utils';
 
-function AmountInput({ value, onChange }) {
+function AmountInput({ value, onChange, ...attrs }) {
   return (
     <NumberFormat
+      style={{ textAlign: 'right' }}
       value={value}
       thousandSeparator
       onValueChange={({ value: newValue }) => onChange({ target: { value: newValue } })}
+      {...attrs}
     />);
 }
 

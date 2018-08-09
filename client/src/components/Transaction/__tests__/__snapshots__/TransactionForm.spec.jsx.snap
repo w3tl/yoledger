@@ -1,17 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TransactionForm should handle submit button click 1`] = `
-Array [
-  Object {
-    "amount": 10,
-    "date": "2018-01-01T00:00:00.000Z",
-    "destination": "Food",
-    "source": "Cash",
-  },
-]
-`;
-
-exports[`TransactionForm should render correctly 1`] = `
+exports[`TransactionForm renders without error 1`] = `
 <form
   onSubmit={[Function]}
 >
@@ -55,4 +44,15 @@ exports[`TransactionForm should render correctly 1`] = `
     Save
   </Button>
 </form>
+`;
+
+exports[`TransactionForm should handle submit button click 1`] = `
+Array [
+  Object {
+    "amount": 10,
+    "date": "2018-01-01T00:00:00.000Z",
+    "destination": "Food",
+    "source": "Cash",
+  },
+]
 `;

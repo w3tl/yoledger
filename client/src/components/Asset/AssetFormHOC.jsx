@@ -31,7 +31,7 @@ const withQuery = Wrapped => (props) => {
       <Query query={QUERY} skip={!props.id} variables={{ id: props.id }}>
         {({ loading, error, data }) => {
           if (loading) return 'Loading...';
-          if (error) return 'Error query!';
+          if (error) return 'Error!';
           return <Wrapped {...props} asset={data.account} />;
         }}
       </Query>
@@ -44,7 +44,7 @@ const withAddMutation = Wrapped => props => (
   <Mutation mutation={ADD_MUTATION}>
     {(addAccount, { loading, error, data }) => {
       if (loading) return 'Loading...';
-      if (error) return 'Error mutation!';
+      if (error) return 'Error!';
       if (data && data.addAccount) {
         const { addAccount: { account } } = data; // COMBAK: use variable to pathname
         return <Redirect to={{ pathname: '/assets/view', state: { id: account.id } }} />;

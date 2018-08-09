@@ -1,25 +1,18 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
-import Adapter from 'enzyme-adapter-react-16';
+import { mount } from 'enzyme';
 import BudgetCell from '../BudgetCell';
-
-configure({ adapter: new Adapter() });
+import { testRenderWithoutError } from '../../testHelpers';
 
 describe('BudgetCell', () => {
-  it('should render correctly', () => {
-    const output = shallow(
-      <BudgetCell amount={10} />,
-    );
-    expect(shallowToJson(output)).toMatchSnapshot();
-  });
+  testRenderWithoutError(<BudgetCell amount={10} />);
 
   it('should handle the save button click', () => {
     const onUpdate = jest.fn();
-    const output = shallow(
+    const output = mount(
       <BudgetCell amount={10} onUpdate={onUpdate} />,
     );
-    output.find('Button').simulate('click');
+
+    output.find('input').simulate('blur');
     expect(onUpdate).toHaveBeenCalledWith({ amount: 10 });
   });
 });

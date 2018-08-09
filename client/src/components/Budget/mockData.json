@@ -1,0 +1,42 @@
+{
+  "__typename": "BudgetPlan",
+  "periods": ["2018-06-10", "2018-06-25", "2018-07-10", "2018-07-25", "2018-08-10", "2018-08-25"],
+  "accounts": [{
+    "account": {
+      "__typename": "Account",
+      "id": "1",
+      "name": "Food"
+    },
+    "allocations": [{
+      "__typename": "Allocation",
+      "date": "2018-06-10",
+      "amount": 10,
+      "balance": 0
+    }, {
+      "__typename": "Allocation",
+      "date": "2018-06-25",
+      "amount": 12,
+      "balance": 0
+    }, {
+      "__typename": "Allocation",
+      "date": "2018-07-10",
+      "amount": 14,
+      "balance": 0
+    }, {
+      "__typename": "Allocation",
+      "date": "2018-07-25",
+      "amount": 18,
+      "balance": 0
+    }, {
+      "__typename": "Allocation",
+      "date": "2018-08-10",
+      "amount": 7,
+      "balance": 0
+    }, {
+      "__typename": "Allocation",
+      "date": "2018-08-25",
+      "amount": 6,
+      "balance": 0
+    }]
+  }]
+}

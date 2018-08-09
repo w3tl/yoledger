@@ -2,11 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { AssetForm, AssetList, AssetMenu } from './Asset';
 import { TransactionForm, TransactionList, TransactionMenu } from './Transaction';
-
-const routes = [{
-  path: '/budgets',
-  main: () => <h2>Budgets</h2>,
-}];
+import { BudgetTable } from './Budget';
 
 const Assets = () => (
   <Switch>
@@ -31,14 +27,7 @@ function Routes() {
         <Route path="/assets" component={AssetMenu} />
         <Route path="/transactions" component={TransactionMenu} />
       </div>
-      {routes.map(route => (
-        <Route
-          key={route.path}
-          path={route.path}
-          exact={route.exact}
-          component={route.main}
-        />
-      ))}
+      <Route path="/budgets" component={BudgetTable} />
       <Assets />
       <Transactions />
     </main>

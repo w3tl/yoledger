@@ -1,43 +1,53 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { shallow } from 'enzyme';
 import BudgetTable from '../BudgetTable';
+import { testRenderWithoutError } from '../../testHelpers';
 
-configure({ adapter: new Adapter() });
+jest.mock('../BudgetTableBody', () => Component => (
+  <Component />
+));
 
-const periods = [{
-  dateStart: '2018-06-10',
-}, {
-  dateStart: '2018-06-25',
-}, {
-  dateStart: '2018-07-10',
-}];
+jest.mock('../BudgetTableHeader', () => Component => (
+  <Component />
+));
 
 describe('BudgetTable', () => {
-  it('should render correctly', () => {
-    const output = shallow(
-      <BudgetTable
-        periods={periods}
-        onChange={() => {}}
-      >
-        Rows
-      </BudgetTable>,
-    );
-    expect(output).toMatchSnapshot();
+  const fixedDate = new Date('2018-06-10');
+  let originalDate;
+
+  beforeAll(() => {
+    originalDate = global.Date;
+
+    global.Date = class extends Date {
+      constructor() {
+        super();
+        return fixedDate;
+      }
+    };
   });
 
-  it('should handle next button click', () => {
-    const onChange = jest.fn();
-    const output = shallow(
-      <BudgetTable
-        periods={periods}
-        onChange={onChange}
-      >
-        Rows
-      </BudgetTable>,
-    );
-
-    output.find('Button').first().simulate('click');
-    expect(onChange).toHaveBeenCalled();
+  afterAll(() => {
+    global.Date = originalDate;
   });
+
+  testRenderWithoutError(<BudgetTable />);
+
+  it('state should contain dateStart with current date and  default count', () => {
+    const output = shallow(
+      <BudgetTable />,
+    );
+    const date = new Date(output.state('dateStart'));
+    expect(date.getTime()).toBe(fixedDate.getTime());
+    expect(output.state('count')).toBeDefined();
+  });
+
+  // it('should change state when after handleNextClick', () => {
+  //   const output = mount(
+  //     <BudgetTable />,
+  //   );
+  //
+  //   output.find('#nextButton').simulate('click');
+  //   const nextDate = new Date(output.state('dateStart'));
+  //   expect(nextDate.getTime()).toBe(new Date(periods[1]).getTime());
+  // });
 });

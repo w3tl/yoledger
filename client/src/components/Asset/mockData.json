@@ -1,0 +1,16 @@
+[{
+  "__typename": "Account",
+  "id": "1",
+  "name": "Bank Card",
+  "balance": 0
+}, {
+  "__typename": "Account",
+  "id": "2",
+  "name": "Cash",
+  "balance": 10
+}, {
+  "__typename": "Account",
+  "id": "3",
+  "name": "Bank Card 2",
+  "balance": 150
+}]

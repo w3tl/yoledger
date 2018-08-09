@@ -34,7 +34,7 @@ describe('TransactionListHOC', () => {
     ));
     await wait();
     wrapper.update();
-    expect(wrapper.update().find(MockComponent).prop('transactions')).toHaveLength(transactions.length);
+    expect(wrapper.find(MockComponent).prop('transactions')).toHaveLength(transactions.length);
   });
 
   it('should render loading state initially', () => {

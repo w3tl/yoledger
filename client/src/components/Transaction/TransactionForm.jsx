@@ -84,7 +84,7 @@ TransactionForm.defaultProps = {
     destination: {
       name: '',
     },
-    date: new Date().toString(),
+    date: new Date().toISOString(),
   },
   type: 'expense',
   onSave: () => {},

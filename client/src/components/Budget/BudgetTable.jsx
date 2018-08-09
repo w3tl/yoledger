@@ -1,51 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import moment from 'moment';
-import { Button } from '../Elements';
-import { periodPropType } from '../propTypes';
+import BudgetTableHeader from './BudgetTableHeader';
+import BudgetTableBody from './BudgetTableBody';
 
 class BudgetTable extends React.Component {
   static propTypes = {
-    periods: PropTypes.arrayOf(periodPropType),
-    onChange: PropTypes.func.isRequired,
-    children: PropTypes.node.isRequired,
+    header: PropTypes.func,
+    body: PropTypes.func,
   }
 
-  handleNext = () => {
-    const { onChange } = this.props;
-    onChange('next');
+  static defaultProps = {
+    header: BudgetTableHeader,
+    body: BudgetTableBody,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      dateStart: new Date().toISOString(), // -1
+      count: 6,
+    };
+  }
+
+  handleHeaderClick = (dateStart) => {
+    this.setState({
+      dateStart,
+    });
   }
 
   render() {
-    const { periods, children } = this.props;
+    const { header: Header, body: Body } = this.props;
+    const { dateStart, count } = this.state;
 
     return (
-      <table>
-        <thead>
-          <tr>
-            <th key="firstColumn">
-              Account
-            </th>
-            {periods.map(period => (
-              <th key={period.dateStart}>
-                {moment(period.dateStart).format('D MMM')}
-              </th>
-            ))}
-            <th key="nextButtonColumn">
-              <Button onClick={this.handleNext}>Next</Button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {children}
-        </tbody>
-      </table>
+      <div>
+        <Header
+          dateStart={dateStart}
+          count={count}
+          onPrev={this.handleHeaderClick}
+          onNext={this.handleHeaderClick}
+        />
+        <Body dateStart={dateStart} count={count} />
+      </div>
     );
   }
 }
-
-BudgetTable.defaultProps = {
-  periods: [],
-};
 
 export default BudgetTable;

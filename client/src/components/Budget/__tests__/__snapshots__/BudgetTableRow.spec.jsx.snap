@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetTableRow renders without error 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "flex": "1 100px",
+      }
+    }
+  >
+    Food
+  </div>
+  <BudgetCell
+    amount={10}
+    key="Food_2018-06-10"
+    onUpdate={[Function]}
+  />
+  <BudgetCell
+    amount={12}
+    key="Food_2018-06-25"
+    onUpdate={[Function]}
+  />
+  <BudgetCell
+    amount={14}
+    key="Food_2018-07-10"
+    onUpdate={[Function]}
+  />
+  <BudgetCell
+    amount={18}
+    key="Food_2018-07-25"
+    onUpdate={[Function]}
+  />
+  <BudgetCell
+    amount={7}
+    key="Food_2018-08-10"
+    onUpdate={[Function]}
+  />
+  <BudgetCell
+    amount={6}
+    key="Food_2018-08-25"
+    onUpdate={[Function]}
+  />
+  <div
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+</div>
+`;

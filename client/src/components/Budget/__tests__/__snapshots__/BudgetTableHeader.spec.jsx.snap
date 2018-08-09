@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetTableHeader renders without error 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "flex": "1 100px",
+      }
+    }
+  >
+    Account
+  </div>
+  <div
+    key="2018-06-10"
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    10 Jun
+  </div>
+  <div
+    key="2018-06-25"
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    25 Jun
+  </div>
+  <div
+    key="2018-07-10"
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    10 Jul
+  </div>
+  <div
+    key="2018-07-25"
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    25 Jul
+  </div>
+  <div
+    key="2018-08-10"
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    10 Aug
+  </div>
+  <div
+    key="2018-08-25"
+    style={
+      Object {
+        "flex": 3,
+      }
+    }
+  >
+    25 Aug
+  </div>
+  <div
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Button
+      id="nextButton"
+      onClick={[Function]}
+      type="button"
+    >
+      Next
+    </Button>
+  </div>
+</div>
+`;

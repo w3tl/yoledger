@@ -1,24 +1,13 @@
 import React from 'react';
-import { configure, shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { mount } from 'enzyme';
 import AssetForm from '../AssetForm';
+import { testRenderWithoutError } from '../../testHelpers';
+import assets from '../mockData';
 
-configure({ adapter: new Adapter() });
-
-const asset = {
-  __typename: 'Account',
-  id: '1',
-  name: 'Card',
-  balance: 15,
-};
+const asset = assets[0];
 
 describe('AssetForm', () => {
-  it('should render correctly', () => {
-    const output = shallow(
-      <AssetForm asset={asset} />,
-    );
-    expect(output.debug()).toMatchSnapshot();
-  });
+  testRenderWithoutError(<AssetForm asset={asset} />);
 
   it('should handle submit on edit mode', () => {
     const onSave = jest.fn();
@@ -27,8 +16,8 @@ describe('AssetForm', () => {
     );
     output.find('form').simulate('submit');
     expect(onSave).toHaveBeenCalledWith({
-      name: 'Card',
-      balance: 15,
+      name: asset.name,
+      balance: asset.balance,
     });
   });
 

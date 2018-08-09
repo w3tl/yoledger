@@ -1,9 +1,7 @@
 import BudgetTable from './BudgetTable';
-import BudgetRow from './BudgetRow';
-import BudgetCell from './BudgetCell';
+import propTypes from './propTypes';
 
 export {
   BudgetTable,
-  BudgetRow,
-  BudgetCell,
+  propTypes,
 };

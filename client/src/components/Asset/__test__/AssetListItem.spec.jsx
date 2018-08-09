@@ -1,26 +1,17 @@
 import React from 'react';
-import { configure, shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { mount } from 'enzyme';
 import AssetListItem from '../AssetListItem';
+import { testRenderWithoutError } from '../../testHelpers';
+import assets from '../mockData';
+
+const asset = assets[0];
 
 jest.mock('react-router-dom', () => ({ // eslint-disable-next-line react/prop-types
   Link: ({ to, children }) => <a href={to}>{children}</a>,
 }));
 
-configure({ adapter: new Adapter() });
-
-const asset = {
-  id: '1',
-  name: 'Bank Card',
-};
-
 describe('AssetListItem', () => {
-  it('should render correctly', () => {
-    const output = shallow(
-      <AssetListItem asset={asset} />,
-    );
-    expect(output.debug()).toMatchSnapshot();
-  });
+  testRenderWithoutError(<AssetListItem asset={asset} />);
 
   it('should render Link when run with router', () => {
     const output = mount( // COMBAK: Check link and do not render component

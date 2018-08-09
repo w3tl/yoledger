@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AmountInput from '../AmountInput';
-import { Button } from '../Elements';
 
 class BudgetCell extends React.Component {
   static propTypes = {
@@ -31,9 +30,8 @@ class BudgetCell extends React.Component {
   render() {
     const { amount } = this.state;
     return (
-      <div>
-        <AmountInput value={amount} onChange={this.handleChange} />
-        <Button onClick={this.handleSave}>save</Button>
+      <div style={{ flex: 3 }}>
+        <AmountInput value={amount} onChange={this.handleChange} onBlur={this.handleSave} />
       </div>
     );
   }

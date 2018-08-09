@@ -1,10 +1,7 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Adapter from 'enzyme-adapter-react-16';
 import Button from '../Button';
-
-configure({ adapter: new Adapter() });
 
 describe('Button', () => {
   it('should render correctly', () => {

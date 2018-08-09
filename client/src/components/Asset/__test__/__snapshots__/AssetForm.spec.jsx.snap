@@ -1,11 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AssetForm should render correctly 1`] = `
-"<form onSubmit={[Function]}>
-  <Component label=\\"Name\\" value=\\"Card\\" onChange={[Function]} />
-  <Component label=\\"Balance\\" value={15} onChange={[Function]} />
-  <Button type=\\"submit\\">
+exports[`AssetForm renders without error 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <Component
+    label="Name"
+    onChange={[Function]}
+    value="Bank Card"
+  />
+  <Component
+    label="Balance"
+    onChange={[Function]}
+    value={0}
+  />
+  <Button
+    type="submit"
+  >
     Save
   </Button>
-</form>"
+</form>
 `;

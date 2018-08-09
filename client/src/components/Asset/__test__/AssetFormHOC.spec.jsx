@@ -1,30 +1,25 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { MockedProvider } from 'react-apollo/test-utils';
-import { configure, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import FormWithData, { QUERY, ADD_MUTATION } from '../AssetFormHOC';
-
-configure({ adapter: new Adapter() });
+import { mount } from 'enzyme';
+import formWithData, { QUERY, ADD_MUTATION } from '../AssetFormHOC';
+import AssetForm from '../AssetForm';
+import assets from '../mockData';
+import {
+  wait, withProvider, testLoadingState, testErrorUI,
+} from '../../testHelpers';
 
 jest.mock('react-router-dom', () => ({ // eslint-disable-next-line react/prop-types
   Redirect: ({ to }) => <a href={to}>Redirect</a>,
 }));
 
-const asset = {
-  __typename: 'Account',
-  id: '1',
-  name: 'Bank Card',
-  balance: 0,
-};
-
+const asset = assets[0];
 const queryRequest = {
   request: {
     query: QUERY,
     variables: { id: '1' },
   },
   result: {
-    data: { account: { __typename: 'Account', ...asset } },
+    data: { account: asset },
   },
 };
 
@@ -38,90 +33,51 @@ const addAccountRequest = {
   result: {
     data: {
       addAccount: {
-        account: { __typename: 'Account', ...asset },
+        account: asset,
       },
     },
   },
 };
 
-const MockComponent = ({ onSave }) => (
-  <button type="button" onClick={() => onSave({ ok: 1 })} />
-);
-
-const MockComponentWithData = FormWithData(MockComponent);
-
-const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
+const ComponentWithData = formWithData(AssetForm);
+const ComponentWithoutLocationState = withProvider(() => (
+  <ComponentWithData />
+));
+const ComponentWithLocationState = withProvider(() => (
+  <ComponentWithData location={{ state: { id: '1' } }} />
+));
 
 describe('AssetFormHOC', () => {
   describe('with router id params', () => {
-    const allMocks = [queryRequest, addAccountRequest];
+    const mocks = [queryRequest, addAccountRequest];
+    const errorMocks = [{ ...queryRequest, error: new Error('awwh') }];
 
-    const withProvider = (WrappedComponent, props) => mount(
-      <MockedProvider mocks={allMocks}>
-        <WrappedComponent {...props} />
-      </MockedProvider>,
-    );
+    testLoadingState(<ComponentWithLocationState mocks={[]} />);
+    testErrorUI(<ComponentWithLocationState mocks={errorMocks} />);
 
-    it('should successfully load', async () => {
-      const wrapper = withProvider(MockComponentWithData, {
-        location: { state: { id: '1' } },
-      });
+    it('should contain props', async () => {
+      const wrapper = mount(<ComponentWithLocationState mocks={mocks} />);
       await wait();
       wrapper.update();
-      expect(wrapper.find(MockComponent).prop('asset')).toEqual(expect.objectContaining(asset));
-      expect(wrapper.find(MockComponent).prop('onSave')).toBeDefined();
-    });
-
-    it('should render loading state initially', () => {
-      const wrapper = withProvider(MockComponentWithData, {
-        location: { state: { id: '1' } },
-      });
-      expect(wrapper.text()).toEqual('Loading...');
-    });
-
-    it('should show error UI', async () => {
-      const mock = {
-        request: {
-          query: QUERY,
-          variables: { id: '1' },
-        },
-        error: new Error('awwh'),
-      };
-      const wrapper = mount(
-        <MockedProvider mocks={[mock]}>
-          <MockComponentWithData location={{ state: { id: '1' } }} />
-        </MockedProvider>,
-      );
-      await wait();
-      expect(wrapper.update().text()).toEqual('Error query!');
+      const form = wrapper.find('AssetForm');
+      expect(form.prop('asset')).toEqual(expect.objectContaining(asset));
+      expect(form.prop('onSave')).toBeDefined();
     });
   });
 
   describe('without router id params', () => {
-    const allMocks = [addAccountRequest];
+    const mocks = [addAccountRequest];
+    const errorMocks = [{ ...addAccountRequest, error: new Error('awwh') }];
 
-    const withProvider = (WrappedComponent, props) => mount(
-      <MockedProvider mocks={allMocks}>
-        <WrappedComponent {...props} />
-      </MockedProvider>,
-    );
-
-    it('should successfully load', async () => {
-      const wrapper = withProvider(MockComponentWithData);
-      await wait();
-      wrapper.update();
-      expect(wrapper.find(MockComponent).prop('asset')).not.toBeDefined();
-      expect(wrapper.find(MockComponent).prop('onSave')).toBeDefined();
-    });
+    testLoadingState(<ComponentWithLocationState mocks={[]} />);
+    testErrorUI(<ComponentWithLocationState mocks={errorMocks} />);
 
     it('should successfully add asset', async () => {
-      const wrapper = withProvider(MockComponentWithData, {
-        match: { url: '/add' },
-      });
+      const wrapper = mount(<ComponentWithoutLocationState mocks={mocks} />);
       await wait();
       wrapper.update();
       wrapper.find('button').simulate('click');
-      await wait(10);
+      await wait(1);
       wrapper.update();
       expect(wrapper.debug()).toMatchSnapshot();
     });

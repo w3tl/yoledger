@@ -1,9 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AssetList should render correctly 1`] = `
-"<ul>
-  <AssetListItem url=\\"\\" asset={{...}} />
-  <AssetListItem url=\\"\\" asset={{...}} />
-  <AssetListItem url=\\"\\" asset={{...}} />
-</ul>"
+exports[`AssetList renders without error 1`] = `
+<ul>
+  <AssetListItem
+    asset={
+      Object {
+        "__typename": "Account",
+        "balance": 0,
+        "id": "1",
+        "name": "Bank Card",
+      }
+    }
+    key="Bank Card"
+    url=""
+  />
+  <AssetListItem
+    asset={
+      Object {
+        "__typename": "Account",
+        "balance": 10,
+        "id": "2",
+        "name": "Cash",
+      }
+    }
+    key="Cash"
+    url=""
+  />
+  <AssetListItem
+    asset={
+      Object {
+        "__typename": "Account",
+        "balance": 150,
+        "id": "3",
+        "name": "Bank Card 2",
+      }
+    }
+    key="Bank Card 2"
+    url=""
+  />
+</ul>
 `;

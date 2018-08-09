@@ -28,7 +28,9 @@ ${fragments.transaction}
 
 export const DELETE_MUTATION = gql`
 mutation deleteTransaction($id: ID!) {
-  success
+  deleteTransaction(id: $id) {
+    success
+  }
 }
 `;
 
@@ -59,9 +61,11 @@ const withAddMutation = Wrapped => props => (
       return (
         <Wrapped
           {...props}
-          onSave={transaction => addTransaction({
-            variables: { input: transaction },
-          })}
+          onSave={(transaction) => {
+            addTransaction({
+              variables: { input: transaction },
+            });
+          }}
         />);
     }}
   </Mutation>
