@@ -10,7 +10,7 @@ import Navigation from './components/Navigation';
 import Routes from './components/Routes';
 
 const client = new ApolloClient({
-  uri: 'http://graphql:3030/graphql',
+  uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
 });
 
 
