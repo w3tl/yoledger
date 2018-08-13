@@ -28,7 +28,9 @@ describe('budget', () => {
       options: [10, 25],
     };
 
-    ['2018-01-9', '2018-01-11', '2018-01-26'].forEach(dateStr => expect(
+    const periods = ['2017-12-24', '2017-12-25', '2017-12-26', '2018-01-9', '2018-01-10', '2018-01-11', '2018-01-26'];
+
+    periods.forEach(dateStr => expect(
       Budget.periods(new Date(dateStr), 3, periodSetting),
     ).toMatchSnapshot(dateStr));
   });

@@ -41,8 +41,19 @@ const mockCollections = {
     updateOne: () => Promise.resolve(),
   },
   accounts: {
-    find: ({ type }) => ({
-      toArray: () => Promise.resolve(accounts.filter(acc => type === acc.type)),
+    find: query => ({
+      toArray: () => {
+        if ('type' in query) {
+          return Promise.resolve(accounts.filter(acc => query.type === acc.type));
+        }
+        if ('name' in query) {
+          if ('$in' in query.name) {
+            const result = accounts.filter(({ name }) => query.name.$in.indexOf(name) !== -1);
+            return Promise.resolve(result);
+          }
+        }
+        return Promise.resolve([]);
+      },
     }),
     findOne: ({ name, _id }) => Promise.resolve(
       accounts.find(acc => name === acc.name || _id === acc._id),
@@ -60,26 +71,39 @@ const mockCollections = {
       return budgets[0];
     },
     updateOne: ({ date, account }, { $set }) => {
-      const idx = budgets.find(b => b.date.getTime() === date.getTime() && b.account === account);
+      const idx = budgets
+        .findIndex(b => b.date.getTime() === date.getTime() && b.account === account);
       if (idx) {
         budgets[idx] = { ...budgets[idx], ...$set.modificator };
       }
       return Promise.resolve({ upsertedId: budgets[idx]._id });
     },
-    aggregate: () => ({
-      toArray: () => ([{
-        _id: { account: 'Train' },
-        allocations: [
-          { date: new Date('2018-06-10'), amount: 14, balance: 0 },
-        ],
-      }, {
-        _id: { account: 'Food' },
-        allocations: [
-          { date: new Date('2018-05-10'), amount: 50, balance: 0 },
-          { date: new Date('2018-05-25'), amount: 55, balance: 0 },
-          { date: new Date('2018-06-10'), amount: 60, balance: 0 },
-        ],
-      }]),
+    aggregate: ([$match, $group]) => ({
+      toArray: () => {
+        if ('date' in $group.$group._id) {
+          return [{
+            _id: { date: new Date('2018-05-10') },
+            allocations: [
+              { account: 'Food', amount: 50, balance: 0 },
+            ],
+          }, {
+            _id: { date: new Date('2018-05-25') },
+            allocations: [
+              { account: 'Food', amount: 55, balance: 0 },
+            ],
+          }, {
+            _id: { date: new Date('2018-06-10') },
+            allocations: [
+              { account: 'Food', amount: 60, balance: 0 },
+              { account: 'Train', amount: 14, balance: 0 },
+            ],
+          }];
+        }
+        return [
+          accounts.find(a => a.name === 'Food'),
+          accounts.find(a => a.name === 'Train'),
+        ];
+      },
     }),
   },
 };

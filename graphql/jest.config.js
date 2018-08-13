@@ -1,5 +1,5 @@
 module.exports = {
-  notify: true,
+  // notify: true,
   // testEnvironment: './graphql-environment.js',
   transform: {
     '^.+\\.js?$': 'babel-jest',

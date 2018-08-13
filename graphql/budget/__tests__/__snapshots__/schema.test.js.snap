@@ -1,62 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`budget schema must return plan with periods and accounts: 4 periods from 2018-05-10 1`] = `
+exports[`budget schema must return plan with periods, accounts and allocations: 4 periods from 2018-05-10 1`] = `
 Object {
   "budgets": Object {
     "accounts": Array [
       Object {
-        "account": Object {
-          "name": "Train",
-        },
-        "allocations": Array [
-          Object {
-            "amount": 0,
-            "balance": 0,
-            "date": "2018-05-10T00:00:00.000Z",
-          },
-          Object {
-            "amount": 0,
-            "balance": 0,
-            "date": "2018-05-25T00:00:00.000Z",
-          },
-          Object {
-            "amount": 14,
-            "balance": 0,
-            "date": "2018-06-10T00:00:00.000Z",
-          },
-          Object {
-            "amount": 0,
-            "balance": 0,
-            "date": "2018-06-25T00:00:00.000Z",
-          },
-        ],
+        "name": "Food",
       },
       Object {
-        "account": Object {
-          "name": "Food",
-        },
+        "name": "Train",
+      },
+    ],
+    "budget": Array [
+      Object {
         "allocations": Array [
           Object {
+            "account": Object {
+              "name": "Food",
+            },
             "amount": 50,
             "balance": 0,
-            "date": "2018-05-10T00:00:00.000Z",
           },
           Object {
-            "amount": 55,
-            "balance": 0,
-            "date": "2018-05-25T00:00:00.000Z",
-          },
-          Object {
-            "amount": 60,
-            "balance": 0,
-            "date": "2018-06-10T00:00:00.000Z",
-          },
-          Object {
+            "account": Object {
+              "name": "Train",
+            },
             "amount": 0,
             "balance": 0,
-            "date": "2018-06-25T00:00:00.000Z",
           },
         ],
+        "date": "2018-05-10T00:00:00.000Z",
+      },
+      Object {
+        "allocations": Array [
+          Object {
+            "account": Object {
+              "name": "Food",
+            },
+            "amount": 55,
+            "balance": 0,
+          },
+          Object {
+            "account": Object {
+              "name": "Train",
+            },
+            "amount": 0,
+            "balance": 0,
+          },
+        ],
+        "date": "2018-05-25T00:00:00.000Z",
+      },
+      Object {
+        "allocations": Array [
+          Object {
+            "account": Object {
+              "name": "Food",
+            },
+            "amount": 60,
+            "balance": 0,
+          },
+          Object {
+            "account": Object {
+              "name": "Train",
+            },
+            "amount": 14,
+            "balance": 0,
+          },
+        ],
+        "date": "2018-06-10T00:00:00.000Z",
+      },
+      Object {
+        "allocations": Array [
+          Object {
+            "account": Object {
+              "name": "Food",
+            },
+            "amount": 0,
+            "balance": 0,
+          },
+          Object {
+            "account": Object {
+              "name": "Train",
+            },
+            "amount": 0,
+            "balance": 0,
+          },
+        ],
+        "date": "2018-06-25T00:00:00.000Z",
       },
     ],
     "periods": Array [

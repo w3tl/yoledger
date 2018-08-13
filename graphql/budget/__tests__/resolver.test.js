@@ -2,33 +2,51 @@ jest.mock('mongodb');
 
 import { dataloaders } from '../../index';
 import {
-  Query, Mutation, Budget, BudgetPlan,
+  Query, Mutation, BudgetPlan,
 } from '../resolver';
-import { Budget as Budgets } from '../../../model';
+import { Account, Budget as BudgetModel } from '../../../model';
 
 describe('budget resolver', () => {
   const { connection } = require('mongodb');
   const context = {
-    dataloaders: dataloaders(connection), models: { budgetModel: new Budgets(connection.db(), 'admin') },
+    dataloaders: dataloaders(connection),
+    models: {
+      budgetModel: new BudgetModel(connection.db(), 'admin'),
+      accountModel: new Account(connection.db(), 'admin'),
+    },
+    userId: 'admin',
   };
 
-  test('Budget', async () => {
-    const result = await Budget.account({ _id: { account: 'asset' } }, null, context);
-    expect(result).toMatchSnapshot('account');
+  describe('BudgetPlan', () => {
+    test('budget', async () => {
+      const accounts = [
+        { _id: '3', name: 'Food', type: 'EXPENSE' },
+        { _id: '4', name: 'Train', type: 'EXPENSE' },
+      ];
+      const periods = [new Date('2018-05-10'), new Date('2018-05-25')];
+      const result = await BudgetPlan.budget({ periods, accounts }, null, context);
+      expect(result).toMatchSnapshot();
+    });
   });
 
-  test('BudgetPlan', async () => {
-    const result = await BudgetPlan.accounts({ periods: [] }, null, context);
+  test('Query should return periods and accounts', async () => {
+    const date = new Date('2018-05-10');
+    const result = await Query.budgets(null, {
+      dateStart: date,
+      count: 4,
+    }, context);
     expect(result).toMatchSnapshot();
   });
 
-  test('Query', async () => {
+  test('Query should throw error when count more than 20', async () => {
     const date = new Date('2018-05-10');
-    const plan = await Query.budgets(null, {
+    const query = Query.budgets(null, {
       dateStart: date,
-      count: 3,
+      count: 21,
     }, context);
-    expect(plan).toMatchSnapshot('plan with 3 periods and accounts');
+    await expect(query)
+      .rejects
+      .toThrowError(/long/);
   });
 
   describe('Mutation', () => {
