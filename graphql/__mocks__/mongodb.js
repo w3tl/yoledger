@@ -65,6 +65,11 @@ const mockCollections = {
     updateOne: () => Promise.resolve(),
   },
   budget: {
+    find: ({ date }) => ({
+      toArray: () => Promise.resolve(
+        budgets.filter(b => b.date.getTime() === new Date(date).getTime()),
+      ),
+    }),
     findOne: ({ _id, date }) => {
       if (_id) { return Promise.resolve(budgets.find(t => t._id === _id)); }
       if (date) { return Promise.resolve(budgets.find(t => t.date.getTime() === date.getTime())); }
@@ -78,32 +83,11 @@ const mockCollections = {
       }
       return Promise.resolve({ upsertedId: budgets[idx]._id });
     },
-    aggregate: ([$match, $group]) => ({
-      toArray: () => {
-        if ('date' in $group.$group._id) {
-          return [{
-            _id: { date: new Date('2018-05-10') },
-            allocations: [
-              { account: 'Food', amount: 50, balance: 0 },
-            ],
-          }, {
-            _id: { date: new Date('2018-05-25') },
-            allocations: [
-              { account: 'Food', amount: 55, balance: 0 },
-            ],
-          }, {
-            _id: { date: new Date('2018-06-10') },
-            allocations: [
-              { account: 'Food', amount: 60, balance: 0 },
-              { account: 'Train', amount: 14, balance: 0 },
-            ],
-          }];
-        }
-        return [
-          accounts.find(a => a.name === 'Food'),
-          accounts.find(a => a.name === 'Train'),
-        ];
-      },
+    aggregate: () => ({
+      toArray: () => [
+        accounts.find(a => a.name === 'Food'),
+        accounts.find(a => a.name === 'Train'),
+      ],
     }),
   },
 };

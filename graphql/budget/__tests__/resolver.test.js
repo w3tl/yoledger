@@ -2,7 +2,7 @@ jest.mock('mongodb');
 
 import { dataloaders } from '../../index';
 import {
-  Query, Mutation, BudgetPlan,
+  Query, Mutation, Budget, Allocation
 } from '../resolver';
 import { Account, Budget as BudgetModel } from '../../../model';
 
@@ -17,36 +17,52 @@ describe('budget resolver', () => {
     userId: 'admin',
   };
 
-  describe('BudgetPlan', () => {
-    test('budget', async () => {
-      const accounts = [
-        { _id: '3', name: 'Food', type: 'EXPENSE' },
-        { _id: '4', name: 'Train', type: 'EXPENSE' },
-      ];
+  describe('Budget', () => {
+    test('accounts', async () => {
       const periods = [new Date('2018-05-10'), new Date('2018-05-25')];
-      const result = await BudgetPlan.budget({ periods, accounts }, null, context);
+      const result = await Budget.accounts({ periods }, null, context);
       expect(result).toMatchSnapshot();
     });
   });
 
-  test('Query should return periods and accounts', async () => {
-    const date = new Date('2018-05-10');
-    const result = await Query.budgets(null, {
-      dateStart: date,
-      count: 4,
-    }, context);
-    expect(result).toMatchSnapshot();
+  describe('Allocation', () => {
+    test('account', async () => {
+      const mockDataloaders = {
+        accountByName: {
+          load: jest.fn(),
+        },
+      };
+      Allocation.account({ account: 'asset' }, null, { dataloaders: mockDataloaders, userId: 'admin' });
+      expect(mockDataloaders.accountByName.load.mock.calls[0]).toMatchSnapshot();
+    });
   });
 
-  test('Query should throw error when count more than 20', async () => {
-    const date = new Date('2018-05-10');
-    const query = Query.budgets(null, {
-      dateStart: date,
-      count: 21,
-    }, context);
-    await expect(query)
-      .rejects
-      .toThrowError(/long/);
+  describe('Query', () => {
+    test('bugdets should return periods', async () => {
+      const date = new Date('2018-05-10');
+      const result = await Query.budgets(null, {
+        dateStart: date,
+        count: 4,
+      }, context);
+      expect(result).toMatchSnapshot();
+    });
+
+    test('budgets should throw error when count more than 20', async () => {
+      const date = new Date('2018-05-10');
+      const query = Query.budgets(null, {
+        dateStart: date,
+        count: 21,
+      }, context);
+      await expect(query)
+        .rejects
+        .toThrowError(/long/);
+    });
+
+    test('budget should return allocation', async () => {
+      const date = new Date('2018-05-10');
+      const result = await Query.budgets(null, { date }, context);
+      expect(result).toMatchSnapshot();
+    });
   });
 
   describe('Mutation', () => {

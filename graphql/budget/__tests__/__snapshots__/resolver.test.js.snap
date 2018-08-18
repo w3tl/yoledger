@@ -1,52 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`budget resolver BudgetPlan budget 1`] = `
+exports[`budget resolver Allocation account 1`] = `
 Array [
   Object {
-    "allocations": Array [
-      Object {
-        "account": Object {
-          "_id": "3",
-          "name": "Food",
-          "type": "EXPENSE",
-        },
-        "amount": 50,
-        "balance": 0,
-      },
-      Object {
-        "account": Object {
-          "_id": "4",
-          "name": "Train",
-          "type": "EXPENSE",
-        },
-        "amount": 0,
-        "balance": 0,
-      },
-    ],
-    "date": 2018-05-10T00:00:00.000Z,
+    "name": "asset",
+    "userId": "admin",
+  },
+]
+`;
+
+exports[`budget resolver Budget accounts 1`] = `
+Array [
+  Object {
+    "_id": "3",
+    "name": "Food",
+    "type": "EXPENSE",
   },
   Object {
-    "allocations": Array [
-      Object {
-        "account": Object {
-          "_id": "3",
-          "name": "Food",
-          "type": "EXPENSE",
-        },
-        "amount": 55,
-        "balance": 0,
-      },
-      Object {
-        "account": Object {
-          "_id": "4",
-          "name": "Train",
-          "type": "EXPENSE",
-        },
-        "amount": 0,
-        "balance": 0,
-      },
-    ],
-    "date": 2018-05-25T00:00:00.000Z,
+    "_id": "4",
+    "name": "Train",
+    "type": "EXPENSE",
   },
 ]
 `;
@@ -57,20 +30,14 @@ Object {
 }
 `;
 
-exports[`budget resolver Query should return periods and accounts 1`] = `
+exports[`budget resolver Query budget should return allocation 1`] = `
 Object {
-  "accounts": Array [
-    Object {
-      "_id": "3",
-      "name": "Food",
-      "type": "EXPENSE",
-    },
-    Object {
-      "_id": "4",
-      "name": "Train",
-      "type": "EXPENSE",
-    },
-  ],
+  "periods": Array [],
+}
+`;
+
+exports[`budget resolver Query bugdets should return periods 1`] = `
+Object {
   "periods": Array [
     2018-05-10T00:00:00.000Z,
     2018-05-25T00:00:00.000Z,
