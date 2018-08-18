@@ -12,7 +12,7 @@
   "author": "Vitaly Dostovalov",
   "license": "MIT",
   "dependencies": {
-    "apollo-server-express": "^2.0.0",
+    "apollo-server-express": "^2.0.3",
     "argon2": "^0.19.3",
     "babel-plugin-inline-import": "^3.0.0",
     "body-parser": "^1.18.3",
@@ -21,7 +21,7 @@
     "express": "^4.16.3",
     "graphql": "^0.13.2",
     "graphql-tools": "^3.1.1",
-    "mongodb": "^3.1.1",
+    "mongodb": "^3.1.3",
     "mongodb-topology-manager": "^2.0.0"
   },
   "devDependencies": {
