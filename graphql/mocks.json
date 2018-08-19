@@ -55,31 +55,46 @@
   "budgets": [
     {
       "_id": "1",
-      "account": "Food",
+      "account": {
+        "name": "Food",
+        "type": "EXPENSE"
+      },
       "date": "2018-05-21T00:00:00.000Z",
       "amount": 50
     },
     {
       "_id": "2",
-      "account": "Food",
+      "account": {
+        "name": "Food",
+        "type": "EXPENSE"
+      },
       "date": "2018-05-10T00:00:00.000Z",
       "amount": 55
     },
     {
       "_id": "3",
-      "account": "Food",
+      "account": {
+        "name": "Food",
+        "type": "EXPENSE"
+      },
       "date": "2018-06-21T00:00:00.000Z",
       "amount": 40
     },
     {
       "_id": "4",
-      "account": "Food",
+      "account": {
+        "name": "Food",
+        "type": "EXPENSE"
+      },
       "date": "2018-06-10T00:00:00.000Z",
       "amount": 60
     },
     {
       "_id": "5",
-      "account": "Train",
+      "account": {
+        "name": "Train",
+        "type": "EXPENSE"
+      },
       "date": "2018-06-10T00:00:00.000Z",
       "amount": 14
     }

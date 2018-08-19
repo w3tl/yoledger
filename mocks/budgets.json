@@ -1,31 +1,46 @@
 [
   {
     "date": "2018-05-25",
-    "account": "Food",
+    "account": {
+      "name": "Food",
+      "type": "EXPENSE"
+    },
     "amount": 9,
     "balance": 0
   },
   {
     "date": "2018-05-25",
-    "account": "Train",
+    "account": {
+      "name": "Train",
+      "type": "EXPENSE"
+    },
     "amount": 29,
     "balance": 20
   },
   {
     "date": "2018-06-10",
-    "account": "Food",
+    "account": {
+      "name": "Food",
+      "type": "EXPENSE"
+    },
     "amount": 10,
     "balance": 0
   },
   {
     "date": "2018-06-10",
-    "account": "Train",
+    "account": {
+      "name": "Train",
+      "type": "EXPENSE"
+    },
     "amount": 30,
     "balance": 20
   },
   {
     "date": "2018-06-25",
-    "account": "Food",
+    "account": {
+      "name": "Food",
+      "type": "EXPENSE"
+    },
     "amount": 11,
     "balance": 1
   }

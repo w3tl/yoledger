@@ -1,14 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`budget resolver Allocation account 1`] = `
-Array [
-  Object {
-    "name": "asset",
-    "userId": "admin",
-  },
-]
-`;
-
 exports[`budget resolver Budget accounts 1`] = `
 Array [
   Object {
@@ -26,6 +17,15 @@ Array [
 
 exports[`budget resolver Mutation upsertBudget 1`] = `
 Object {
+  "allocation": Object {
+    "account": Object {
+      "_id": "3",
+      "name": "Food",
+      "type": "EXPENSE",
+    },
+    "amount": 564,
+    "id": "MjAxOC0wNS0xMFQwMDowMDowMC4wMDBaRm9vZA==",
+  },
   "success": "2",
 }
 `;

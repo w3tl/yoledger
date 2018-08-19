@@ -2,7 +2,7 @@ jest.mock('mongodb');
 
 import { dataloaders } from '../../index';
 import {
-  Query, Mutation, Budget, Allocation
+  Query, Mutation, Budget,
 } from '../resolver';
 import { Account, Budget as BudgetModel } from '../../../model';
 
@@ -22,18 +22,6 @@ describe('budget resolver', () => {
       const periods = [new Date('2018-05-10'), new Date('2018-05-25')];
       const result = await Budget.accounts({ periods }, null, context);
       expect(result).toMatchSnapshot();
-    });
-  });
-
-  describe('Allocation', () => {
-    test('account', async () => {
-      const mockDataloaders = {
-        accountByName: {
-          load: jest.fn(),
-        },
-      };
-      Allocation.account({ account: 'asset' }, null, { dataloaders: mockDataloaders, userId: 'admin' });
-      expect(mockDataloaders.accountByName.load.mock.calls[0]).toMatchSnapshot();
     });
   });
 
@@ -70,7 +58,7 @@ describe('budget resolver', () => {
       const result = await Mutation.upsertBudget(null, {
         input: {
           account: 'Food',
-          date: '2018-05-10',
+          date: new Date('2018-05-10'),
           amount: 564,
         },
       }, context);

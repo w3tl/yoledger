@@ -22,6 +22,7 @@ export default async function fillDB(client) {
 
   const budgetModel = new Budget(db, 'admin');
   await budgetModel.clear();
+  console.log(budgets);
   await budgetModel.insertMany(budgets.map(({ date, ...other }) => ({ ...other, date: new Date(date) })));
 
   await client.close();

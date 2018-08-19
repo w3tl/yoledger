@@ -1,3 +1,5 @@
+import { accountTypes } from '../accounts';
+
 export default {
   type: 'object',
   required: ['date', 'userId'],
@@ -10,7 +12,17 @@ export default {
       bsonType: 'date',
     },
     account: {
-      type: 'string',
+      type: 'object',
+      required: ['name', 'type'],
+      additionalProperties: false,
+      properties: {
+        name: {
+          type: 'string',
+        },
+        type: {
+          enum: accountTypes,
+        },
+      },
     },
     amount: {
       type: 'number',

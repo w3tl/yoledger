@@ -1,8 +1,8 @@
 import Schema from './schema.graphql';
 import {
-  Query, Mutation, Budget, Allocation,
+  Query, Mutation, Budget,
 } from './resolver';
 
 export {
-  Schema, Query, Mutation, Budget, Allocation,
+  Schema, Query, Mutation, Budget,
 };

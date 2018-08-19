@@ -66,9 +66,14 @@ const mockCollections = {
   },
   budget: {
     find: ({ date }) => ({
-      toArray: () => Promise.resolve(
-        budgets.filter(b => b.date.getTime() === new Date(date).getTime()),
-      ),
+      toArray: () => {
+        if ('$in' in date) {
+          return Promise.resolve(
+            budgets.filter(b => date.$in.find(d => d.getTime() === b.date.getTime())),
+          );
+        }
+        return Promise.resolve(budgets.filter(b => b.date.getTime() === new Date(date).getTime()));
+      },
     }),
     findOne: ({ _id, date }) => {
       if (_id) { return Promise.resolve(budgets.find(t => t._id === _id)); }
@@ -77,7 +82,7 @@ const mockCollections = {
     },
     updateOne: ({ date, account }, { $set }) => {
       const idx = budgets
-        .findIndex(b => b.date.getTime() === date.getTime() && b.account === account);
+        .findIndex(b => b.date.getTime() === date.getTime() && b.account.name === account.name);
       if (idx) {
         budgets[idx] = { ...budgets[idx], ...$set.modificator };
       }

@@ -38,6 +38,7 @@ describe('budget schema', () => {
     const query = `
     query budget($date: Date!) {
       budget(date: $date) {
+        id
         account { name }
         amount
         balance

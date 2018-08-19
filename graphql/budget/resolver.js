@@ -1,4 +1,9 @@
+import { Buffer } from 'buffer';
 import { Budget as Budgets } from '../../model';
+
+const genId = ({ date, account }) => Buffer.from(
+  date.toISOString().concat(account.name),
+).toString('base64');
 
 export const Budget = {
   async accounts({ periods }, _, { models: { budgetModel } }) {
@@ -10,20 +15,14 @@ export const Budget = {
         },
       },
       {
-        $lookup: {
-          from: 'account',
-          localField: '_id.account',
-          foreignField: 'name',
-          as: 'account',
+        $project: {
+          account: '$_id.account',
         },
       },
       {
-        $unwind: '$account',
-      }, {
         $replaceRoot: { newRoot: '$account' },
       },
     ]).toArray();
-
     return accounts;
   },
 };
@@ -37,22 +36,27 @@ export const Query = {
     return { periods };
   },
   async budget(root, { date }, { models: { budgetModel } }) {
-    return budgetModel.find({ date: new Date(date) }).toArray();
+    const budget = await budgetModel.find({ date: new Date(date) }).toArray();
+    return budget.map(({ account, ...other }) => ({
+      id: genId({ date, account }),
+      account,
+      ...other,
+    }));
   },
 };
 
 export const Mutation = {
-  async upsertBudget(root, { input }, { models: { budgetModel } }) {
+  async upsertBudget(root, { input }, { models: { budgetModel }, dataloaders, userId }) {
     const { account, date, amount } = input;
-    const id = await budgetModel.upsertBudget({ account, date, amount });
+    const ok = await budgetModel.upsertBudget({ account, date, amount });
+    const accountObj = await dataloaders.accountByName.load({ name: account, userId });
     return {
-      success: id,
+      success: ok,
+      allocation: {
+        id: genId({ date, account: accountObj }),
+        amount,
+        account: accountObj,
+      },
     };
-  },
-};
-
-export const Allocation = {
-  account({ account }, _, { dataloaders, userId }) {
-    return dataloaders.accountByName.load({ name: account, userId });
   },
 };

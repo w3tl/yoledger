@@ -1,7 +1,9 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import config from '../../config';
 import Budget from './index';
+import Account from '../accounts';
 import budgets from '../../mocks/budgets';
+import accounts from '../../mocks/accounts';
 
 let db;
 let connection;
@@ -15,6 +17,9 @@ beforeAll(async () => {
   db = connection.db('dbbudgets');
   budgetModel = new Budget(db, 'admin');
   await budgetModel.init();
+  const accountModel = new Account(db, 'admin');
+  await accountModel.init();
+  accountModel.insertMany(accounts);
 });
 
 afterAll(async () => {
@@ -55,7 +60,7 @@ describe('budget', () => {
     test('should update the amount in the existing period', async () => {
       const { date, account } = budgets[0];
       await budgetModel.upsertBudget({
-        account,
+        account: account.name,
         date,
         amount: 14,
       });
@@ -68,7 +73,7 @@ describe('budget', () => {
     test('should add a budget to the existing period', async () => {
       const { date } = budgets[0];
       await budgetModel.upsertBudget({
-        account: 'twix',
+        account: 'Food',
         date,
         amount: 15,
       });
@@ -81,7 +86,7 @@ describe('budget', () => {
     test('should create a non-existent period with a budget', async () => {
       const date = new Date('2018-01-13');
       await budgetModel.upsertBudget({
-        account: 'twix',
+        account: 'Train',
         date,
         amount: 15,
       });
