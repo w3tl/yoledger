@@ -3,18 +3,11 @@ import gql from 'graphql-tag';
 import { Query, Mutation } from 'react-apollo';
 
 export const QUERY = gql`
-query BudgetAccountsQuery($dateStart: Date!, $count: Int) {
+query BudgetPeriodsQuery($dateStart: Date!, $count: Int) {
   budgets(dateStart: $dateStart, count: $count) {
+    periods
     accounts {
-      account {
-        id
-        name
-      }
-      allocations {
-        date
-        amount
-        balance
-      }
+      name
     }
   }
 }
@@ -24,6 +17,11 @@ export const UPDATE_MUTATION = gql`
 mutation upsertBudget($input: UpsertBudgetInput!) {
   upsertBudget(input: $input) {
     success
+    allocation {
+      id
+      account { id name }
+      amount
+    }
   }
 }
 `;
@@ -34,26 +32,38 @@ const withQuery = Component => ({ dateStart, count, ...other }) => (
     {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error!';
-      return (
-        <Component {...data.budgets} {...other} />
-      );
+      return <Component {...data.budgets} dateStart={dateStart} count={count} {...other} />;
     }}
   </Query>
 );
 
 const withUpdateMutation = Component => props => (
-  <Mutation mutation={UPDATE_MUTATION}>
+  <Mutation
+    mutation={UPDATE_MUTATION}
+    update={(cache, { data: { upsertBudget } }) => {
+      const { budgets } = cache.readQuery({
+        query: QUERY,
+        variables: { dateStart: props.dateStart, count: props.count },
+      });
+      cache.writeQuery({
+        query: QUERY,
+        variables: { dateStart: props.dateStart, count: props.count },
+        data: {
+          budgets: {
+            ...budgets,
+            accounts: budgets.accounts.concat(upsertBudget.allocation.account),
+          },
+        },
+      });
+    }}
+  >
     {(upsertBudget, { loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error mutation!';
       if (data && data.upsertBudget) {
         console.log(data);
       }
-      return (
-        <Component
-          {...props}
-          onUpdate={upsertBudget}
-        />);
+      return <Component {...props} onCreate={upsertBudget} />;
     }}
   </Mutation>
 );

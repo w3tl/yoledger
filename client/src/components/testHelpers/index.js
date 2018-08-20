@@ -1,13 +1,31 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { MockedProvider } from 'react-apollo/test-utils';
+import { ApolloProvider } from 'react-apollo';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { SchemaLink } from 'apollo-link-schema';
+import { makeExecutableSchema } from 'graphql-tools';
+import typeDefs from './typeDefs';
+import resolvers from './resolvers';
 
 export const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
 
+const executableSchema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+
+const cache = new InMemoryCache();
+const link = new SchemaLink({ schema: executableSchema });
+const client = new ApolloClient({
+  link,
+  cache,
+});
+
 export const withProvider = Component => props => (
-  <MockedProvider {...props}>
+  <ApolloProvider client={client}>
     <Component />
-  </MockedProvider>
+  </ApolloProvider>
 );
 
 export const testRenderWithoutError = (Component) => {

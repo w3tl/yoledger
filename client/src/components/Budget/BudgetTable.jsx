@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BudgetTableHeader from './BudgetTableHeader';
 import BudgetTableBody from './BudgetTableBody';
 
 class BudgetTable extends React.Component {
   static propTypes = {
-    header: PropTypes.func,
     body: PropTypes.func,
   }
 
   static defaultProps = {
-    header: BudgetTableHeader,
     body: BudgetTableBody,
   }
 
   constructor(props) {
     super(props);
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 1);
     this.state = {
-      dateStart: new Date().toISOString(), // -1
+      dateStart: currentDate.toISOString(),
       count: 6,
     };
   }
@@ -29,18 +28,12 @@ class BudgetTable extends React.Component {
   }
 
   render() {
-    const { header: Header, body: Body } = this.props;
+    const { body: Body } = this.props;
     const { dateStart, count } = this.state;
 
     return (
       <div>
-        <Header
-          dateStart={dateStart}
-          count={count}
-          onPrev={this.handleHeaderClick}
-          onNext={this.handleHeaderClick}
-        />
-        <Body dateStart={dateStart} count={count} />
+        <Body dateStart={dateStart} count={count} onPeriodChange={this.handleHeaderClick} />
       </div>
     );
   }

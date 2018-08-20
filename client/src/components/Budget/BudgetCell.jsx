@@ -19,7 +19,7 @@ class BudgetCell extends React.Component {
     this.setState({ amount: target.value });
   }
 
-  handleSave = () => {
+  handleSave = () => { // TODO: save only when changed
     const { amount } = this.state;
     if (amount) {
       const { onUpdate } = this.props;
@@ -30,7 +30,7 @@ class BudgetCell extends React.Component {
   render() {
     const { amount } = this.state;
     return (
-      <div style={{ flex: 3 }}>
+      <div style={{ height: 30 }}>
         <AmountInput value={amount} onChange={this.handleChange} onBlur={this.handleSave} />
       </div>
     );

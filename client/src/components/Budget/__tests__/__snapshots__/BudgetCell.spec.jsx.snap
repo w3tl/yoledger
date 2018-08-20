@@ -4,7 +4,7 @@ exports[`BudgetCell renders without error 1`] = `
 <div
   style={
     Object {
-      "flex": 3,
+      "height": 30,
     }
   }
 >

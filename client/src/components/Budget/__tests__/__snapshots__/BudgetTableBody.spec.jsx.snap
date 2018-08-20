@@ -1,71 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BudgetTableBody renders without error 1`] = `
-<div>
-  <BudgetTableRow
-    budget={
+<BudgetTableBody
+  Component={[Function]}
+  accounts={
+    Array [
       Object {
-        "account": Object {
-          "__typename": "Account",
-          "id": "1",
-          "name": "Food",
-        },
-        "allocations": Array [
-          Object {
-            "__typename": "Allocation",
-            "amount": 10,
-            "balance": 0,
-            "date": "2018-06-10",
-          },
-          Object {
-            "__typename": "Allocation",
-            "amount": 12,
-            "balance": 0,
-            "date": "2018-06-25",
-          },
-          Object {
-            "__typename": "Allocation",
-            "amount": 14,
-            "balance": 0,
-            "date": "2018-07-10",
-          },
-          Object {
-            "__typename": "Allocation",
-            "amount": 18,
-            "balance": 0,
-            "date": "2018-07-25",
-          },
-          Object {
-            "__typename": "Allocation",
-            "amount": 7,
-            "balance": 0,
-            "date": "2018-08-10",
-          },
-          Object {
-            "__typename": "Allocation",
-            "amount": 6,
-            "balance": 0,
-            "date": "2018-08-25",
-          },
-        ],
-      }
-    }
-    key="Food"
-    onChange={[Function]}
-  />
-</div>
+        "__typename": "Account",
+        "id": "1",
+        "name": "Food",
+      },
+      Object {
+        "__typename": "Account",
+        "id": "2",
+        "name": "Train",
+      },
+    ]
+  }
+  onCreate={[Function]}
+  onPeriodChange={[Function]}
+  periods={Array []}
+/>
 `;
 
-exports[`BudgetTableBody should call onUpdate with variables 1`] = `
+exports[`BudgetTableBody should call onCreate when add budget for new account do not add existing account 1`] = `undefined`;
+
+exports[`BudgetTableBody should call onCreate when add budget for new account with the previous date from the current 1`] = `
 Array [
   Object {
     "variables": Object {
       "input": Object {
-        "account": "Food",
-        "amount": 10,
+        "account": "new account",
+        "amount": 0,
+        "date": "2018-01-01T00:00:00.000Z",
+      },
+    },
+  },
+]
+`;
+
+exports[`BudgetTableBody should call onCreate when add budget for new account with the previous date from the first period 1`] = `
+Array [
+  Object {
+    "variables": Object {
+      "input": Object {
+        "account": "new account",
+        "amount": 0,
         "date": "2018-06-10",
       },
     },
   },
+]
+`;
+
+exports[`next click 1`] = `
+Array [
+  "2018-06-25",
+]
+`;
+
+exports[`prev click 1`] = `
+Array [
+  "2018-06-09T00:00:00.000Z",
 ]
 `;

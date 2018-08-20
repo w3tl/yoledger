@@ -1,70 +1,40 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { QUERY, UPDATE_MUTATION } from '../BudgetTableBodyHOC';
 import BudgetTableBody from '../BudgetTableBody';
-import { accounts } from '../mockData';
-import {
-  withProvider, testLoadingState, testErrorUI, stubDate,
-} from '../../testHelpers';
+import { accounts, periods } from '../mockData';
+import { withProvider, testLoadingState } from '../../testHelpers/index';
 
 const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
 const fixedDate = new Date('2018-06-10');
 
-const queryMock = {
-  request: {
-    query: QUERY,
-    variables: { dateStart: fixedDate.toISOString(), count: 4 },
-  },
-  result: {
-    data: { budgets: { accounts } },
-  },
-};
-
-const account = accounts[0];
-const updateMock = success => ({
-  request: {
-    query: UPDATE_MUTATION,
-    variables: {
-      input: {
-        account: account.account.name,
-        date: account.allocations[0].date,
-        amount: account.allocations[0].amount,
-      },
-    },
-  },
-  result: { data: { upsertBudget: { success } } },
-});
-
-const mocks = [queryMock, updateMock(true)];
-
-const errorMocks = [{
-  ...queryMock,
-  error: new Error('awwh'),
-}];
-
 const ComponentWithFixedDate = withProvider(() => (
-  <BudgetTableBody dateStart={fixedDate.toISOString()} count={4} />
+  <BudgetTableBody
+    Component={({ date }) => <div>{date}</div>}
+    dateStart={fixedDate.toISOString()}
+    count={4}
+  />
 ));
 
 describe('BudgetTableBodyHOC', () => {
-  stubDate(fixedDate);
-
   testLoadingState(<ComponentWithFixedDate mocks={[]} />);
-  testErrorUI(<ComponentWithFixedDate mocks={errorMocks} />);
+  // testErrorUI(<ComponentWithFixedDate mocks={errorMocks} />);
 
   it('should have props', async () => {
-    const wrapper = mount(<ComponentWithFixedDate mocks={mocks} addTypename={false} />);
+    const wrapper = mount(<ComponentWithFixedDate />);
     await wait();
     wrapper.update();
     expect(wrapper.find('BudgetTableBody').prop('accounts')).toHaveLength(accounts.length);
+    expect(wrapper.find('BudgetTableBody').prop('periods')).toHaveLength(periods.length);
   });
 
-  it('should call upsert with params', async () => {
-    const wrapper = mount(<ComponentWithFixedDate mocks={mocks} addTypename={false} />);
+  it('should call upsert with params and add to cache', async () => {
+    const wrapper = mount(<ComponentWithFixedDate />);
     await wait();
     wrapper.update();
-    wrapper.find('BudgetCell').first().find('input').simulate('blur');
+    wrapper.find('AccountInput').simulate('change', { target: { value: 'new account' } });
+    wrapper.find('#add').simulate('click');
     await wait();
     wrapper.update();
+    expect(wrapper.find('BudgetTableBody').prop('accounts')).toHaveLength(accounts.length + 1);
   });
 });
