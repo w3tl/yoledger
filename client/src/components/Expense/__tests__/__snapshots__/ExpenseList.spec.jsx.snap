@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpenseList renders without error 1`] = `
+<ul>
+  <ExpenseListItem
+    expense={
+      Object {
+        "id": "21",
+        "name": "Food",
+      }
+    }
+    key="Food"
+    url=""
+  />
+  <ExpenseListItem
+    expense={
+      Object {
+        "id": "22",
+        "name": "Beer",
+      }
+    }
+    key="Beer"
+    url=""
+  />
+  <ExpenseListItem
+    expense={
+      Object {
+        "id": "23",
+        "name": "Train",
+      }
+    }
+    key="Train"
+    url=""
+  />
+</ul>
+`;

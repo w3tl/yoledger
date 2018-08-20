@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IncomeListItem renders without error 1`] = `
+<li
+  key="Salary"
+>
+  Salary
+</li>
+`;
+
+exports[`IncomeListItem should render Link when run with router 1`] = `
+<IncomeListItem
+  income={
+    Object {
+      "id": "31",
+      "name": "Salary",
+    }
+  }
+  url="/home"
+>
+  <li
+    key="Salary"
+  >
+    <Link
+      to={
+        Object {
+          "pathname": "/home/view",
+          "state": Object {
+            "id": "31",
+          },
+        }
+      }
+    >
+      <a
+        href={
+          Object {
+            "pathname": "/home/view",
+            "state": Object {
+              "id": "31",
+            },
+          }
+        }
+      >
+        Salary
+      </a>
+    </Link>
+  </li>
+</IncomeListItem>
+`;

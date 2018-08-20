@@ -9,6 +9,12 @@ function Navigation() {
           <Link to="/assets">Assets</Link>
         </li>
         <li>
+          <Link to="/expenses">Expenses</Link>
+        </li>
+        <li>
+          <Link to="/incomes">Incomes</Link>
+        </li>
+        <li>
           <Link to="/budgets">Budgets</Link>
         </li>
         <li>

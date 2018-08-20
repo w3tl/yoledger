@@ -25,6 +25,7 @@ type Budget {
 }
 
 type Allocation {
+  id: String!
   account: Account!
   amount: Float
   balance: Float

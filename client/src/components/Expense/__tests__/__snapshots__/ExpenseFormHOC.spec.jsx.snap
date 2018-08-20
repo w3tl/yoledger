@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpenseFormHOC without router id params should successfully add expense 1`] = `
+Object {
+  "pathname": "/expenses/view",
+  "state": Object {
+    "id": "666",
+  },
+}
+`;
