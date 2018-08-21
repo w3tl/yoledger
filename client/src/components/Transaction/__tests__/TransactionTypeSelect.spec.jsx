@@ -1,16 +1,13 @@
 import React from 'react';
-import { configure, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { mount } from 'enzyme';
 import TransactionTypeSelect from '../TransactionTypeSelect';
-
-configure({ adapter: new Adapter() });
 
 describe('TransactionTypeSelect', () => {
   it('should render correctly', () => {
     const output = mount(
       <TransactionTypeSelect value="income" />,
     );
-    expect(output.debug()).toMatchSnapshot();
+    expect(output).toMatchSnapshot();
   });
 
   it('should handle the input event', () => {

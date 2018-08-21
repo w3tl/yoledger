@@ -11,13 +11,13 @@ exports[`TransactionList should render correctly 1`] = `
         "date": "2018-01-01T00:00:00.000Z",
         "destination": Object {
           "__typename": "Account",
-          "id": "Food",
+          "id": "21",
           "name": "Food",
         },
         "id": "1",
         "source": Object {
           "__typename": "Account",
-          "id": "Cash",
+          "id": "2",
           "name": "Cash",
         },
       }
@@ -33,13 +33,13 @@ exports[`TransactionList should render correctly 1`] = `
         "date": "2018-04-01T00:00:00.000Z",
         "destination": Object {
           "__typename": "Account",
-          "id": "Bank Card",
+          "id": "1",
           "name": "Bank Card",
         },
         "id": "2",
         "source": Object {
           "__typename": "Account",
-          "id": "Cash",
+          "id": "2",
           "name": "Cash",
         },
       }
@@ -55,13 +55,13 @@ exports[`TransactionList should render correctly 1`] = `
         "date": "2018-01-06T00:00:00.000Z",
         "destination": Object {
           "__typename": "Account",
-          "id": "Food",
+          "id": "21",
           "name": "Food",
         },
         "id": "3",
         "source": Object {
           "__typename": "Account",
-          "id": "Bank Card",
+          "id": "1",
           "name": "Bank Card",
         },
       }

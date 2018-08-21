@@ -10,6 +10,7 @@ class TransactionForm extends React.Component {
   static propTypes = {
     transaction: transactionPropType,
     type: transactionTypePropType,
+    onCreate: PropTypes.func,
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
   }
@@ -36,12 +37,18 @@ class TransactionForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const {
-      amount, source, destination, date,
+      isCreate, amount, source, destination, date,
     } = this.state;
-    const { onSave } = this.props;
-    onSave({
-      amount, source, destination, date,
-    });
+    const { transaction, onSave, onCreate } = this.props;
+    if (isCreate) {
+      onCreate({
+        amount, source, destination, date,
+      });
+    } else {
+      onSave(transaction.id, {
+        amount, source, destination, date,
+      });
+    }
   }
 
   handleDelete = () => {
@@ -66,9 +73,10 @@ class TransactionForm extends React.Component {
         <AmountInput required label="Amount" value={amount} onChange={this.handleChange('amount')} />
         <DateInput label="When" value={date} onChange={this.handleChange('date')} />
         {!isCreate && <Button id="delete" onClick={this.handleDelete}>Delete</Button>}
-        <Button type="submit">
-          Save
-        </Button>
+        {source && destination && (
+          <Button type="submit">
+            Save
+          </Button>)}
       </form>
     );
   }
@@ -77,7 +85,7 @@ class TransactionForm extends React.Component {
 TransactionForm.defaultProps = {
   transaction: {
     id: null,
-    amount: null,
+    amount: 0,
     source: {
       name: '',
     },
@@ -87,6 +95,7 @@ TransactionForm.defaultProps = {
     date: new Date().toISOString(),
   },
   type: 'expense',
+  onCreate: () => {},
   onSave: () => {},
   onDelete: () => {},
 };

@@ -7,10 +7,5 @@ exports[`ExpenseForm renders without error 1`] = `
   <h4>
     Food
   </h4>
-  <Button
-    type="submit"
-  >
-    Save
-  </Button>
 </form>
 `;

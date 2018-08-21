@@ -1,3 +1,4 @@
+import { ObjectId } from 'mongodb';
 import { GraphQLError } from 'graphql';
 
 export const Transaction = {
@@ -36,7 +37,7 @@ export const Mutation = {
   },
   async deleteTransaction(root, { id }, { models: { transactionModel }, connection }) {
     try {
-      await connection.withSession(session => transactionModel.unpost(id, session));
+      await connection.withSession(session => transactionModel.unpost(ObjectId(id), session));
     } catch (err) {
       return {
         success: false,
@@ -45,6 +46,7 @@ export const Mutation = {
 
     return {
       success: true,
+      id,
     };
   },
   async updateTransaction(root, { id, input }, { models: { transactionModel }, connection }) {
@@ -60,7 +62,7 @@ export const Mutation = {
     try {
       let updatedId;
       await connection.withSession(async (session) => {
-        updatedId = await transactionModel.update(id, updates, session);
+        updatedId = await transactionModel.update(ObjectId(id), updates, session);
       });
       const transaction = await transactionModel.findOne({ _id: updatedId });
       return { transaction };

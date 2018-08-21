@@ -5,6 +5,7 @@ import { Query, Mutation } from 'react-apollo';
 import { Redirect } from 'react-router-dom';
 import { withId } from '../utils';
 import fragments from './fragments';
+import { QUERY as LIST_QUERY } from './TransactionListHOC';
 
 export const QUERY = gql`
 query TransactionQuery($id: ID!) {
@@ -30,8 +31,20 @@ export const DELETE_MUTATION = gql`
 mutation deleteTransaction($id: ID!) {
   deleteTransaction(id: $id) {
     success
+    id
   }
 }
+`;
+
+export const UPDATE_MUTATION = gql`
+mutation updateTransaction($id: ID!, $input: UpdateTransactionInput!) {
+  updateTransaction(id: $id, input: $input) {
+    transaction {
+      ...TransactionFormTransaction
+    }
+  }
+}
+${fragments.transaction}
 `;
 
 const withQuery = Wrapped => (props) => {
@@ -40,7 +53,8 @@ const withQuery = Wrapped => (props) => {
       <Query query={QUERY} skip={!props.id} variables={{ id: props.id }}>
         {({ loading, error, data }) => {
           if (loading) return 'Loading...';
-          if (error) return 'Error query!';
+          if (error) return error.message;
+          // if (data.transaction)
           return <Wrapped {...props} transaction={data.transaction} />;
         }}
       </Query>
@@ -50,18 +64,32 @@ const withQuery = Wrapped => (props) => {
 };
 
 const withAddMutation = Wrapped => props => (
-  <Mutation mutation={ADD_MUTATION}>
+  <Mutation
+    mutation={ADD_MUTATION}
+    update={(cache, { data: { addTransaction } }) => {
+      const { transactions } = cache.readQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: new Date('2018-01-01').toISOString() },
+      });
+      cache.writeQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: new Date('2018-01-01').toISOString() },
+        data: {
+          transactions: transactions.concat(addTransaction.transaction),
+        },
+      });
+    }}
+  >
     {(addTransaction, { loading, error, data }) => {
       if (loading) return 'Loading...';
-      if (error) return 'Error mutation!';
-      if (data && data.addTransaction) {
-        const { addTransaction: { transaction } } = data; // COMBAK: use variable to pathname
-        return <Redirect to={{ pathname: '/transactions/view', state: { id: transaction.id } }} />;
+      if (error) return error.message;
+      if (data && data.addTransaction) { // COMBAK: use variable to pathname
+        return <Redirect to={{ pathname: '/transactions' }} />;
       }
       return (
         <Wrapped
           {...props}
-          onSave={(transaction) => {
+          onCreate={(transaction) => {
             addTransaction({
               variables: { input: transaction },
             });
@@ -72,12 +100,28 @@ const withAddMutation = Wrapped => props => (
 );
 
 const withDeleteMutation = Wrapped => props => (
-  <Mutation mutation={DELETE_MUTATION}>
+  <Mutation
+    mutation={DELETE_MUTATION}
+    update={(cache, { data: { deleteTransaction } }) => {
+      if (!deleteTransaction.success) return;
+      const { transactions } = cache.readQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: new Date('2018-01-01').toISOString() },
+      });
+      cache.writeQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: new Date('2018-01-01').toISOString() },
+        data: {
+          transactions: transactions.filter(t => t.id !== deleteTransaction.id),
+        },
+      });
+    }}
+  >
     {(deleteTransaction, { loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error delete mutation';
       if (data && data.deleteTransaction && data.deleteTransaction.success) {
-        return <Redirect to="/transactions" />;
+        return <Redirect to={{ pathname: '/transactions' }} />;
       }
       if (props.transaction) {
         return (
@@ -91,4 +135,48 @@ const withDeleteMutation = Wrapped => props => (
   </Mutation>
 );
 
-export default Component => withId(withQuery(withAddMutation(withDeleteMutation(Component))));
+const withUpdateMutation = Wrapped => props => (
+  <Mutation mutation={UPDATE_MUTATION}>
+    {(updateTransaction, { loading, error, data }) => {
+      if (loading) return 'Loading...';
+      if (error) return error.message;
+      if (data && data.updateTransaction) { // COMBAK: use variable to pathname
+        return <Redirect to={{ pathname: '/transactions' }} />;
+      }
+      return (
+        <Wrapped
+          {...props}
+          onSave={(id, input) => {
+            updateTransaction({
+              variables: { id, input },
+              update: (cache, { data: { updateTransaction: result } }) => {
+                const { transactions } = cache.readQuery({
+                  query: LIST_QUERY,
+                  variables: { dateStart: new Date('2018-01-01').toISOString() },
+                });
+                if (result.transaction.id !== id) {
+                  cache.writeQuery({
+                    query: LIST_QUERY,
+                    variables: { dateStart: new Date('2018-01-01').toISOString() },
+                    data: { // find updated transaction and replace this
+                      transactions: transactions.map(t => (t.id === id ? result.transaction : t)),
+                    },
+                  });
+                }
+              },
+            });
+          }}
+        />);
+    }}
+  </Mutation>
+);
+
+export default Component => withId(
+  withQuery(
+    withAddMutation(
+      withDeleteMutation(
+        withUpdateMutation(Component),
+      ),
+    ),
+  ),
+);

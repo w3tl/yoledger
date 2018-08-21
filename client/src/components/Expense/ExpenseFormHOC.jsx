@@ -5,6 +5,7 @@ import { Query, Mutation } from 'react-apollo';
 import { Redirect } from 'react-router-dom';
 import { withId } from '../utils';
 import fragments from './fragments';
+import { QUERY as LIST_QUERY } from './ExpenseListHOC';
 
 export const QUERY = gql`
 query ExpenseQuery($id: ID!) {
@@ -32,7 +33,7 @@ const withQuery = Wrapped => (props) => {
       <Query query={QUERY} skip={!props.id} variables={{ id: props.id }}>
         {({ loading, error, data }) => {
           if (loading) return 'Loading...';
-          if (error) return 'Error!';
+          if (error) return error.message;
           return <Wrapped {...props} expense={data.account} />;
         }}
       </Query>
@@ -42,13 +43,27 @@ const withQuery = Wrapped => (props) => {
 };
 
 const withAddMutation = Wrapped => props => (
-  <Mutation mutation={ADD_MUTATION}>
+  <Mutation
+    mutation={ADD_MUTATION}
+    update={(cache, { data: { addAccount } }) => {
+      const { accounts } = cache.readQuery({
+        query: LIST_QUERY,
+        variables: { type: 'EXPENSE' },
+      });
+      cache.writeQuery({
+        query: LIST_QUERY,
+        variables: { type: 'EXPENSE' },
+        data: {
+          accounts: accounts.concat(addAccount.account),
+        },
+      });
+    }}
+  >
     {(addAccount, { loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error!';
-      if (data && data.addAccount) {
-        const { addAccount: { account } } = data; // COMBAK: use variable to pathname
-        return <Redirect to={{ pathname: '/expenses/view', state: { id: account.id } }} />;
+      if (data && data.addAccount) { // COMBAK: use variable to pathname
+        return <Redirect to={{ pathname: '/expenses' }} />;
       }
       return (
         <Wrapped

@@ -7,10 +7,5 @@ exports[`IncomeForm renders without error 1`] = `
   <h4>
     Salary
   </h4>
-  <Button
-    type="submit"
-  >
-    Save
-  </Button>
 </form>
 `;

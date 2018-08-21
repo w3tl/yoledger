@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { mount } from 'enzyme';
+import { QUERY as LIST_QUERY } from '../ExpenseListHOC';
 import formWithData from '../ExpenseFormHOC';
 import ExpenseForm from '../ExpenseForm';
 import {
-  wait, withProvider, testLoadingState,
+  wait, withProvider, testLoadingState, client,
 } from '../../testHelpers/index';
 
 jest.mock('react-router-dom', () => ({ // eslint-disable-next-line react/prop-types
@@ -12,9 +13,14 @@ jest.mock('react-router-dom', () => ({ // eslint-disable-next-line react/prop-ty
 }));
 
 const ComponentWithData = formWithData(ExpenseForm);
-const ComponentWithoutLocationState = withProvider(() => (
-  <ComponentWithData />
-));
+const ComponentWithoutLocationState = withProvider((props) => {
+  props.client.writeQuery({
+    query: LIST_QUERY,
+    variables: { type: 'EXPENSE' },
+    data: { accounts: [] },
+  });
+  return <ComponentWithData />;
+});
 const ComponentWithLocationState = withProvider(() => (
   <ComponentWithData location={{ state: { id: '21' } }} />
 ));
@@ -28,7 +34,7 @@ describe('ExpenseFormHOC', () => {
       await wait();
       wrapper.update();
       const form = wrapper.find('ExpenseForm');
-      expect(form.prop('expense').name).toBeDefined();
+      expect(form.prop('expense').id).toBeDefined();
       expect(form.prop('onSave')).toBeDefined();
     });
   });
@@ -45,7 +51,12 @@ describe('ExpenseFormHOC', () => {
       wrapper.find('form').simulate('submit');
       await wait(1);
       wrapper.update();
-      expect(wrapper.find('Redirect').prop('to')).toMatchSnapshot();
+      expect(wrapper.find('Redirect').prop('to')).toBeDefined();
+      const { accounts } = client.readQuery({
+        query: LIST_QUERY,
+        variables: { type: 'EXPENSE' },
+      });
+      expect(accounts).toHaveLength(1);
     });
   });
 });

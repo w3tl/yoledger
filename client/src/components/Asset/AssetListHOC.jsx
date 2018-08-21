@@ -17,7 +17,6 @@ const withQuery = Component => props => (
     {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error!';
-
       return (
         <Component assets={data.accounts} {...props} />
       );

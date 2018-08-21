@@ -45,7 +45,7 @@ const withUpdateMutation = Component => props => (
       if (loading) return 'Loading...';
       if (error) return 'Error mutation!';
       if (data && data.upsertBudget) {
-        console.log(data);
+        // console.log(data);
       }
       const onUpdate = ({ date, account }) => ({ amount }) => upsertBudget({
         variables: {

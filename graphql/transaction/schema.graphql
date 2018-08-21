@@ -25,7 +25,8 @@ type AddTransactionPayload {
   transaction: Transaction
 }
 type DeleteTransactionPayload {
-  success: Boolean
+  success: Boolean!
+  id: ID
 }
 input UpdateTransactionInput {
   amount: Float

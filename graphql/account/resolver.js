@@ -1,3 +1,5 @@
+import { GraphQLError } from 'graphql';
+
 export const Account = {
   id: ({ _id }) => _id,
 };
@@ -14,6 +16,10 @@ export const Query = {
 export const Mutation = {
   async addAccount(root, { input }, { models: { accountModel } }) {
     const { name, type, balance } = input;
+    const existsAccount = await accountModel.findByName(name);
+    if (existsAccount) {
+      throw new GraphQLError(`${name} already exists`);
+    }
     const { insertedId } = await accountModel.create({
       name,
       balance,

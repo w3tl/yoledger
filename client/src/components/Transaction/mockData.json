@@ -4,12 +4,12 @@
   "amount": 10,
   "source": {
     "__typename": "Account",
-    "id": "Cash",
+    "id": "2",
     "name": "Cash"
   },
   "destination": {
     "__typename": "Account",
-    "id": "Food",
+    "id": "21",
     "name": "Food"
   },
   "date": "2018-01-01T00:00:00.000Z"
@@ -19,12 +19,12 @@
   "amount": 10,
   "source": {
     "__typename": "Account",
-    "id": "Cash",
+    "id": "2",
     "name": "Cash"
   },
   "destination": {
     "__typename": "Account",
-    "id": "Bank Card",
+    "id": "1",
     "name": "Bank Card"
   },
   "date": "2018-04-01T00:00:00.000Z"
@@ -34,12 +34,12 @@
   "amount": 10,
   "source": {
     "__typename": "Account",
-    "id": "Bank Card",
+    "id": "1",
     "name": "Bank Card"
   },
   "destination": {
     "__typename": "Account",
-    "id": "Food",
+    "id": "21",
     "name": "Food"
   },
   "date": "2018-01-06T00:00:00.000Z"

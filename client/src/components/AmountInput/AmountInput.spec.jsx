@@ -1,6 +1,5 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
-import { shallowToJson } from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-16';
 import AmountInput from './AmountInput';
 
@@ -11,7 +10,7 @@ describe('AmountInput', () => {
     const output = shallow(
       <AmountInput value={10} />,
     );
-    expect(shallowToJson(output)).toMatchSnapshot();
+    expect(output).toMatchSnapshot();
   });
 
   it('should handle the input event', () => {

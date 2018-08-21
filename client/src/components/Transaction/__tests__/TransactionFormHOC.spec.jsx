@@ -1,128 +1,103 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import formWithData, {
-  QUERY, ADD_MUTATION, DELETE_MUTATION,
-} from '../TransactionFormHOC';
+import { QUERY as LIST_QUERY } from '../TransactionListHOC';
+import formWithData from '../TransactionFormHOC';
 import TransactionForm from '../TransactionForm';
-import transactions from '../mockData';
+import transactionsData from '../mockData';
 import {
-  wait, withProvider, testLoadingState, testErrorUI,
-} from '../../testHelpers';
+  wait, withProvider, testLoadingState, client,
+} from '../../testHelpers/index';
 
 jest.mock('react-router-dom', () => ({ // eslint-disable-next-line react/prop-types
-  Redirect: ({ to }) => <a redirect="true" href={to}>Redirect</a>,
+  Redirect: ({ to }) => <a href={to}>Redirect</a>,
 }));
 
-const usedTransaction = transactions[0];
+const usedTransaction = transactionsData[0];
 
-const queryMock = {
-  request: { query: QUERY, variables: { id: usedTransaction.id } },
-  result: {
-    data: { transaction: { __typename: 'Transaction', ...usedTransaction } },
-  },
-};
-
-const deleteMutationMock = success => ({
-  request: { query: DELETE_MUTATION, variables: { id: usedTransaction.id } },
-  result: { data: { deleteTransaction: { __typename: 'DeleteTransactionPayload', success } } },
+const ComponentWithData = formWithData(TransactionForm);
+const ComponentWithoutLocationState = withProvider((props) => {
+  props.client.writeQuery({
+    query: LIST_QUERY,
+    variables: { dateStart: new Date('2018-01-01').toISOString() },
+    data: { transactions: [] },
+  });
+  return <ComponentWithData />;
+});
+const ComponentWithLocationState = withProvider((props) => {
+  props.client.writeQuery({
+    query: LIST_QUERY,
+    variables: { dateStart: new Date('2018-01-01').toISOString() },
+    data: { transactions: [usedTransaction] },
+  });
+  return <ComponentWithData location={{ state: { id: usedTransaction.id } }} />;
 });
 
 describe('TransactionFormHOC', () => {
-  const fixedDate = new Date('2018-06-10');
-
-  const ComponentWithData = formWithData(TransactionForm);
-  const ComponentWithLocationState = withProvider(() => (
-    <ComponentWithData location={{ state: { id: usedTransaction.id } }} />
-  ));
-  const ComponentWithoutLocationState = withProvider(() => (
-    <ComponentWithData
-      transaction={{
-        amount: null, source: { name: '' }, destination: { name: '' }, date: fixedDate.toISOString(),
-      }}
-    />
-  ));
-
   describe('with router id params', () => {
-    const addMutationMock = {
-      request: {
-        query: ADD_MUTATION,
-        variables: {
-          input: {
-            amount: usedTransaction.amount,
-            source: usedTransaction.source.name,
-            destination: usedTransaction.destination.name,
-            date: usedTransaction.date,
-          },
-        },
-      },
-      result: {
-        data: {
-          addTransaction: { transaction: usedTransaction },
-        },
-      },
-    };
-    const mocks = [queryMock, addMutationMock, deleteMutationMock(true)];
-    const errorMocks = [{ ...queryMock, error: new Error('awwh') }];
-
-    testLoadingState(<ComponentWithLocationState mocks={[]} />);
-    testErrorUI(<ComponentWithLocationState mocks={errorMocks} />);
+    testLoadingState(<ComponentWithLocationState />);
 
     it('should contain props', async () => {
-      const wrapper = mount(<ComponentWithLocationState mocks={mocks} />);
+      const wrapper = mount(<ComponentWithLocationState />);
       await wait();
       wrapper.update();
-      expect(wrapper.find('TransactionForm').prop('transaction')).toEqual(expect.objectContaining(usedTransaction));
+      expect(wrapper.find('TransactionForm').prop('transaction').id).toEqual(usedTransaction.id);
       expect(wrapper.find('TransactionForm').prop('onSave')).toBeDefined();
       expect(wrapper.find('TransactionForm').prop('onDelete')).toBeDefined();
     });
 
     it('should successfully delete transaction', async () => {
-      const wrapper = mount(<ComponentWithLocationState mocks={mocks} />);
+      client.writeQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: new Date('2018-01-01').toISOString() },
+        data: { transactions: [usedTransaction] },
+      });
+      const wrapper = mount(<ComponentWithLocationState />);
       await wait();
       wrapper.update();
       wrapper.find('#delete').simulate('click');
       await wait(10);
       wrapper.update();
-      expect(wrapper.find('[redirect]').prop('href')).toEqual('/transactions');
+      expect(wrapper.find('Redirect').prop('to')).toBeDefined();
+      const { transactions } = client.readQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: new Date('2018-01-01').toISOString() },
+      });
+      expect(transactions).toHaveLength(0);
     });
 
-    // it('should successfully update transaction', async () => {
-    // });
+    it('should successfully update transaction', async () => {
+      const wrapper = mount(<ComponentWithLocationState />);
+      await wait();
+      wrapper.update();
+      wrapper.find('#from').simulate('change', { target: { value: 'Bank Card' } });
+      wrapper.find('form').simulate('submit');
+      await wait(1);
+      wrapper.update();
+      expect(wrapper.find('Redirect').prop('to')).toBeDefined();
+      const { transactions } = client.readQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: new Date('2018-01-01').toISOString() },
+      });
+      expect(transactions[0].id).not.toBe(usedTransaction.id);
+    });
   });
 
   describe('without router id params', () => {
-    const addMutationMock = {
-      request: {
-        query: ADD_MUTATION,
-        variables: {
-          input: {
-            amount: null,
-            source: '',
-            destination: '',
-            date: fixedDate.toISOString(),
-          },
-        },
-      },
-      result: {
-        data: {
-          addTransaction: { __typename: 'AddTrasactionPayload', transaction: usedTransaction },
-        },
-      },
-    };
-    const mocks = [addMutationMock];
-    const errorMocks = [{ ...addMutationMock, error: new Error('awwh') }];
-
-    // testLoadingState(<ComponentWithoutLocationState mocks={[]} />);
-    // testErrorUI(<ComponentWithoutLocationState mocks={errorMocks} />);
-
     it('should successfully add transaction', async () => {
-      const wrapper = mount(<ComponentWithoutLocationState mocks={mocks} />);
+      const wrapper = mount(<ComponentWithoutLocationState />);
       await wait();
       wrapper.update();
+      wrapper.find('#from').simulate('change', { target: { value: 'Cash' } });
+      wrapper.find('#to').simulate('change', { target: { value: 'Food' } });
       wrapper.find('form').simulate('submit');
-      await wait();
+      await wait(1);
       wrapper.update();
-      expect(wrapper.find('[redirect]').prop('href')).toMatchSnapshot();
+      expect(wrapper.find('Redirect').prop('to')).toBeDefined();
+      const { transactions } = client.readQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: new Date('2018-01-01').toISOString() },
+      });
+      expect(transactions).toHaveLength(1);
     });
   });
 });

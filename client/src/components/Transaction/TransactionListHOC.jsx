@@ -16,7 +16,7 @@ const withQuery = Component => props => (
   <Query query={QUERY} variables={{ dateStart: new Date('2018-01-01').toISOString() }}>
     {({ loading, error, data }) => {
       if (loading) return 'Loading...';
-      if (error) return 'Error!';
+      if (error) return error.message;
 
       return (
         <Component transactions={data.transactions} {...props} />

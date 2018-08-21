@@ -17,14 +17,14 @@ const executableSchema = makeExecutableSchema({
 
 const cache = new InMemoryCache();
 const link = new SchemaLink({ schema: executableSchema });
-const client = new ApolloClient({
+export const client = new ApolloClient({
   link,
   cache,
 });
 
 export const withProvider = Component => props => (
   <ApolloProvider client={client}>
-    <Component />
+    <Component client={client} />
   </ApolloProvider>
 );
 
