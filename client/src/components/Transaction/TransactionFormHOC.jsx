@@ -1,133 +1,76 @@
 /* eslint-disable react/destructuring-assignment,react/prop-types */
 import React from 'react';
-import gql from 'graphql-tag';
-import { Query, Mutation } from 'react-apollo';
-import { Redirect } from 'react-router-dom';
-import { withId } from '../utils';
-import fragments from './fragments';
-import { QUERY as LIST_QUERY } from './TransactionListHOC';
+import { Mutation, compose } from 'react-apollo';
+import {
+  LIST_QUERY, ADD_MUTATION, UPDATE_MUTATION, DELETE_MUTATION,
+} from './queries';
+import TransactionForm from './TransactionForm';
 
-export const QUERY = gql`
-query TransactionQuery($id: ID!) {
-  transaction(id: $id) {
-    ...TransactionFormTransaction
-  }
-}
-${fragments.transaction}
-`;
-
-export const ADD_MUTATION = gql`
-mutation addTransaction($input: AddTransactionInput!) {
-  addTransaction(input: $input) {
-    transaction {
-      ...TransactionFormTransaction
-    }
-  }
-}
-${fragments.transaction}
-`;
-
-export const DELETE_MUTATION = gql`
-mutation deleteTransaction($id: ID!) {
-  deleteTransaction(id: $id) {
-    success
-    id
-  }
-}
-`;
-
-export const UPDATE_MUTATION = gql`
-mutation updateTransaction($id: ID!, $input: UpdateTransactionInput!) {
-  updateTransaction(id: $id, input: $input) {
-    transaction {
-      ...TransactionFormTransaction
-    }
-  }
-}
-${fragments.transaction}
-`;
-
-const withQuery = Wrapped => (props) => {
-  if (props.id) {
-    return (
-      <Query query={QUERY} skip={!props.id} variables={{ id: props.id }}>
-        {({ loading, error, data }) => {
-          if (loading) return 'Loading...';
-          if (error) return error.message;
-          // if (data.transaction)
-          return <Wrapped {...props} transaction={data.transaction} />;
-        }}
-      </Query>
-    );
-  }
-  return <Wrapped {...props} />;
+const updateAfterAdd = ({ dateStart, dateEnd }) => (cache, { data: { addTransaction } }) => {
+  const variables = { dateStart, dateEnd };
+  let transactions = [];
+  try {
+    const data = cache.readQuery({ query: LIST_QUERY, variables });
+    transactions = data.transactions; // eslint-disable-line prefer-destructuring
+  } catch (e) {} // eslint-disable-line no-empty
+  const data = { transactions: transactions.concat(addTransaction.transaction) };
+  cache.writeQuery({ query: LIST_QUERY, variables, data });
 };
 
-const withAddMutation = Wrapped => props => (
-  <Mutation
-    mutation={ADD_MUTATION}
-    update={(cache, { data: { addTransaction } }) => {
-      const { transactions } = cache.readQuery({
-        query: LIST_QUERY,
-        variables: { dateStart: new Date('2018-01-01').toISOString() },
-      });
-      cache.writeQuery({
-        query: LIST_QUERY,
-        variables: { dateStart: new Date('2018-01-01').toISOString() },
-        data: {
-          transactions: transactions.concat(addTransaction.transaction),
-        },
-      });
-    }}
-  >
+const updateAfterDelete = ({ dateStart, dateEnd }) => (cache, { data: { deleteTransaction } }) => {
+  const variables = { dateStart, dateEnd };
+  if (!deleteTransaction.success) return;
+  const { transactions } = cache.readQuery({ query: LIST_QUERY, variables });
+  const data = {
+    transactions: transactions.filter(t => t.id !== deleteTransaction.id),
+  };
+  cache.writeQuery({ query: LIST_QUERY, variables, data });
+};
+
+const updateAfterUpdate = (idBeforeUpdate, variables) => (
+  cache, { data: { updateTransaction } },
+) => {
+  const { transaction } = updateTransaction;
+  const { transactions } = cache.readQuery({ query: LIST_QUERY, variables });
+  if (transaction.id === idBeforeUpdate) return;
+  // find updated transaction and replace this
+  const data = { transactions: transactions.map(t => (t.id === idBeforeUpdate ? transaction : t)) };
+  cache.writeQuery({ query: LIST_QUERY, variables, data });
+};
+
+const withAdd = Wrapped => props => (
+  <Mutation mutation={ADD_MUTATION} update={updateAfterAdd(props)}>
     {(addTransaction, { loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return error.message;
       if (data && data.addTransaction) { // COMBAK: use variable to pathname
-        return <Redirect to={{ pathname: '/transactions' }} />;
+        // props.onClose();
       }
       return (
         <Wrapped
-          {...props}
           onCreate={(transaction) => {
-            addTransaction({
-              variables: { input: transaction },
-            });
+            addTransaction({ variables: { input: transaction } });
           }}
+          {...props}
         />);
     }}
   </Mutation>
 );
 
-const withDeleteMutation = Wrapped => props => (
-  <Mutation
-    mutation={DELETE_MUTATION}
-    update={(cache, { data: { deleteTransaction } }) => {
-      if (!deleteTransaction.success) return;
-      const { transactions } = cache.readQuery({
-        query: LIST_QUERY,
-        variables: { dateStart: new Date('2018-01-01').toISOString() },
-      });
-      cache.writeQuery({
-        query: LIST_QUERY,
-        variables: { dateStart: new Date('2018-01-01').toISOString() },
-        data: {
-          transactions: transactions.filter(t => t.id !== deleteTransaction.id),
-        },
-      });
-    }}
-  >
+const withDelete = Wrapped => props => (
+  <Mutation mutation={DELETE_MUTATION} update={updateAfterDelete(props)}>
     {(deleteTransaction, { loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error delete mutation';
-      if (data && data.deleteTransaction && data.deleteTransaction.success) {
-        return <Redirect to={{ pathname: '/transactions' }} />;
+      const wasDeleted = data && data.deleteTransaction && data.deleteTransaction.success;
+      if (wasDeleted && props.onClose) {
+        props.onClose();
       }
       if (props.transaction) {
         return (
           <Wrapped
-            {...props}
             onDelete={() => deleteTransaction({ variables: { id: props.transaction.id } })}
+            {...props}
           />);
       }
       return <Wrapped {...props} />;
@@ -135,35 +78,26 @@ const withDeleteMutation = Wrapped => props => (
   </Mutation>
 );
 
-const withUpdateMutation = Wrapped => props => (
+const withUpdate = Wrapped => props => (
   <Mutation mutation={UPDATE_MUTATION}>
     {(updateTransaction, { loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return error.message;
-      if (data && data.updateTransaction) { // COMBAK: use variable to pathname
-        return <Redirect to={{ pathname: '/transactions' }} />;
+      if (data && data.updateTransaction && props.onClose) { // COMBAK: use variable to pathname
+        props.onClose();
       }
+      const variables = {
+        dateStart: props.dateStart,
+        dateEnd: props.dateEnd,
+      };
+
       return (
         <Wrapped
           {...props}
           onSave={(id, input) => {
             updateTransaction({
               variables: { id, input },
-              update: (cache, { data: { updateTransaction: result } }) => {
-                const { transactions } = cache.readQuery({
-                  query: LIST_QUERY,
-                  variables: { dateStart: new Date('2018-01-01').toISOString() },
-                });
-                if (result.transaction.id !== id) {
-                  cache.writeQuery({
-                    query: LIST_QUERY,
-                    variables: { dateStart: new Date('2018-01-01').toISOString() },
-                    data: { // find updated transaction and replace this
-                      transactions: transactions.map(t => (t.id === id ? result.transaction : t)),
-                    },
-                  });
-                }
-              },
+              update: updateAfterUpdate(id, variables),
             });
           }}
         />);
@@ -171,12 +105,4 @@ const withUpdateMutation = Wrapped => props => (
   </Mutation>
 );
 
-export default Component => withId(
-  withQuery(
-    withAddMutation(
-      withDeleteMutation(
-        withUpdateMutation(Component),
-      ),
-    ),
-  ),
-);
+export default compose(withAdd, withDelete, withUpdate)(TransactionForm);

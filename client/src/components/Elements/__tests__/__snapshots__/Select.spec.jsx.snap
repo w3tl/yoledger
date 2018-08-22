@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select renders without error 1`] = `
+<Select
+  disabled={false}
+  id=""
+  onChange={[Function]}
+  options={
+    Array [
+      Object {
+        "label": "Value 1",
+        "value": "value1",
+      },
+      Object {
+        "label": "Value 2",
+        "value": "value2",
+      },
+      Object {
+        "label": "Value 3",
+        "value": "value3",
+      },
+    ]
+  }
+  value=""
+/>
+`;

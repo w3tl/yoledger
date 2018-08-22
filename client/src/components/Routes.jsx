@@ -4,7 +4,7 @@ import { shouldHaveId } from './utils';
 import { AssetForm, AssetList, AssetMenu } from './Asset';
 import { ExpenseForm, ExpenseList, ExpenseMenu } from './Expense';
 import { IncomeForm, IncomeList, IncomeMenu } from './Income';
-import { TransactionForm, TransactionList, TransactionMenu } from './Transaction';
+import { TransactionPage } from './Transaction';
 import { BudgetTable } from './Budget';
 
 const Assets = () => (
@@ -31,14 +31,6 @@ const Incomes = () => (
   </Switch>
 );
 
-const Transactions = () => (
-  <Switch>
-    <Route exact path="/transactions" component={TransactionList} />
-    <Route path="/transactions/create" component={TransactionForm} />
-    <Route path="/transactions/view" component={shouldHaveId(TransactionForm, '/transactions')} />
-  </Switch>
-);
-
 function Routes() {
   return (
     <main>
@@ -46,13 +38,12 @@ function Routes() {
         <Route path="/assets" component={AssetMenu} />
         <Route path="/expenses" component={ExpenseMenu} />
         <Route path="/incomes" component={IncomeMenu} />
-        <Route path="/transactions" component={TransactionMenu} />
       </div>
       <Route path="/budgets" component={BudgetTable} />
+      <Route exact path="/transactions" component={TransactionPage} />
       <Assets />
       <Expenses />
       <Incomes />
-      <Transactions />
     </main>
   );
 }

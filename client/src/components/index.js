@@ -1,7 +1,7 @@
 import AmountInput from './AmountInput';
-import { BudgetTable, BudgetRow, BudgetCell } from './Budget';
+import { BudgetTable } from './Budget';
 
 export {
   AmountInput,
-  BudgetTable, BudgetRow, BudgetCell,
+  BudgetTable,
 };

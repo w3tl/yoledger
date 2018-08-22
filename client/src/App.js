@@ -1,23 +1,19 @@
 /* eslint-disable react/jsx-filename-extension */
 import React, { Component } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 
 import './App.css';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 import Routes from './components/Routes';
-
-const client = new ApolloClient({
-  uri: process.env.REACT_APP_GRAPHQL_ENDPOINT,
-});
+import client from './apollo';
 
 
 class App extends Component {
   render() {
     return (
-      <ApolloProvider client={client}>
+      <ApolloProvider client={client()}>
         <Router>
           <div className="App">
             <Header />

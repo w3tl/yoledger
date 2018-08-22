@@ -1,27 +1,22 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import ListWithData from '../TransactionListHOC';
+import TransactionList from '../TransactionListHOC';
 import transactions from '../mockData';
 import {
   wait, withProvider, testLoadingState,
 } from '../../testHelpers/index';
 
-const MockComponent = ({ transactions: data }) => ( // eslint-disable-line react/prop-types
-  <ul>{data.map(trans => <li key={trans.id}>{trans.length}</li>)}</ul>
-);
+const date = new Date('2018-01-01');
 
-const ComponentWithData = ListWithData(MockComponent);
-const ComponentWithProvider = withProvider(() => (
-  <ComponentWithData />
-));
+const List = withProvider(() => <TransactionList dateStart={date.toISOString()} />);
 
 describe('TransactionListHOC', () => {
-  testLoadingState(<ComponentWithProvider />);
+  testLoadingState(<List />);
 
-  it('should have props', async () => {
-    const wrapper = mount(<ComponentWithProvider />);
+  it('should have transactions prop', async () => {
+    const wrapper = mount(<List />);
     await wait();
     wrapper.update();
-    expect(wrapper.find(MockComponent).prop('transactions')).toHaveLength(transactions.length);
+    expect(wrapper.find('TransactionList').prop('transactions')).toHaveLength(transactions.length);
   });
 });

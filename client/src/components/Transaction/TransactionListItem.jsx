@@ -1,36 +1,47 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+import moment from 'moment';
 import { transactionPropType } from './propTypes';
 import { Button } from '../Elements';
+import TransactionForm from './TransactionFormHOC';
 
-function TransactionListItem({ url, transaction }) {
-  const {
-    id, amount, source, destination,
-  } = transaction;
+export function Item({ // eslint-disable-next-line react/prop-types
+  source, destination, amount, date, onClick,
+}) {
   return (
-    <li key={id} style={{ display: 'flex' }}>
+    <li style={{ display: 'flex' }}>
       <p><b>From:</b> {source.name}</p>
       <p><b>; To:</b> {destination.name}</p>
       <p><b>; Amount:</b> {amount} </p>
-      <Button>
-        {url ? (
-          <Link to={{ pathname: `${url}/view`, state: { id } }}>Edit</Link>
-        ) : (
-          'Edit'
-        )}
-      </Button>
+      <p><b>; {moment(new Date(date)).format('DD MMM YY')}</b></p>
+      <Button onClick={onClick}>Edit</Button>
     </li>
   );
 }
 
-TransactionListItem.propTypes = {
-  url: PropTypes.string,
-  transaction: transactionPropType.isRequired,
-};
+class TransactionListItem extends React.Component {
+  static propTypes = {
+    transaction: transactionPropType.isRequired,
+  }
 
-TransactionListItem.defaultProps = {
-  url: null,
-};
+  state = {
+    isEdit: false,
+  }
+
+  handleClick = () => {
+    this.setState(prevState => ({ isEdit: !prevState.isEdit }));
+  }
+
+  render() {
+    const { transaction, ...other } = this.props;
+    const { isEdit } = this.state;
+
+    if (isEdit) {
+      return <TransactionForm onClose={this.handleClick} transaction={transaction} {...other} />;
+    }
+
+    return <Item onClick={this.handleClick} {...transaction} />;
+  }
+}
 
 export default TransactionListItem;

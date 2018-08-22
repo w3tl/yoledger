@@ -12,19 +12,28 @@ describe('TransactionForm', () => {
       <TransactionForm transaction={transactions[0]} />,
     );
     expect(output.state('isCreate')).toBeFalsy();
-    expect(output.find('Button')).toHaveLength(2);
   });
 
   it('should render delete button when transaction prop have\'t id field', () => {
-    const output = shallow(
+    const output = mount(
       <TransactionForm />,
     );
     expect(output.state('isCreate')).toBeTruthy();
-    expect(output.find('Button')).toHaveLength(0);
+    expect(output.find('Button')).toMatchSnapshot('should be disabled');
     // input fields
     output.find('[label="From"]').simulate('change', { target: { value: 'Cash' } });
     output.find('[label="To"]').simulate('change', { target: { value: 'Food' } });
-    expect(output.find('Button')).toHaveLength(1);
+    expect(output.find('Button')).toMatchSnapshot('should be enabled');
+  });
+
+  it('should disable save button when not everything is full', () => {
+    const output = shallow(
+      <TransactionForm />,
+    );
+    expect(output.find('Button[type="submit"]')).toMatchSnapshot('disabled');
+    output.find('[label="From"]').simulate('change', { target: { value: 'Cash' } });
+    output.find('[label="To"]').simulate('change', { target: { value: 'Food' } });
+    expect(output.find('Button[type="submit"]')).toMatchSnapshot('enabled');
   });
 
   it('should call onSave on submit click when edit transaction', () => {

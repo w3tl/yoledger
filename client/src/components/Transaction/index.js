@@ -1,18 +1,11 @@
-import TransactionForm from './TransactionForm';
-import transactionFormData from './TransactionFormHOC';
-import TransactionList from './TransactionList';
-import transactionListData from './TransactionListHOC';
-import TransactionMenu from './TransactionMenu';
+import TransactionPage from './TransactionPageHOC';
 import propTypes from './propTypes';
 import fragments from './fragments';
-
-const TransactionFormWithData = transactionFormData(TransactionForm);
-const TransactionListWithData = transactionListData(TransactionList);
+import queries from './queries';
 
 export {
   propTypes,
   fragments,
-  TransactionFormWithData as TransactionForm,
-  TransactionListWithData as TransactionList,
-  TransactionMenu,
+  queries,
+  TransactionPage,
 };

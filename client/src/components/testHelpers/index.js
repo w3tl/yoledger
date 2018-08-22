@@ -1,12 +1,17 @@
+/* eslint-disable react/jsx-filename-extension,import/no-extraneous-dependencies */
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
+import { ApolloLink } from 'apollo-link';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { SchemaLink } from 'apollo-link-schema';
+import { withClientState } from 'apollo-link-state';
 import { makeExecutableSchema } from 'graphql-tools';
 import typeDefs from './typeDefs';
 import resolvers from './resolvers';
+import { defaults, Mutation } from '../../apollo/resolvers';
+import stateTypeDefs from '../../apollo/typeDefs';
 
 export const wait = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -16,15 +21,17 @@ const executableSchema = makeExecutableSchema({
 });
 
 const cache = new InMemoryCache();
-const link = new SchemaLink({ schema: executableSchema });
+const stateLink = withClientState({
+  resolvers: { Mutation }, defaults, cache, typeDefs: stateTypeDefs,
+});
 export const client = new ApolloClient({
-  link,
+  link: ApolloLink.from([stateLink, new SchemaLink({ schema: executableSchema })]),
   cache,
 });
 
 export const withProvider = Component => props => (
   <ApolloProvider client={client}>
-    <Component client={client} />
+    <Component client={client} {...props} />
   </ApolloProvider>
 );
 

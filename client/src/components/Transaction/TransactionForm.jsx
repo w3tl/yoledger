@@ -10,6 +10,7 @@ class TransactionForm extends React.Component {
   static propTypes = {
     transaction: transactionPropType,
     type: transactionTypePropType,
+    onClose: PropTypes.func,
     onCreate: PropTypes.func,
     onSave: PropTypes.func,
     onDelete: PropTypes.func,
@@ -61,9 +62,11 @@ class TransactionForm extends React.Component {
   }
 
   render() {
+    const { onClose } = this.props;
     const {
       amount, source, destination, date, type, isCreate,
     } = this.state;
+    const canSave = source.length > 0 && destination.length > 0;
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -72,11 +75,9 @@ class TransactionForm extends React.Component {
         <AccountInput required label="To" value={destination} onChange={this.handleChange('destination')} />
         <AmountInput required label="Amount" value={amount} onChange={this.handleChange('amount')} />
         <DateInput label="When" value={date} onChange={this.handleChange('date')} />
+        <Button onClick={onClose}>Cancel</Button>
         {!isCreate && <Button id="delete" onClick={this.handleDelete}>Delete</Button>}
-        {source && destination && (
-          <Button type="submit">
-            Save
-          </Button>)}
+        <Button type="submit" disabled={!canSave}>Save</Button>
       </form>
     );
   }
@@ -95,6 +96,7 @@ TransactionForm.defaultProps = {
     date: new Date().toISOString(),
   },
   type: 'expense',
+  onClose: () => {},
   onCreate: () => {},
   onSave: () => {},
   onDelete: () => {},

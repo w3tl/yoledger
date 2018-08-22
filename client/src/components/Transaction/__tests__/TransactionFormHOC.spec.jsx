@@ -1,90 +1,88 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { QUERY as LIST_QUERY } from '../TransactionListHOC';
-import formWithData from '../TransactionFormHOC';
-import TransactionForm from '../TransactionForm';
+import { LIST_QUERY } from '../queries';
+import TransactionForm from '../TransactionFormHOC';
 import transactionsData from '../mockData';
 import {
-  wait, withProvider, testLoadingState, client,
+  wait, withProvider, client,
 } from '../../testHelpers/index';
 
-jest.mock('react-router-dom', () => ({ // eslint-disable-next-line react/prop-types
-  Redirect: ({ to }) => <a href={to}>Redirect</a>,
-}));
-
 const usedTransaction = transactionsData[0];
+const date = new Date('2018-01-01');
 
-const ComponentWithData = formWithData(TransactionForm);
-const ComponentWithoutLocationState = withProvider((props) => {
-  props.client.writeQuery({
-    query: LIST_QUERY,
-    variables: { dateStart: new Date('2018-01-01').toISOString() },
-    data: { transactions: [] },
-  });
-  return <ComponentWithData />;
-});
-const ComponentWithLocationState = withProvider((props) => {
-  props.client.writeQuery({
-    query: LIST_QUERY,
-    variables: { dateStart: new Date('2018-01-01').toISOString() },
-    data: { transactions: [usedTransaction] },
-  });
-  return <ComponentWithData location={{ state: { id: usedTransaction.id } }} />;
-});
+const FormCreateNew = withProvider(props => <TransactionForm dateStart={date} {...props} />);
+const FormEdit = withProvider(props => (
+  <TransactionForm dateStart={date} transaction={usedTransaction} {...props} />));
+
 
 describe('TransactionFormHOC', () => {
-  describe('with router id params', () => {
-    testLoadingState(<ComponentWithLocationState />);
+  client.writeQuery({
+    query: LIST_QUERY,
+    variables: { dateStart: date.toISOString() },
+    data: { transactions: [] },
+  });
+
+  describe('edit mode', () => {
+    beforeEach(() => {
+      client.writeQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: date.toISOString() },
+        data: { transactions: [usedTransaction] },
+      });
+    });
 
     it('should contain props', async () => {
-      const wrapper = mount(<ComponentWithLocationState />);
+      const wrapper = mount(<FormEdit />);
       await wait();
       wrapper.update();
       expect(wrapper.find('TransactionForm').prop('transaction').id).toEqual(usedTransaction.id);
-      expect(wrapper.find('TransactionForm').prop('onSave')).toBeDefined();
-      expect(wrapper.find('TransactionForm').prop('onDelete')).toBeDefined();
     });
 
     it('should successfully delete transaction', async () => {
-      client.writeQuery({
-        query: LIST_QUERY,
-        variables: { dateStart: new Date('2018-01-01').toISOString() },
-        data: { transactions: [usedTransaction] },
-      });
-      const wrapper = mount(<ComponentWithLocationState />);
+      const onClose = jest.fn();
+      const wrapper = mount(<FormEdit onClose={onClose} />);
       await wait();
       wrapper.update();
       wrapper.find('#delete').simulate('click');
-      await wait(10);
+      await wait(1);
       wrapper.update();
-      expect(wrapper.find('Redirect').prop('to')).toBeDefined();
+      expect(onClose).toHaveBeenCalled();
       const { transactions } = client.readQuery({
         query: LIST_QUERY,
-        variables: { dateStart: new Date('2018-01-01').toISOString() },
+        variables: { dateStart: date.toISOString() },
       });
       expect(transactions).toHaveLength(0);
     });
 
     it('should successfully update transaction', async () => {
-      const wrapper = mount(<ComponentWithLocationState />);
+      const onClose = jest.fn();
+      const wrapper = mount(<FormEdit onClose={onClose} />);
       await wait();
       wrapper.update();
       wrapper.find('#from').simulate('change', { target: { value: 'Bank Card' } });
       wrapper.find('form').simulate('submit');
       await wait(1);
       wrapper.update();
-      expect(wrapper.find('Redirect').prop('to')).toBeDefined();
+      expect(onClose).toHaveBeenCalled();
       const { transactions } = client.readQuery({
         query: LIST_QUERY,
-        variables: { dateStart: new Date('2018-01-01').toISOString() },
+        variables: { dateStart: date.toISOString() },
       });
       expect(transactions[0].id).not.toBe(usedTransaction.id);
     });
   });
 
-  describe('without router id params', () => {
+  describe('create new mode', () => {
+    beforeEach(() => {
+      client.writeQuery({
+        query: LIST_QUERY,
+        variables: { dateStart: date.toISOString() },
+        data: { transactions: [] },
+      });
+    });
+
     it('should successfully add transaction', async () => {
-      const wrapper = mount(<ComponentWithoutLocationState />);
+      const wrapper = mount(<FormCreateNew />);
       await wait();
       wrapper.update();
       wrapper.find('#from').simulate('change', { target: { value: 'Cash' } });
@@ -92,10 +90,9 @@ describe('TransactionFormHOC', () => {
       wrapper.find('form').simulate('submit');
       await wait(1);
       wrapper.update();
-      expect(wrapper.find('Redirect').prop('to')).toBeDefined();
       const { transactions } = client.readQuery({
         query: LIST_QUERY,
-        variables: { dateStart: new Date('2018-01-01').toISOString() },
+        variables: { dateStart: date.toISOString() },
       });
       expect(transactions).toHaveLength(1);
     });

@@ -3,26 +3,20 @@ import PropTypes from 'prop-types';
 import TransactionListItem from './TransactionListItem';
 import { transactionPropType } from './propTypes';
 
-function TransactionList({ transactions, match }) {
+function TransactionList({ transactions, ...other }) {
   return (
     <ul>
       {transactions.map(trans => (
-        <TransactionListItem key={trans.id} url={match.url} transaction={trans} />))}
+        <TransactionListItem key={trans.id} transaction={trans} {...other} />))}
     </ul>
   );
 }
 
 TransactionList.propTypes = {
   transactions: PropTypes.arrayOf(transactionPropType),
-  match: PropTypes.shape({
-    url: PropTypes.string,
-  }),
 };
 
 TransactionList.defaultProps = {
-  match: {
-    url: '',
-  },
   transactions: [],
 };
 

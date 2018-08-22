@@ -41,6 +41,12 @@ exports[`TransactionForm renders without error 1`] = `
     value="2018-01-01T00:00:00.000Z"
   />
   <Button
+    onClick={[Function]}
+    type="button"
+  >
+    Cancel
+  </Button>
+  <Button
     id="delete"
     onClick={[Function]}
     type="button"
@@ -48,6 +54,7 @@ exports[`TransactionForm renders without error 1`] = `
     Delete
   </Button>
   <Button
+    disabled={false}
     type="submit"
   >
     Save
@@ -64,5 +71,77 @@ Array [
     "destination": "Food",
     "source": "Cash",
   },
+]
+`;
+
+exports[`disabled 1`] = `
+<Button
+  disabled={true}
+  type="submit"
+>
+  Save
+</Button>
+`;
+
+exports[`enabled 1`] = `
+<Button
+  disabled={false}
+  type="submit"
+>
+  Save
+</Button>
+`;
+
+exports[`should be disabled 1`] = `
+Array [
+  <Button
+    onClick={[Function]}
+    type="button"
+>
+    <button
+        onClick={[Function]}
+        type="button"
+    >
+        Cancel
+    </button>
+</Button>,
+  <Button
+    disabled={true}
+    type="submit"
+>
+    <button
+        disabled={true}
+        type="submit"
+    >
+        Save
+    </button>
+</Button>,
+]
+`;
+
+exports[`should be enabled 1`] = `
+Array [
+  <Button
+    onClick={[Function]}
+    type="button"
+>
+    <button
+        onClick={[Function]}
+        type="button"
+    >
+        Cancel
+    </button>
+</Button>,
+  <Button
+    disabled={true}
+    type="submit"
+>
+    <button
+        disabled={true}
+        type="submit"
+    >
+        Save
+    </button>
+</Button>,
 ]
 `;

@@ -22,7 +22,6 @@ exports[`TransactionList should render correctly 1`] = `
         },
       }
     }
-    url=""
   />
   <TransactionListItem
     key="2"
@@ -44,7 +43,6 @@ exports[`TransactionList should render correctly 1`] = `
         },
       }
     }
-    url=""
   />
   <TransactionListItem
     key="3"
@@ -66,7 +64,6 @@ exports[`TransactionList should render correctly 1`] = `
         },
       }
     }
-    url=""
   />
 </ul>
 `;
