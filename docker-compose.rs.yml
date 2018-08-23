@@ -4,6 +4,10 @@ services:
     image: mongo
     restart: always
     entrypoint: [ "/usr/bin/mongod", "--quiet", "--replSet", "rs", "--bind_ip_all"]
+    ports:
+      - "27017:27017"
+    volumes:
+      - /data/db/rs_1:/data/db
 
   mongosetup:
     image: mongo

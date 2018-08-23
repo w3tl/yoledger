@@ -4,7 +4,8 @@ WORKDIR /app/
 COPY client/package*.json ./
 RUN npm install -qy
 COPY client/ ./
-ENV REACT_APP_GRAPHQL_ENDPOINT http://graphql:3030/graphql
+ARG GRAPHQL_ENDPOINT=http://graphql:3030/graphql
+ENV REACT_APP_GRAPHQL_ENDPOINT=$GRAPHQL_ENDPOINT
 RUN npm run build
 
 # Setup the nginx server
