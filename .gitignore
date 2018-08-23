@@ -67,3 +67,4 @@ dump/
 .mognodb_binaries
 **/data/db
 mongod
+**/build

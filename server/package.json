@@ -4,10 +4,13 @@
   "description": "Yo ledger API",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node ./index.js",
-    "test:model": "jest --projects ./model --forceExit",
-    "test:model-lh": "NODE_ENV=test jest --projects ./model --config ./model/jest.rs.config.js",
-    "test:gql": "NODE_ENV=test jest --projects ./graphql"
+    "build": "babel src -d ./build",
+    "clean": "rm -rf build && mkdir build",
+    "start": "NODE_ENV=production node ./build/index.js",
+    "dev": "nodemon --exec babel-node src/index.js",
+    "test:model": "jest --projects src/model --forceExit",
+    "test:model-lh": "NODE_ENV=test jest --projects src/model --config src/model/jest.rs.config.js",
+    "test:gql": "NODE_ENV=test jest --projects src/graphql"
   },
   "author": "Vitaly Dostovalov",
   "license": "MIT",
@@ -25,6 +28,7 @@
     "mongodb-topology-manager": "^2.0.0"
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.0.0-rc.2",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
@@ -36,8 +40,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "jest": "^23.5.0",
     "jest-environment-node": "^23.4.0",
-    "nodemon": "^1.18.3",
-    "regenerator-runtime": "^0.12.1"
+    "nodemon": "^1.18.3"
   },
   "jest": {
     "testEnvironment": "node",
@@ -47,7 +50,6 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "client",
       "*.test.js",
       "globalConfig.json"
     ]

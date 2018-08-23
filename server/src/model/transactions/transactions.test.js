@@ -2,8 +2,8 @@ import { MongoClient, ObjectId } from 'mongodb';
 import config from '../../config';
 import Transaction from './index';
 import Account from '../accounts';
-import accounts from '../../mocks/accounts';
-import transactions from '../../mocks/transactions';
+import accounts from '../../../mocks/accounts';
+import transactions from '../../../mocks/transactions';
 
 let db;
 let connection;

@@ -1,0 +1,16 @@
+FROM node:10.6-alpine
+
+WORKDIR /app
+COPY package*.json /app/
+RUN apk --no-cache --virtual build-dependencies add \
+    krb5-dev \
+    python \
+    make \
+    g++ \
+    && npm install --silent \
+    && apk del build-dependencies
+COPY . .
+RUN npm run build
+ENV MONGO_URI mongodb://mongo1:27017/yoledger-dev?replicaSet=rs
+EXPOSE 3030
+CMD ["npm", "start"]

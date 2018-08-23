@@ -1,3 +1,4 @@
+import "@babel/polyfill"; // eslint-disable-line
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { MongoClient } from 'mongodb';

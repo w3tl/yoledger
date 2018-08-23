@@ -1,7 +1,7 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import config from '../../config';
 import Account from './index';
-import accounts from '../../mocks/accounts';
+import accounts from '../../../mocks/accounts';
 
 let db;
 let connection;

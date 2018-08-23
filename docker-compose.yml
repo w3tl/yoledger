@@ -15,10 +15,11 @@ services:
     entrypoint: [ "bash", "/scripts/setupreplica.sh" ]
 
   graphql:
-    build: .
+    build:
+      context: ./server/
     command: npm run dev
     volumes:
-      - .:/app/
+      - ./server/:/app/
       - /app/node_modules
     ports:
       - "3030:3030"
@@ -35,7 +36,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./client:/app
+      - ./client/:/app
       - /app/node_modules
     depends_on:
       - graphql

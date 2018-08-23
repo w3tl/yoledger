@@ -1,7 +1,6 @@
+.dockerignore
 .git
 .gitignore
-*Dockerfile*
-*docker-compose*
+scripts
 **/node_modules
-model/data
-client
+**/build

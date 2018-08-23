@@ -1,7 +1,7 @@
 import { Account, Transaction, Budget } from '../model';
-import accounts from '../mocks/accounts';
-import transactions from '../mocks/transactions';
-import budgets from '../mocks/budgets';
+import accounts from '../../mocks/accounts';
+import transactions from '../../mocks/transactions';
+import budgets from '../../mocks/budgets';
 
 export default async function fillDB(client) {
   const db = client.db();
@@ -22,8 +22,9 @@ export default async function fillDB(client) {
 
   const budgetModel = new Budget(db, 'admin');
   await budgetModel.clear();
-  console.log(budgets);
-  await budgetModel.insertMany(budgets.map(({ date, ...other }) => ({ ...other, date: new Date(date) })));
+  await budgetModel.insertMany(
+    budgets.map(({ date, ...other }) => ({ ...other, date: new Date(date) })),
+  );
 
   await client.close();
 }
