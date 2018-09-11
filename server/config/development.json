@@ -1,5 +1,9 @@
 {
   "credentials": {
-    "algorithm": "argon2"
+    "algorithm": "dev"
+  },
+  "token": {
+    "secret": "jwtsecret",
+    "expiresIn": 300
   }
 }

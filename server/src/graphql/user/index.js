@@ -1,6 +1,6 @@
 import Schema from './schema.graphql';
-import { Query, User } from './resolver';
+import { Query, User, Mutation } from './resolver';
 
 export {
-  Schema, Query, User,
+  Schema, Query, Mutation, User,
 };

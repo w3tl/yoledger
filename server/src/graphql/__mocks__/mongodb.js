@@ -23,6 +23,7 @@ const mockSession = {
 const mockCollections = {
   users: {
     findOne: ({ _id }) => Promise.resolve(users.find(u => u._id === _id)),
+    updateOne: () => Promise.resolve({ result: { nModified: 1 } }),
   },
   transactions: {
     find: () => ({
@@ -104,5 +105,7 @@ mongodb.connection = {
   }),
   withSession: callback => callback(mockSession),
 };
+
+mongodb.ObjectId = id => String(id);
 
 module.exports = mongodb;

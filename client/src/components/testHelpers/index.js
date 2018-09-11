@@ -28,6 +28,7 @@ export const client = new ApolloClient({
   link: ApolloLink.from([stateLink, new SchemaLink({ schema: executableSchema })]),
   cache,
 });
+// TODO: add context with token
 
 export const withProvider = Component => props => (
   <ApolloProvider client={client}>
@@ -72,6 +73,10 @@ export const stubDate = (fixedDate) => {
         super();
 
         return date;
+      }
+
+      static now() {
+        return date.getTime();
       }
     };
   });

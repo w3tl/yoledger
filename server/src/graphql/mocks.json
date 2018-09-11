@@ -1,8 +1,36 @@
 {
   "users": [{
-    "_id": "admin"
+    "_id": "admin",
+    "credentials": {
+      "current": {
+        "algorithm": "dev",
+        "valid": true,
+        "salt": "123",
+        "hash": "123password"
+      },
+      "store": [{
+        "algorithm": "dev",
+        "valid": true,
+        "salt": "123",
+        "hash": "123passwordOld"
+      }]
+    }
   }, {
-    "_id": "user1"
+    "_id": "user1",
+    "credentials": {
+      "current": {
+        "algorithm": "dev",
+        "valid": true,
+        "salt": "123",
+        "hash": "123password"
+      },
+      "store": [{
+        "algorithm": "dev",
+        "valid": true,
+        "salt": "123",
+        "hash": "123passwordUsed"
+      }]
+    }
   }],
   "transactions": [
     {
