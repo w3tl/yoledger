@@ -1,34 +1,9 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Query, Mutation } from 'react-apollo';
+import { COLUMN_QUERY, UPDATE_MUTATION } from './queries';
 
-export const QUERY = gql`
-query BudgetQuery($date: Date!) {
-  budget(date: $date) {
-    id
-    account {
-      name
-    }
-    amount
-  }
-}
-`;
-
-export const UPDATE_MUTATION = gql`
-mutation upsertBudget($input: UpsertBudgetInput!) {
-  upsertBudget(input: $input) {
-    success
-    allocation {
-      id
-      amount
-    }
-  }
-}
-`;
-
-// eslint-disable-next-line react/prop-types
 const withQuery = Component => ({ date, ...other }) => (
-  <Query query={QUERY} variables={{ date }}>
+  <Query query={COLUMN_QUERY} variables={{ date }}>
     {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error!';
@@ -40,7 +15,22 @@ const withQuery = Component => ({ date, ...other }) => (
 );
 
 const withUpdateMutation = Component => props => (
-  <Mutation mutation={UPDATE_MUTATION}>
+  <Mutation
+    mutation={UPDATE_MUTATION}
+    update={(cache, { data: { upsertBudget } }) => {
+      const { budget } = cache.readQuery({
+        query: COLUMN_QUERY,
+        variables: { date: props.date },
+      });
+      cache.writeQuery({
+        query: COLUMN_QUERY,
+        variables: { date: props.date },
+        data: {
+          budget: budget.concat(upsertBudget.allocation),
+        },
+      });
+    }}
+  >
     {(upsertBudget, { loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error mutation!';

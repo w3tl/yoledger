@@ -1,34 +1,9 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Query, Mutation } from 'react-apollo';
+import { BODY_QUERY, UPDATE_MUTATION } from './queries';
 
-export const QUERY = gql`
-query BudgetPeriodsQuery($dateStart: Date!, $count: Int) {
-  budgets(dateStart: $dateStart, count: $count) {
-    periods
-    accounts {
-      name
-    }
-  }
-}
-`;
-
-export const UPDATE_MUTATION = gql`
-mutation upsertBudget($input: UpsertBudgetInput!) {
-  upsertBudget(input: $input) {
-    success
-    allocation {
-      id
-      account { id name }
-      amount
-    }
-  }
-}
-`;
-
-// eslint-disable-next-line react/prop-types
 const withQuery = Component => ({ dateStart, count, ...other }) => (
-  <Query query={QUERY} variables={{ dateStart, count }}>
+  <Query query={BODY_QUERY} variables={{ dateStart, count }}>
     {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error!';
@@ -42,11 +17,11 @@ const withUpdateMutation = Component => props => (
     mutation={UPDATE_MUTATION}
     update={(cache, { data: { upsertBudget } }) => {
       const { budgets } = cache.readQuery({
-        query: QUERY,
+        query: BODY_QUERY,
         variables: { dateStart: props.dateStart, count: props.count },
       });
       cache.writeQuery({
-        query: QUERY,
+        query: BODY_QUERY,
         variables: { dateStart: props.dateStart, count: props.count },
         data: {
           budgets: {

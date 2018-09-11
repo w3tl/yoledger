@@ -17,7 +17,7 @@ export const Mutation = {
   async addAccount(root, { input }, { models: { accountModel } }) {
     const { name, type, balance } = input;
     const existsAccount = await accountModel.findByName(name);
-    if (existsAccount) {
+    if (existsAccount && existsAccount.type === type) {
       throw new GraphQLError(`${name} already exists`);
     }
     const { insertedId } = await accountModel.create({

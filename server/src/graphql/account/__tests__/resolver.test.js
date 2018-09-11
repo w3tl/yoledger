@@ -17,11 +17,28 @@ describe('account resolver', () => {
   });
 
   describe('Mutation', () => {
-    test('addAccount', async () => {
-      const result = await Mutation.addAccount(null, {
-        input: { name: 'iTunes', type: 'EXPENSE' },
-      }, { models: { accountModel } });
-      expect(result).toMatchSnapshot();
+    describe('addAccount', () => {
+      test('addAccount', async () => {
+        const result = await Mutation.addAccount(null, {
+          input: { name: 'iTunes', type: 'EXPENSE' },
+        }, { models: { accountModel } });
+        expect(result).toMatchSnapshot();
+      });
+
+      test('should add account with same name and other type', async () => {
+        const result = await Mutation.addAccount(null, {
+          input: { name: 'Casg', type: 'ASSET' },
+        }, { models: { accountModel } });
+        expect(result).toMatchSnapshot();
+      });
+
+      test('should throw an error when add existing account with same type', async () => {
+        await expect(Mutation.addAccount(null, {
+          input: { name: 'Casg', type: 'ASSET' },
+        }, { models: { accountModel } }))
+          .rejects
+          .toThrowError(/already exists/);
+      });
     });
   });
 });
