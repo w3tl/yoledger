@@ -1,5 +1,6 @@
 import {
   Query as UserQuery,
+  Mutation as UserMutation,
   User,
 } from './user';
 import {
@@ -19,9 +20,13 @@ import {
 } from './budget';
 import dateResolver from './date';
 
+const Mutation = Object.assign(
+  {}, UserMutation, AccountMutation, TransactionMutation, BudgetMutation,
+);
+
 export default {
   Query: Object.assign({}, UserQuery, AccountQuery, TransactionQuery, BudgetQuery),
-  Mutation: Object.assign({}, AccountMutation, TransactionMutation, BudgetMutation),
+  Mutation,
   User,
   Account,
   Transaction,

@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withLabel } from './utils';
 
-function TextInput({ value, onChange, ...props }) {
+function TextInput({
+  value, warning, onChange, ...props
+}) {
   return (
     <input value={value} onChange={onChange} {...props} />
   );

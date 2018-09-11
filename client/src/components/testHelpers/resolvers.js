@@ -1,4 +1,4 @@
-import dateResolver from '../../../../graphql/date';
+import dateResolver from '../../../../server/src/graphql/date';
 import assets from '../Asset/mockData';
 import expenses from '../Expense/mockData';
 import incomes from '../Income/mockData';
@@ -75,6 +75,21 @@ export default {
           source: accountsArray.find(a => a.name === input.source),
           destination: accountsArray.find(a => a.name === input.destination),
         },
+      };
+    },
+    signin(root, { login }) {
+      return {
+        token: `{\\"userId\\":\\"${login}\\"};secret;{\\"expiresIn\\":10}`,
+      };
+    },
+    signout() {
+      return {
+        success: true,
+      };
+    },
+    changePassword() {
+      return {
+        token: `{\\"userId\\":\\"${'admin'}\\"};secret;{\\"expiresIn\\":10}`,
       };
     },
   },

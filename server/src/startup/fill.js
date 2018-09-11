@@ -1,10 +1,16 @@
-import { Account, Transaction, Budget } from '../model';
+import {
+  User, Account, Transaction, Budget,
+} from '../model';
 import accounts from '../../mocks/accounts';
 import transactions from '../../mocks/transactions';
 import budgets from '../../mocks/budgets';
 
 export default async function fillDB(client) {
   const db = client.db();
+
+  const userModel = new User(db, 'admin');
+  userModel.clear();
+  await userModel.create({ password: 'password' });
 
   const Accounts = new Account(db, 'admin');
   await Accounts.clear();

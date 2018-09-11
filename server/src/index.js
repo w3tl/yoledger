@@ -1,12 +1,12 @@
-import "@babel/polyfill"; // eslint-disable-line
+import '@babel/polyfill'; // eslint-disable-line
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import { MongoClient } from 'mongodb';
 import config from './config';
-import { dataloaders, models } from './graphql';
 import typeDefs from './graphql/schema';
 import resolvers from './graphql/resolvers';
 import startup from './startup';
+import context from './context';
 
 const mongoUri = config.get('mongoUri');
 
@@ -21,12 +21,7 @@ startup().then(async () => {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
-    context: {
-      dataloaders: dataloaders(client),
-      connection: client,
-      userId: 'admin',
-      models: models(client, 'admin'),
-    },
+    context: context(client),
   });
 
   const app = express();
@@ -36,16 +31,4 @@ startup().then(async () => {
   app.listen({ port }, () => {
     console.log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`);
   });
-
-  // The GraphQL endpoint
-  // app.use('/graphql', bodyParser.json(), graphqlExpress({
-  //   schema,
-  //   context: { dataloaders: dataloaders(), connection: client, userId: 'admin' },
-  // }));
-  // app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
-  // // Start the server
-  // const port = config.get('port');
-  // app.listen(port, () => {
-  //   console.log(`Go to http://localhost:${port}/graphiql to run queries!`);
-  // });
 });

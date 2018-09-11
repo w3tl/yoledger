@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import LoginBar from '../Login';
 
-function Navigation() {
+function Navigation(props) {
   return (
     <nav>
+      <LoginBar {...props} />
       <ul>
         <li>
           <Link to="/assets">Assets</Link>

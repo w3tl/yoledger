@@ -44,15 +44,15 @@ export const createCredentials = async ({ password }) => {
 };
 
 export const validateCreadentials = async ({
-  type, valid, salt, hash,
+  algorithm, valid, salt, hash,
 }, password) => {
   if (!valid) {
-    throw new AuthError('Not valid credentials!');
+    throw new AuthError('Invalid credentials');
   }
-  switch (type) {
+  switch (algorithm) {
     case 'dev': // develop
       return preHash(salt, password) === hash;
-    case 2: {
+    case 'argon2': {
       const toHash = preHash(salt, password);
       try {
         const result = await argon2.verify(hash, toHash);
@@ -62,6 +62,6 @@ export const validateCreadentials = async ({
       }
     }
     default:
-      throw new AuthError('Wrong algorithm type!');
+      throw new AuthError('Wrong algorithm type');
   }
 };

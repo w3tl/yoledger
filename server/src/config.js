@@ -21,6 +21,21 @@ const config = convict({
       default: 'default',
     },
   },
+  token: {
+    secret: {
+      doc: 'Secret used for jwt tokens',
+      format: '*',
+      default: '',
+      sensitive: true,
+      env: 'JWT_SECRET',
+    },
+    expiresIn: {
+      doc: 'Expressed in seconds describing a time span',
+      format: 'int',
+      default: 60, // 1m
+      env: 'TOKEN_EXPIRES',
+    },
+  },
   mongoUri: {
     doc: 'MongoDB connection string',
     format: '*',

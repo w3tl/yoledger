@@ -16,6 +16,9 @@ type Mutation {
   addTransaction(input: AddTransactionInput!): AddTransactionPayload
   deleteTransaction(id: ID!): DeleteTransactionPayload
   updateTransaction(id: ID!, input: UpdateTransactionInput!): UpdateTransactionPayload
+  signin(login: String!, password: String!): SignupPayload!
+  signout(token: String): SignoutPayload!
+  changePassword(oldPassword: String!, newPassword: String!): ChangePasswordPayload!
 }
 
 type Account {
@@ -93,5 +96,15 @@ input UpdateTransactionInput {
 }
 type UpdateTransactionPayload {
   transaction: Transaction
+}
+
+type SignupPayload {
+  token: String!
+}
+type SignoutPayload {
+  success: Boolean
+}
+type ChangePasswordPayload {
+  token: String
 }
 `;
