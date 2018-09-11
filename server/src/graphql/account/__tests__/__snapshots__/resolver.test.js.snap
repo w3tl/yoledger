@@ -1,6 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`account resolver Mutation addAccount 1`] = `
+exports[`account resolver Mutation addAccount addAccount 1`] = `
+Object {
+  "account": Object {
+    "_id": "44",
+    "balance": 0,
+    "name": "iTunes",
+    "type": "EXPENSE",
+    "userId": "admin",
+  },
+}
+`;
+
+exports[`account resolver Mutation addAccount should add account with same name and other type 1`] = `
 Object {
   "account": Object {
     "_id": "44",
