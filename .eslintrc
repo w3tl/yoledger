@@ -9,8 +9,5 @@
         }
   },
   "extends": ["plugin:jest/recommended"],
-  "plugins": ["jest"],
-  "rules": {
-    "no-underscore-dangle": { "allow": ["_id"] }
-  }
+  "plugins": ["jest"]
 }
