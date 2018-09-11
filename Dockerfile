@@ -1,4 +1,4 @@
-FROM node:10.6-alpine as client
+FROM node:10.10-alpine as client
 
 WORKDIR /app/
 COPY client/package*.json ./

@@ -45,6 +45,7 @@ Object {
       "salt": "random last",
       "valid": true,
     },
+    "store": Array [],
   },
   "userId": "admin",
 }
