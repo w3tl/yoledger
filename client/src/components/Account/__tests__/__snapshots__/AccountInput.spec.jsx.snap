@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`AccountInput should render correctly 1`] = `
-<AccountInput
-  id=""
-  onChange={[Function]}
-  value="Card"
-/>
-`;

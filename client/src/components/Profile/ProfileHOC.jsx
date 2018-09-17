@@ -10,17 +10,13 @@ const withChangePasswordMutation = Wrapped => props => (
       localStorage.setItem('token', data.changePassword.token);
     }}
   >
-    {(changePassword, { loading, error }) => {
-      if (loading) return 'Change password...';
-      if (error) return error.message;
-      return (
-        <Wrapped
-          changePassword={({ oldPassword, newPassword }) => changePassword({
-            variables: { oldPassword, newPassword },
-          })}
-          {...props}
-        />);
-    }}
+    {(changePassword, { loading, error }) => (
+      <Wrapped
+        changePassword={changePassword}
+        loading={loading}
+        error={error}
+        {...props}
+      />)}
   </Mutation>
 );
 

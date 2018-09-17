@@ -2,9 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import TransactionList from '../TransactionListHOC';
 import transactions from '../mockData';
-import {
-  wait, withProvider, testLoadingState,
-} from '../../testHelpers/index';
+import { wait, withProvider, testLoadingState } from '../../testHelpers';
 
 const date = new Date('2018-01-01');
 

@@ -1,21 +1,20 @@
 extend type Query {
-  budgets(dateStart: Date!, count: Int = 5): Budget
-  budget(date: Date!): [Allocation]
+  budgets(dateStart: Date!, dateEnd: Date!): Budgets
+  budget(account: String!, dateStart: Date!, dateEnd: Date!): [Budget]
 }
 extend type Mutation {
   upsertBudget(input: UpsertBudgetInput!): UpsertBudgetPayload
 }
 
-type Budget {
-  periods: [Date]
+type Budgets {
   accounts: [Account]
 }
 
-type Allocation {
-  id: String!
+type Budget {
+  id: ID!
+  date: Date!
   account: Account!
   amount: Float
-  balance: Float
 }
 
 input UpsertBudgetInput {
@@ -26,5 +25,5 @@ input UpsertBudgetInput {
 
 type UpsertBudgetPayload {
   success: Boolean
-  allocation: Allocation
+  budget: Budget
 }

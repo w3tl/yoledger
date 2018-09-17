@@ -2,10 +2,11 @@ import dateResolver from '../../../../server/src/graphql/date';
 import assets from '../Asset/mockData';
 import expenses from '../Expense/mockData';
 import incomes from '../Income/mockData';
-import { accounts, periods, budgets } from '../Budget/mockData';
+import { accounts, budgets as rawBudgets } from '../Budget/mockData';
 import transactions from '../Transaction/mockData';
 
 const accountsArray = assets.concat(expenses).concat(incomes);
+const budgets = rawBudgets.map(({ date, ...fields }) => ({ date: new Date(date), ...fields }));
 
 export default {
   Date: dateResolver,
@@ -21,10 +22,14 @@ export default {
       return [];
     },
     budgets() {
-      return { accounts, periods: periods.map(dateStr => new Date(dateStr)) };
+      return { accounts };
     },
-    budget() {
-      return budgets[0];
+    budget(root, { account, dateStart, dateEnd }) {
+      return budgets // eslint-disable-next-line max-len
+        .filter(b => (
+          b.account.name === account
+          && b.date.getTime() >= dateStart.getTime()
+          && b.date.getTime() <= new Date(dateEnd).getTime()));
     },
     transactions() {
       return transactions.map(({ date, ...other }) => ({ date: new Date(date), ...other }));
@@ -36,12 +41,23 @@ export default {
     },
   },
   Mutation: {
-    upsertBudget(root, { input: { date } }) {
+    upsertBudget(root, { input: { account, date, amount } }) {
+      const existingBudget = budgets
+        .find(b => (
+          b.account.name === account.name && b.date.getTime() === new Date(date).getTime()
+        ));
+      const acc = accounts.find(a => a.name === account) || {
+        id: '687',
+        name: account,
+      };
       return {
         success: true,
-        allocation: {
-          id: date.toISOString().concat('new account'),
-          account: { id: '99', name: 'new account' },
+        budget: {
+          id: '99',
+          ...existingBudget,
+          account: acc,
+          date,
+          amount,
         },
       };
     },
@@ -70,7 +86,7 @@ export default {
       return {
         transaction: {
           ...transactions.find(t => t.id === id),
-          id: '11',
+          id: '888',
           ...input,
           source: accountsArray.find(a => a.name === input.source),
           destination: accountsArray.find(a => a.name === input.destination),

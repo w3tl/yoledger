@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
-import { accountPropType } from '../propTypes';
 
 export const budgetPropType = PropTypes.shape({
-  account: accountPropType,
+  id: PropTypes.string,
+  date: PropTypes.string,
   amount: PropTypes.number,
   balance: PropTypes.number,
 });
+
+export const periodPropType = PropTypes.instanceOf(Date);

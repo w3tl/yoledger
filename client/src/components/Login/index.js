@@ -1,4 +1,12 @@
-import LoginBar from './LoginBar';
-import withData from './LoginBarHOC';
+import LoginBarComponent from './LoginBar';
+import LoginPageComponent from './LoginPage';
+import loginBarWithData from './LoginBarHOC';
+import loginPageWithData from './LoginPageHOC';
 
-export default withData(LoginBar);
+const LoginBar = loginBarWithData(LoginBarComponent);
+const LoginPage = loginPageWithData(LoginPageComponent);
+
+export {
+  LoginBar,
+  LoginPage,
+};

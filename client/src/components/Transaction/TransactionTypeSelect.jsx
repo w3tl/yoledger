@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withLabel } from '../Elements/utils';
+import { Form, Radio } from 'semantic-ui-react';
 import { transactionTypePropType } from './propTypes';
 
 class TransactionTypeSelect extends React.Component {
@@ -18,11 +18,11 @@ class TransactionTypeSelect extends React.Component {
   }
 
   handleChange = value => () => {
-    const { onChange } = this.props;
+    const { name, onChange } = this.props;
     this.setState({
       value,
     });
-    onChange({ target: { value } });
+    onChange({ target: { value } }, { name, value });
   }
 
   render() {
@@ -30,19 +30,33 @@ class TransactionTypeSelect extends React.Component {
     const { value } = this.state;
 
     return (
-      <div>
-        <input type="radio" name={name} value="income" id="income" checked={value === 'income'} onChange={this.handleChange('income')} />
-        <label htmlFor="income">Income</label>
-        <input type="radio" name={name} value="expense" id="expense" checked={value === 'expense'} onChange={this.handleChange('expense')} />
-        <label htmlFor="expense">Expense</label>
-      </div>);
+      <Form.Group inline>
+        <Form.Field>
+          <Radio
+            label="Income"
+            name={name}
+            value="income"
+            checked={value === 'income'}
+            onChange={this.handleChange('income')}
+          />
+        </Form.Field>
+        <Form.Field>
+          <Radio
+            label="Expense"
+            name={name}
+            value="expense"
+            checked={value === 'expense'}
+            onChange={this.handleChange('expense')}
+          />
+        </Form.Field>
+      </Form.Group>);
   }
 }
 
 TransactionTypeSelect.defaultProps = {
-  name: 'switch',
+  name: 'transactionTypeSelect',
   value: 'expense',
   onChange: () => {},
 };
 
-export default withLabel(TransactionTypeSelect);
+export default TransactionTypeSelect;

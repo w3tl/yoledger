@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { List } from 'semantic-ui-react';
 import TransactionListItem from './TransactionListItem';
 import { transactionPropType } from './propTypes';
 
 function TransactionList({ transactions, ...other }) {
   return (
-    <ul>
+    <List celled>
       {transactions.map(trans => (
         <TransactionListItem key={trans.id} transaction={trans} {...other} />))}
-    </ul>
+    </List>
   );
 }
 

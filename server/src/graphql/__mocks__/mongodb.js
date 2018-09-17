@@ -66,18 +66,22 @@ const mockCollections = {
     updateOne: () => Promise.resolve(),
   },
   budget: {
-    find: ({ date }) => ({
+    find: ({ $and, date, ...other }) => ({
       toArray: () => {
-        if ('$in' in date) {
+        if ($and) {
           return Promise.resolve(
-            budgets.filter(b => date.$in.find(d => d.getTime() === b.date.getTime())),
+            budgets.filter(b => (
+              b.account.name === other['account.name'] &&
+              b.date.getTime() >= $and[0].$date.$gte.getTime() &&
+              b.date.getTime() <= $and[1].$date.$lte.getTime()
+            )),
           );
         }
         return Promise.resolve(budgets.filter(b => b.date.getTime() === new Date(date).getTime()));
       },
     }),
-    findOne: ({ _id, date }) => {
-      if (_id) { return Promise.resolve(budgets.find(t => t._id === _id)); }
+    findOne: ({ account, date }) => {
+      if (account) { return Promise.resolve(budgets.find(t => t.account.name === account)); }
       if (date) { return Promise.resolve(budgets.find(t => t.date.getTime() === date.getTime())); }
       return budgets[0];
     },

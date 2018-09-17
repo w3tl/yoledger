@@ -1,15 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BudgetTable renders without error 1`] = `
-<div>
-  <BudgetTableBody
-    Component={[Function]}
-    accounts={Array []}
-    count={6}
-    dateStart="2018-06-09T00:00:00.000Z"
-    onCreate={[Function]}
-    onPeriodChange={[Function]}
-    periods={Array []}
-  />
-</div>
+exports[`BudgetTable should call onCreate with date 1`] = `
+Array [
+  Array [
+    Object {
+      "variables": Object {
+        "input": Object {
+          "account": "new account",
+          "amount": 0,
+          "date": "2018-06-10T00:00:00.000Z",
+        },
+      },
+    },
+  ],
+]
 `;

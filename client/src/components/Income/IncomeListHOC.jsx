@@ -1,19 +1,9 @@
 import React from 'react';
-import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
-import fragments from './fragments';
-
-export const QUERY = gql`
-query IncomesQuery {
-  accounts(type: INCOME) {
-    ...IncomeAccount
-  }
-}
-${fragments.income}
-`;
+import { LIST_QUERY } from './queries';
 
 const withQuery = Component => props => (
-  <Query query={QUERY}>
+  <Query query={LIST_QUERY}>
     {({ loading, error, data }) => {
       if (loading) return 'Loading...';
       if (error) return 'Error!';

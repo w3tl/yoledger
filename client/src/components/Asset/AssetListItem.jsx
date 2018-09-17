@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { List } from 'semantic-ui-react';
 import { assetPropType } from './propTypes';
 
 function AssetListItem({ url, asset }) {
   const { id, name } = asset;
   return (
-    <li key={name}>
-      {url ? (
+    <List.Item>
+      <List.Icon name="credit card" />
+      <List.Content verticalAlign="bottom">
         <Link to={{ pathname: `${url}/view`, state: { id } }}>{name}</Link>
-      ) : (
-        name
-      )}
-    </li>
+      </List.Content>
+    </List.Item>
   );
 }
 

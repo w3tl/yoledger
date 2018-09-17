@@ -1,9 +1,8 @@
 import gql from 'graphql-tag';
 
 export const BODY_QUERY = gql`
-query BudgetPeriodsQuery($dateStart: Date!, $count: Int) {
-  budgets(dateStart: $dateStart, count: $count) {
-    periods
+query BudgetPeriodsQuery($dateStart: Date!, $dateEnd: Date!) {
+  budgets(dateStart: $dateStart, dateEnd: $dateEnd) {
     accounts {
       name
     }
@@ -11,13 +10,11 @@ query BudgetPeriodsQuery($dateStart: Date!, $count: Int) {
 }
 `;
 
-export const COLUMN_QUERY = gql`
-query BudgetQuery($date: Date!) {
-  budget(date: $date) {
+export const ROW_QUERY = gql`
+query BudgetQuery($account: String!, $dateStart: Date!, $dateEnd: Date!) {
+  budget(account: $account, dateStart: $dateStart, dateEnd: $dateEnd) {
     id
-    account {
-      name
-    }
+    date
     amount
   }
 }
@@ -27,9 +24,13 @@ export const UPDATE_MUTATION = gql`
 mutation upsertBudget($input: UpsertBudgetInput!) {
   upsertBudget(input: $input) {
     success
-    allocation {
+    budget {
       id
-      account { id name }
+      account {
+        id
+        name
+      }
+      date
       amount
     }
   }

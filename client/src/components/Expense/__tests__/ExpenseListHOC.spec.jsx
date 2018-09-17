@@ -2,9 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import ListWithData from '../ExpenseListHOC';
 import accounts from '../mockData';
-import {
-  wait, withProvider, testLoadingState,
-} from '../../testHelpers/index';
+import { wait, withProvider, testLoadingState } from '../../testHelpers';
 
 const MockComponent = ({ expenses }) => ( // eslint-disable-line react/prop-types
   <ul>{expenses.map(account => <li key={account.id}>{account.length}</li>)}</ul>
@@ -14,7 +12,6 @@ const ComponentWithData = ListWithData(MockComponent);
 const ComponentWithProvider = withProvider(() => (
   <ComponentWithData />
 ));
-
 
 describe('ExpenseListHOC', () => {
   testLoadingState(<ComponentWithProvider />);

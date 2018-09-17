@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { List, Header } from 'semantic-ui-react';
 import IncomeListItem from './IncomeListItem';
 import { incomePropType } from './propTypes';
 
 function IncomeList({ incomes, match }) {
   return (
-    <ul>
+    <List>
+      {incomes.length === 0 && (
+        <Header as="h2" disabled>Empty</Header>)}
       {incomes.map(account => (
         <IncomeListItem key={account.name} url={match.url} income={account} />))}
-    </ul>
+    </List>
   );
 }
 

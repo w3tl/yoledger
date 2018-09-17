@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -9,4 +8,8 @@ const ComponentWithActions = props => (
 );
 
 storiesOf('Profile', module)
-  .add('default', () => <ComponentWithActions />);
+  .add('default', () => <ComponentWithActions />)
+  .add('with same new password', () => <ComponentWithActions initialState={{ oldPassword: '1', newPassword: '1' }} />)
+  .add('with wrong repeated password', () => <ComponentWithActions initialState={{ oldPassword: '1', newPassword: '2', repeatNewPassword: '3' }} />)
+  .add('loading', () => <ComponentWithActions loading />)
+  .add('with errors', () => <ComponentWithActions error={{ graphQLErrors: ['No user found!'] }} />);

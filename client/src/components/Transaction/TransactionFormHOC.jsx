@@ -6,7 +6,7 @@ import {
 } from './queries';
 import TransactionForm from './TransactionForm';
 
-const updateAfterAdd = ({ dateStart, dateEnd }) => (cache, { data: { addTransaction } }) => {
+export const updateAfterAdd = ({ dateStart, dateEnd }) => (cache, { data: { addTransaction } }) => {
   const variables = { dateStart, dateEnd };
   let transactions = [];
   try {
@@ -17,8 +17,8 @@ const updateAfterAdd = ({ dateStart, dateEnd }) => (cache, { data: { addTransact
   cache.writeQuery({ query: LIST_QUERY, variables, data });
 };
 
-const updateAfterDelete = ({ dateStart, dateEnd }) => (cache, { data: { deleteTransaction } }) => {
-  const variables = { dateStart, dateEnd };
+export const updateAfterDelete = props => (cache, { data: { deleteTransaction } }) => {
+  const variables = { dateStart: props.dateStart, dateEnd: props.dateEnd };
   if (!deleteTransaction.success) return;
   const { transactions } = cache.readQuery({ query: LIST_QUERY, variables });
   const data = {
@@ -27,51 +27,38 @@ const updateAfterDelete = ({ dateStart, dateEnd }) => (cache, { data: { deleteTr
   cache.writeQuery({ query: LIST_QUERY, variables, data });
 };
 
-const updateAfterUpdate = (idBeforeUpdate, variables) => (
+export const updateAfterUpdate = ({ transaction: trans, dateStart, dateEnd }) => (
   cache, { data: { updateTransaction } },
 ) => {
-  const { transaction } = updateTransaction;
+  const variables = { dateStart, dateEnd };
+  const { transaction: newTrans } = updateTransaction;
+  // TODO: update form query
   const { transactions } = cache.readQuery({ query: LIST_QUERY, variables });
-  if (transaction.id === idBeforeUpdate) return;
+  if (newTrans.id === trans.id) return;
   // find updated transaction and replace this
-  const data = { transactions: transactions.map(t => (t.id === idBeforeUpdate ? transaction : t)) };
+  const data = {
+    transactions: transactions.map(t => (t.id === trans.id ? newTrans : t)),
+  };
   cache.writeQuery({ query: LIST_QUERY, variables, data });
 };
 
 const withAdd = Wrapped => props => (
   <Mutation mutation={ADD_MUTATION} update={updateAfterAdd(props)}>
-    {(addTransaction, { loading, error, data }) => {
-      if (loading) return 'Loading...';
-      if (error) return error.message;
-      if (data && data.addTransaction) { // COMBAK: use variable to pathname
-        // props.onClose();
-      }
-      return (
-        <Wrapped
-          onCreate={(transaction) => {
-            addTransaction({ variables: { input: transaction } });
-          }}
-          {...props}
-        />);
-    }}
+    {(addTransaction, { loading, error }) => (
+      <Wrapped onCreate={addTransaction} loading={loading} error={error} {...props} />)}
   </Mutation>
 );
 
 const withDelete = Wrapped => props => (
   <Mutation mutation={DELETE_MUTATION} update={updateAfterDelete(props)}>
     {(deleteTransaction, { loading, error, data }) => {
-      if (loading) return 'Loading...';
-      if (error) return 'Error delete mutation';
       const wasDeleted = data && data.deleteTransaction && data.deleteTransaction.success;
       if (wasDeleted && props.onClose) {
         props.onClose();
       }
       if (props.transaction) {
         return (
-          <Wrapped
-            onDelete={() => deleteTransaction({ variables: { id: props.transaction.id } })}
-            {...props}
-          />);
+          <Wrapped onDelete={deleteTransaction} loading={loading} error={error} {...props} />);
       }
       return <Wrapped {...props} />;
     }}
@@ -79,28 +66,14 @@ const withDelete = Wrapped => props => (
 );
 
 const withUpdate = Wrapped => props => (
-  <Mutation mutation={UPDATE_MUTATION}>
+  <Mutation mutation={UPDATE_MUTATION} update={updateAfterUpdate(props)}>
     {(updateTransaction, { loading, error, data }) => {
-      if (loading) return 'Loading...';
-      if (error) return error.message;
       if (data && data.updateTransaction && props.onClose) { // COMBAK: use variable to pathname
         props.onClose();
       }
-      const variables = {
-        dateStart: props.dateStart,
-        dateEnd: props.dateEnd,
-      };
 
       return (
-        <Wrapped
-          {...props}
-          onSave={(id, input) => {
-            updateTransaction({
-              variables: { id, input },
-              update: updateAfterUpdate(id, variables),
-            });
-          }}
-        />);
+        <Wrapped onSave={updateTransaction} loading={loading} error={error} {...props} />);
     }}
   </Mutation>
 );

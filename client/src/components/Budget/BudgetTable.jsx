@@ -1,40 +1,64 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BudgetTableBody from './BudgetTableBody';
+import { Table } from 'semantic-ui-react';
+import { accountPropType } from '../propTypes';
+import { periodPropType } from './propTypes';
+import BudgetTableRow from './BudgetTableRowHOC';
+import BudgetTableHeader from './BudgetTableHeader';
+import BudgetTableFooter from './BudgetTableFooter';
 
 class BudgetTable extends React.Component {
   static propTypes = {
-    body: PropTypes.func,
+    accounts: PropTypes.arrayOf(accountPropType),
+    periods: PropTypes.arrayOf(periodPropType),
+    loading: PropTypes.bool,
+    onCreate: PropTypes.func,
+    onPeriodChange: PropTypes.func,
+    row: PropTypes.func,
   }
 
   static defaultProps = {
-    body: BudgetTableBody,
+    accounts: [],
+    periods: [],
+    loading: false,
+    onCreate: () => {},
+    onPeriodChange: () => {},
+    row: BudgetTableRow,
   }
 
-  constructor(props) {
-    super(props);
-    const currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() - 1);
-    this.state = {
-      dateStart: currentDate.toISOString(),
-      count: 6,
-    };
-  }
-
-  handleHeaderClick = (dateStart) => {
-    this.setState({
-      dateStart,
+  handleCreate = ({ account }) => {
+    const { onCreate, periods } = this.props;
+    return onCreate({
+      variables: { input: { date: periods[0].toISOString(), account, amount: 0 } },
     });
   }
 
   render() {
-    const { body: Body } = this.props;
-    const { dateStart, count } = this.state;
-
+    const {
+      accounts, periods, onPeriodChange, loading, row: Row,
+    } = this.props;
     return (
-      <div>
-        <Body dateStart={dateStart} count={count} onPeriodChange={this.handleHeaderClick} />
-      </div>
+      <Table fixed basic="very" striped columns={periods.length + 1}>
+        <BudgetTableHeader periods={periods} onPeriodChange={onPeriodChange} />
+        <Table.Body>
+          {accounts.map(account => (
+            <Row
+              key={account.name}
+              account={account}
+              dateStart={periods[0].toISOString()}
+              dateEnd={periods[periods.length - 1].toISOString()}
+              {...this.props}
+            />
+          ))}
+        </Table.Body>
+        {periods.length > 0 && (
+          <BudgetTableFooter
+            accounts={accounts}
+            length={periods.length}
+            loading={loading}
+            onCreate={this.handleCreate}
+          />)}
+      </Table>
     );
   }
 }

@@ -16,11 +16,7 @@ export default props => (
             pageSettings = { ...data.changePeriod };
           }
           return (
-            <TransactionPage
-              onChangePeriod={changePeriod}
-              {...pageSettings}
-              {...props}
-            />);
+            <TransactionPage onChangePeriod={changePeriod} {...pageSettings} {...props} />);
         }}
       </Mutation>
     )}

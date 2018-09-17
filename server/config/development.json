@@ -4,6 +4,6 @@
   },
   "token": {
     "secret": "jwtsecret",
-    "expiresIn": 300
+    "expiresIn": 3000
   }
 }

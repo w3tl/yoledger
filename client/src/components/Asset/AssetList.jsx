@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { List, Header } from 'semantic-ui-react';
 import AssetListItem from './AssetListItem';
 import { assetPropType } from './propTypes';
 
 function AssetList({ assets, match }) {
   return (
-    <ul>
+    <List>
+      {assets.length === 0 && (
+        <Header as="h2" disabled>Empty</Header>)}
       {assets.map(account => (
         <AssetListItem key={account.name} url={match.url} asset={account} />))}
-    </ul>
+    </List>
   );
 }
 
