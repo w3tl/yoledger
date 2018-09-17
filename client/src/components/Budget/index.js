@@ -1,7 +1,7 @@
-import BudgetTable from './BudgetTable';
+import BudgetPage from './BudgetPage';
 import propTypes from './propTypes';
 
 export {
-  BudgetTable,
+  BudgetPage,
   propTypes,
 };

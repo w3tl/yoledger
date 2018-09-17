@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`next click 1`] = `
+Array [
+  2018-06-25T00:00:00.000Z,
+]
+`;
+
+exports[`prev click 1`] = `
+Array [
+  "2018-06-09T00:00:00.000Z",
+]
+`;

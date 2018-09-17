@@ -1,28 +1,6 @@
-/* eslint-disable react/destructuring-assignment,react/prop-types */
 import React from 'react';
 import { Mutation } from 'react-apollo';
-import { SIGNIN_MUTATION, SIGNOUT_MUTATION } from './queries';
-
-const withSigninMutation = Wrapped => props => (
-  <Mutation
-    mutation={SIGNIN_MUTATION}
-    onCompleted={(data) => {
-      props.handleSignin(data.signin.token);
-    }}
-  >
-    {(signin, { loading, error }) => {
-      if (loading) return 'Sign in...';
-      if (error) return error.message;
-      return (
-        <Wrapped
-          signin={({ username, password }) => signin({
-            variables: { login: username, password },
-          })}
-          {...props}
-        />);
-    }}
-  </Mutation>
-);
+import { SIGNOUT_MUTATION } from './queries';
 
 const withSignoutMutation = Wrapped => props => (
   <Mutation
@@ -33,18 +11,14 @@ const withSignoutMutation = Wrapped => props => (
       }
     }}
   >
-    {(signout, {
-      loading, error,
-    }) => {
-      if (loading) return 'Sign out...';
-      if (error) return error.message;
-      return (
-        <Wrapped
-          signout={signout}
-          {...props}
-        />);
-    }}
+    {(signout, { loading, error }) => (
+      <Wrapped
+        signout={signout}
+        loading={loading}
+        error={error}
+        {...props}
+      />)}
   </Mutation>
 );
 
-export default Component => withSigninMutation(withSignoutMutation(Component));
+export default Component => withSignoutMutation(Component);

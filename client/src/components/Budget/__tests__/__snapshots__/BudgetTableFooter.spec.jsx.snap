@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetTableFooter should call onCreate add button was clicked 1`] = `
+Array [
+  Object {
+    "account": "New account",
+  },
+]
+`;

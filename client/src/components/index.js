@@ -1,7 +1,7 @@
-import AmountInput from './AmountInput';
-import { BudgetTable } from './Budget';
+import { BudgetPage } from './Budget';
+import { TransactionPage } from './Transaction';
 
 export {
-  AmountInput,
-  BudgetTable,
+  TransactionPage,
+  BudgetPage,
 };

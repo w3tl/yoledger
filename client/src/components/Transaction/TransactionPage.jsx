@@ -1,14 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { Select, Button } from '../Elements';
+import {
+  Button, Dropdown, Menu,
+} from 'semantic-ui-react';
 import TransactionForm from './TransactionFormHOC';
 import TransactionList from './TransactionListHOC';
 
 const options = [{
-  value: 'DAY', label: 'day',
+  value: 'DAY', text: 'day',
 }, {
-  value: 'WEEK', label: 'week',
+  value: 'WEEK', text: 'week',
 }];
 
 export function getDateEnd(period, date) {
@@ -37,9 +39,9 @@ class TransactionPage extends React.Component {
     this.setState(prevState => ({ isAddMode: !prevState.isAddMode }));
   }
 
-  handlePeriodChange = (e) => {
+  handlePeriodChange = (e, { value }) => {
     const { date, onChangePeriod } = this.props;
-    onChangePeriod({ variables: { period: e.target.value, date } });
+    onChangePeriod({ variables: { period: value, date } });
   }
 
   handleChangeDateClick = sign => () => {
@@ -61,13 +63,24 @@ class TransactionPage extends React.Component {
     const dateEnd = getDateEnd(period, date).toISOString();
     return (
       <div>
-        <div>
-          <Button id="addTrans" onClick={this.handleAddClick}>Add</Button>
-          <Button id="prevButton" onClick={this.handleChangeDateClick(-1)}>Prev</Button>
-          {moment(new Date(date)).format('MMM Do YY')}
-          <Button id="nextButton" onClick={this.handleChangeDateClick(1)}>Next</Button>
-          <Select label="Show by" options={options} value={period} onChange={this.handlePeriodChange} />
-        </div>
+        <Menu>
+          <Menu.Item>
+            <Button primary onClick={this.handleAddClick}>Add</Button>
+          </Menu.Item>
+          <Menu.Item>
+            <Button onClick={this.handleChangeDateClick(-1)} icon="left chevron" />
+            <span style={{ margin: '0 5px' }}>
+              {moment(new Date(date)).format('MMM Do YY')}
+            </span>
+            <Button onClick={this.handleChangeDateClick(1)} icon="right chevron" />
+          </Menu.Item>
+          <Menu.Item>
+            <span>
+              Show per{' '}
+              <Dropdown inline options={options} value={period} onChange={this.handlePeriodChange} />
+            </span>
+          </Menu.Item>
+        </Menu>
         {isAddMode && (
           <TransactionForm dateStart={date} dateEnd={dateEnd} onClose={this.handleAddClick} />
         )}

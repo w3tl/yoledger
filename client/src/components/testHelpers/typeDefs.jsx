@@ -4,8 +4,8 @@ type Query {
   account(id: ID!): Account
   accounts(type: AccountType!): [Account]
 
-  budgets(dateStart: Date!, count: Int = 5): Budget
-  budget(date: Date!): [Allocation]
+  budgets(dateStart: Date!, dateEnd: Date!): Budgets
+  budget(account: String!, dateStart: Date!, dateEnd: Date!): [Budget]
 
   transactions(dateStart: Date!, dateEnd: Date, page: Int = 0, itemsPerPage: Int = 20): [Transaction]
   transaction(id: ID!): Transaction
@@ -28,16 +28,16 @@ type Account {
   type: AccountType!
 }
 
-type Budget {
+type Budgets {
   periods: [Date]
   accounts: [Account]
 }
 
-type Allocation {
-  id: String!
-  account: Account!
-  amount: Float
-  balance: Float
+type Budget {
+  id: ID!
+  date: Date!
+  account: Account
+  amount: Float!
 }
 
 enum AccountType {
@@ -65,7 +65,7 @@ input UpsertBudgetInput {
 
 type UpsertBudgetPayload {
   success: Boolean
-  allocation: Allocation
+  budget: Budget
 }
 
 type Transaction {

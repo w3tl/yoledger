@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Button } from '../Elements';
-import Login from './Login';
+import { Menu } from 'semantic-ui-react';
 
 function ProfileHeader({ signout }) {
   return (
-    <div>
-      <Link to="/profile">Profile</Link>
-      <Button onClick={signout}>Signout</Button>
-    </div>
+    <Fragment>
+      <Menu.Item name="profile" as={Link} to="/profile" />
+      <Menu.Item name="signout" onClick={signout} />
+    </Fragment>
   );
 }
 
@@ -17,18 +16,18 @@ ProfileHeader.propTypes = {
   signout: PropTypes.func.isRequired,
 };
 
-function LoginBar({ signin, signout, loggedIn }) {
+function LoginBar({ signout, loggedIn }) {
   return (
-    <div>
+    <Menu.Menu position="right">
       {loggedIn && <ProfileHeader signout={signout} />}
-      {!loggedIn && <Login signin={signin} />}
-    </div>
+      {!loggedIn && (
+        <Menu.Item as={Link} to="/signin" name="Sign-in" />)}
+    </Menu.Menu>
   );
 }
 
 LoginBar.propTypes = {
   signout: PropTypes.func.isRequired,
-  signin: PropTypes.func.isRequired,
   loggedIn: PropTypes.bool.isRequired,
 };
 

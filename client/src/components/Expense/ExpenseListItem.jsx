@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { List } from 'semantic-ui-react';
 import { expensePropType } from './propTypes';
 
 function ExpenseListItem({ url, expense }) {
   const { id, name } = expense;
   return (
-    <li key={name}>
-      {url ? (
+    <List.Item>
+      <List.Icon name="shopping bag" />
+      <List.Content verticalAlign="bottom">
         <Link to={{ pathname: `${url}/view`, state: { id } }}>{name}</Link>
-      ) : (
-        name
-      )}
-    </li>
+      </List.Content>
+    </List.Item>
   );
 }
 

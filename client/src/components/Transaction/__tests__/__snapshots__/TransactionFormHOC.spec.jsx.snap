@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TransactionFormHOC mutation update updateAfterAdd should add transaction into list 1`] = `
+Object {
+  "transactions": Array [
+    Object {
+      "id": "1",
+    },
+    Object {
+      "id": "new",
+    },
+  ],
+}
+`;
+
+exports[`TransactionFormHOC mutation update updateAfterDelete should delete transaction from list 1`] = `
+Object {
+  "transactions": Array [],
+}
+`;
+
+exports[`TransactionFormHOC mutation update updateAfterUpdate should replace transaction with new id 1`] = `
+Object {
+  "transactions": Array [
+    Object {
+      "id": "new",
+    },
+  ],
+}
+`;

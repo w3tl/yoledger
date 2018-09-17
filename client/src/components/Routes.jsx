@@ -6,7 +6,8 @@ import { AssetForm, AssetList, AssetMenu } from './Asset';
 import { ExpenseForm, ExpenseList, ExpenseMenu } from './Expense';
 import { IncomeForm, IncomeList, IncomeMenu } from './Income';
 import { TransactionPage } from './Transaction';
-import { BudgetTable } from './Budget';
+import { BudgetPage } from './Budget';
+import { LoginPage } from './Login';
 import ProfilePage from './Profile';
 
 function ProtectedRoute({
@@ -34,7 +35,7 @@ function ProtectedRoute({
   );
 }
 
-function Routes({ loggedIn }) {
+function Routes({ loggedIn, signin }) {
   return (
     <main>
       <div>
@@ -43,7 +44,8 @@ function Routes({ loggedIn }) {
         <Route path="/incomes" component={IncomeMenu} />
       </div>
       <Route exact path="/" component={() => <h1>Hello</h1>} />
-      <ProtectedRoute path="/budgets" component={BudgetTable} loggedIn={loggedIn} />
+      <Route path="/signin" component={() => <LoginPage signin={signin} />} />
+      <ProtectedRoute path="/budgets" component={BudgetPage} loggedIn={loggedIn} />
       <ProtectedRoute path="/transactions" component={TransactionPage} loggedIn={loggedIn} />
       <ProtectedRoute path="/profile" component={ProfilePage} loggedIn={loggedIn} />
       <Switch>
@@ -67,6 +69,7 @@ function Routes({ loggedIn }) {
 
 Routes.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
+  signin: PropTypes.func.isRequired,
 };
 
 export default Routes;

@@ -1,48 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`budget resolver Budget accounts 1`] = `
-Array [
-  Object {
-    "_id": "3",
-    "name": "Food",
-    "type": "EXPENSE",
-  },
-  Object {
-    "_id": "4",
-    "name": "Train",
-    "type": "EXPENSE",
-  },
-]
-`;
-
 exports[`budget resolver Mutation upsertBudget 1`] = `
 Object {
-  "allocation": Object {
+  "budget": Object {
+    "_id": "2",
     "account": Object {
-      "_id": "3",
       "name": "Food",
       "type": "EXPENSE",
     },
-    "amount": 564,
-    "id": "MjAxOC0wNS0xMFQwMDowMDowMC4wMDBaRm9vZA==",
+    "amount": 55,
+    "date": 2018-05-10T00:00:00.000Z,
   },
   "success": "2",
 }
 `;
 
-exports[`budget resolver Query budget should return allocation 1`] = `
-Object {
-  "periods": Array [],
-}
-`;
+exports[`budget resolver Query budget.account should return an account 1`] = `Array []`;
 
-exports[`budget resolver Query bugdets should return periods 1`] = `
+exports[`budget resolver Query bugdets should return accounts 1`] = `
 Object {
-  "periods": Array [
-    2018-05-10T00:00:00.000Z,
-    2018-05-25T00:00:00.000Z,
-    2018-06-10T00:00:00.000Z,
-    2018-06-25T00:00:00.000Z,
+  "accounts": Array [
+    Object {
+      "_id": "3",
+      "name": "Food",
+      "type": "EXPENSE",
+    },
+    Object {
+      "_id": "4",
+      "name": "Train",
+      "type": "EXPENSE",
+    },
   ],
 }
 `;

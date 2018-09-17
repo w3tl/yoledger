@@ -9,7 +9,7 @@ export default async function fillDB(client) {
   const db = client.db();
 
   const userModel = new User(db, 'admin');
-  userModel.clear();
+  await userModel.clear();
   await userModel.create({ password: 'password' });
 
   const Accounts = new Account(db, 'admin');

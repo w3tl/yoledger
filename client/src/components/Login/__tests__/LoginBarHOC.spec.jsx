@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { mount } from 'enzyme';
-import LoginBar from '../index';
-import { wait, withProvider } from '../../testHelpers/index';
+import { LoginBar } from '../index';
+import { wait, withProvider } from '../../testHelpers';
 
-jest.mock('react-router-dom', () => ({ // eslint-disable-next-line react/prop-types
+jest.mock('react-router-dom', () => ({
   Link: ({ to, children }) => <a href={to}>{children}</a>,
 }));
 
@@ -13,24 +13,14 @@ const Component = withProvider(props => (
 ));
 
 describe('LoginBarHOC', () => {
-  it('should set token in localStorage after sign in', async () => {
-    const handleSignin = jest.fn();
-    const wrapper = mount(<Component loggedIn={false} handleSignin={handleSignin} />);
+  it('should call props signout function after signout', async () => {
+    const mockSignout = jest.fn();
+    const wrapper = mount(<Component loggedIn handleSignout={mockSignout} />);
     await wait();
     wrapper.update();
-    const form = wrapper.find('Login').find('form');
-    form.simulate('submit');
-    await wait(1);
-    expect(handleSignin).toHaveBeenCalled();
-  });
-
-  it('should unset token and reset store after logout', async () => {
-    const handleSignout = jest.fn();
-    const wrapper = mount(<Component loggedIn handleSignout={handleSignout} />);
-    await wait();
-    wrapper.update();
-    wrapper.find('Button').simulate('click');
-    await wait(1);
-    expect(handleSignout).toHaveBeenCalled();
+    const button = wrapper.find('[name="signout"]');
+    button.simulate('click');
+    await wait(5);
+    expect(mockSignout).toHaveBeenCalled();
   });
 });

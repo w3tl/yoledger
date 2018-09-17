@@ -15,41 +15,49 @@ describe('budget schema', () => {
 
   it('must return plan with periods and accounts', async () => {
     const query = `
-    query budgets($dateStart: Date!, $count: Int) {
-      budgets(dateStart: $dateStart, count: $count) {
-        periods
-        accounts { name }
+    query budgets($dateStart: Date!, $dateEnd: Date!) {
+      budgets(dateStart: $dateStart, dateEnd: $dateEnd) {
+        accounts {
+          id
+          name
+        }
       }
     }
     `;
     const rootValue = {};
     const variables = {
       dateStart: '2018-05-10',
-      count: 4,
+      dateEnd: '2018-06-25',
     };
 
     const result = await graphql(schema, query, rootValue, context, variables);
     expect(result.errors).toBeUndefined();
-    expect(result.data.budgets.periods).toHaveLength(4);
-    expect(result.data).toMatchSnapshot('4 periods from 2018-05-10');
+    expect(result.data).toMatchSnapshot();
   });
 
-  it('must return allocations for date', async () => {
+  it('query budget must return budget for account', async () => {
     const query = `
-    query budget($date: Date!) {
-      budget(date: $date) {
+    query budget($account: String!, $dateStart: Date!, $dateEnd: Date!) {
+      budget(account: $account, dateStart: $dateStart, dateEnd: $dateEnd) {
         id
-        account { name }
+        date
+        account {
+          id
+          name
+        }
         amount
-        balance
       }
     }
     `;
     const rootValue = {};
-    const variables = { date: '2018-05-10' };
+    const variables = {
+      account: 'Food',
+      dateStart: '2018-05-10',
+      dateEnd: '2018-06-25',
+    };
 
     const result = await graphql(schema, query, rootValue, context, variables);
     expect(result.errors).toBeUndefined();
-    expect(result.data).toMatchSnapshot('budget for 2018-05-10');
+    expect(result.data).toMatchSnapshot();
   });
 });

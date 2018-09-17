@@ -27,19 +27,6 @@ afterAll(async () => {
 });
 
 describe('budget', () => {
-  test('periods func should return correct array', () => {
-    const periodSetting = {
-      type: 'dayOfMonth',
-      options: [10, 25],
-    };
-
-    const periods = ['2017-12-24', '2017-12-25', '2017-12-26', '2018-01-9', '2018-01-10', '2018-01-11', '2018-01-26'];
-
-    periods.forEach(dateStr => expect(
-      Budget.periods(new Date(dateStr), 3, periodSetting),
-    ).toMatchSnapshot(dateStr));
-  });
-
   describe('upsertBudget', () => {
     beforeAll(async () => {
       await budgetModel.clear();

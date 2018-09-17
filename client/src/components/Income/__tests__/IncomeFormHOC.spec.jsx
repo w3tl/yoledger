@@ -1,36 +1,36 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { mount } from 'enzyme';
-import { QUERY as LIST_QUERY } from '../IncomeListHOC';
+import { LIST_QUERY } from '../queries';
 import formWithData from '../IncomeFormHOC';
-import IncomeForm from '../IncomeForm';
+import RawIncomeForm from '../IncomeForm';
 import {
   wait, withProvider, testLoadingState, client,
-} from '../../testHelpers/index';
+} from '../../testHelpers';
 
 jest.mock('react-router-dom', () => ({ // eslint-disable-next-line react/prop-types
   Redirect: ({ to }) => <a href={to}>Redirect</a>,
 }));
 
-const ComponentWithData = formWithData(IncomeForm);
-const ComponentWithoutLocationState = withProvider((props) => {
+const IncomeForm = formWithData(RawIncomeForm);
+const FormWithoutLocationState = withProvider((props) => {
   props.client.writeQuery({
     query: LIST_QUERY,
     variables: { type: 'INCOME' },
     data: { accounts: [] },
   });
-  return <ComponentWithData />;
+  return <IncomeForm />;
 });
-const ComponentWithLocationState = withProvider(() => (
-  <ComponentWithData location={{ state: { id: '31' } }} />
+const FormWithLocationState = withProvider(() => (
+  <IncomeForm location={{ state: { id: '31' } }} />
 ));
 
 describe('IncomeFormHOC', () => {
   describe('with router id params', () => {
-    testLoadingState(<ComponentWithLocationState />);
+    testLoadingState(<FormWithLocationState />);
 
     it('should contain props', async () => {
-      const wrapper = mount(<ComponentWithLocationState />);
+      const wrapper = mount(<FormWithLocationState />);
       await wait();
       wrapper.update();
       const form = wrapper.find('IncomeForm');
@@ -40,11 +40,8 @@ describe('IncomeFormHOC', () => {
   });
 
   describe('without router id params', () => {
-    // NOTE: skip query without id in location
-    // testLoadingState(<ComponentWithLocationState />);
-
     it('should successfully add expense', async () => {
-      const wrapper = mount(<ComponentWithoutLocationState />);
+      const wrapper = mount(<FormWithoutLocationState />);
       await wait();
       wrapper.update();
       wrapper.find('input').simulate('change', { target: { value: 'new account' } });

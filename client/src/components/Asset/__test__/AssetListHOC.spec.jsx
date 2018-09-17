@@ -2,9 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import ListWithData from '../AssetListHOC';
 import accounts from '../mockData';
-import {
-  wait, withProvider, testLoadingState,
-} from '../../testHelpers/index';
+import { wait, withProvider, testLoadingState } from '../../testHelpers';
 
 const MockComponent = ({ assets }) => ( // eslint-disable-line react/prop-types
   <ul>{assets.map(asset => <li key={asset.id}>{asset.length}</li>)}</ul>

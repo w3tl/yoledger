@@ -1,41 +1,17 @@
 /* eslint-disable react/destructuring-assignment,react/prop-types */
 import React from 'react';
-import gql from 'graphql-tag';
 import { Query, Mutation } from 'react-apollo';
 import { Redirect } from 'react-router-dom';
 import { withId } from '../utils';
-import fragments from './fragments';
-import { QUERY as LIST_QUERY } from './ExpenseListHOC';
-
-export const QUERY = gql`
-query ExpenseQuery($id: ID!) {
-  account(id: $id) {
-    ...ExpenseAccount
-  }
-}
-${fragments.expense}
-`;
-
-export const ADD_MUTATION = gql`
-mutation addAccount($input: AddAccountInput!) {
-  addAccount(input: $input) {
-    account {
-      ...ExpenseAccount
-    }
-  }
-}
-${fragments.expense}
-`;
+import { FORM_QUERY, ADD_MUTATION, LIST_QUERY } from './queries';
 
 const withQuery = Wrapped => (props) => {
   if (props.id) {
     return (
-      <Query query={QUERY} skip={!props.id} variables={{ id: props.id }}>
-        {({ loading, error, data }) => {
-          if (loading) return 'Loading...';
-          if (error) return error.message;
-          return <Wrapped {...props} expense={data.account} />;
-        }}
+      <Query query={FORM_QUERY} skip={!props.id} variables={{ id: props.id }}>
+        {({ loading, error, data }) => (
+          <Wrapped expense={data.account} loading={loading} error={error} {...props} />
+        )}
       </Query>
     );
   }
@@ -60,18 +36,11 @@ const withAddMutation = Wrapped => props => (
     }}
   >
     {(addAccount, { loading, error, data }) => {
-      if (loading) return 'Loading...';
-      if (error) return 'Error!';
       if (data && data.addAccount) { // COMBAK: use variable to pathname
         return <Redirect to={{ pathname: '/expenses' }} />;
       }
       return (
-        <Wrapped
-          {...props}
-          onSave={account => addAccount({
-            variables: { input: { ...account, type: 'EXPENSE' } },
-          })}
-        />);
+        <Wrapped loading={loading} error={error} onSave={addAccount} {...props} />);
     }}
   </Mutation>
 );

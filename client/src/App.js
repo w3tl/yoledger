@@ -4,7 +4,6 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
 import decode from 'jwt-decode';
 import './App.css';
-import Header from './components/Header';
 import Navigation from './components/Navigation';
 import Routes from './components/Routes';
 import apolloClient from './apollo';
@@ -17,15 +16,9 @@ export function isLoggedIn() {
   }
   return !!token;
 }
-
+// TODO: remove token when expires
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loggedIn: isLoggedIn(),
-      client: apolloClient(),
-    };
-  }
+  state = { loggedIn: isLoggedIn(), client: apolloClient() }
 
   handleSignin = (token) => {
     localStorage.setItem('token', token);
@@ -45,13 +38,11 @@ class App extends Component {
       <ApolloProvider client={client}>
         <Router>
           <div className="App">
-            <Header />
             <Navigation
               loggedIn={loggedIn}
-              handleSignin={this.handleSignin}
-              handleSignout={this.handleSignout}
+              signout={this.handleSignout}
             />
-            <Routes loggedIn={loggedIn} />
+            <Routes loggedIn={loggedIn} signin={this.handleSignin} />
           </div>
         </Router>
       </ApolloProvider>

@@ -2,7 +2,7 @@ jest.mock('mongodb');
 
 import { dataloaders } from '../../index';
 import {
-  Query, Mutation, Budget,
+  Query, Mutation, Budgets,
 } from '../resolver';
 import { Account, Budget as BudgetModel } from '../../../model';
 
@@ -17,38 +17,17 @@ describe('budget resolver', () => {
     userId: 'admin',
   };
 
-  describe('Budget', () => {
-    test('accounts', async () => {
-      const periods = [new Date('2018-05-10'), new Date('2018-05-25')];
-      const result = await Budget.accounts({ periods }, null, context);
-      expect(result).toMatchSnapshot();
-    });
-  });
-
   describe('Query', () => {
-    test('bugdets should return periods', async () => {
-      const date = new Date('2018-05-10');
+    test('bugdets should return accounts', async () => {
       const result = await Query.budgets(null, {
-        dateStart: date,
-        count: 4,
+        dateStart: new Date('2018-05-10'),
+        dateEnd: new Date('2018-06-25'),
       }, context);
       expect(result).toMatchSnapshot();
     });
 
-    test('budgets should throw error when count more than 20', async () => {
-      const date = new Date('2018-05-10');
-      const query = Query.budgets(null, {
-        dateStart: date,
-        count: 21,
-      }, context);
-      await expect(query)
-        .rejects
-        .toThrowError(/long/);
-    });
-
-    test('budget should return allocation', async () => {
-      const date = new Date('2018-05-10');
-      const result = await Query.budgets(null, { date }, context);
+    test('budget.account should return an account', async () => {
+      const result = await Query.budget(null, { account: { name: 'Food' } }, context);
       expect(result).toMatchSnapshot();
     });
   });
