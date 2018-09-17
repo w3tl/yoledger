@@ -49,17 +49,17 @@ function Routes({ loggedIn, signin }) {
       <ProtectedRoute path="/transactions" component={TransactionPage} loggedIn={loggedIn} />
       <ProtectedRoute path="/profile" component={ProfilePage} loggedIn={loggedIn} />
       <Switch>
-        <ProtectedRoute path="/assets" component={AssetList} loggedIn={loggedIn} />
+        <ProtectedRoute exact path="/assets" component={AssetList} loggedIn={loggedIn} />
         <Route path="/assets/create" component={AssetForm} />
         <Route path="/assets/view" component={shouldHaveId(AssetForm, '/assets')} />
       </Switch>
       <Switch>
-        <ProtectedRoute path="/expenses" component={ExpenseList} loggedIn={loggedIn} />
+        <ProtectedRoute exact path="/expenses" component={ExpenseList} loggedIn={loggedIn} />
         <Route path="/expenses/create" component={ExpenseForm} />
         <Route path="/expenses/view" component={shouldHaveId(ExpenseForm, '/expenses')} />
       </Switch>
       <Switch>
-        <ProtectedRoute path="/incomes" component={IncomeList} loggedIn={loggedIn} />
+        <ProtectedRoute exact path="/incomes" component={IncomeList} loggedIn={loggedIn} />
         <Route path="/incomes/create" component={IncomeForm} />
         <Route path="/incomes/view" component={shouldHaveId(IncomeForm, '/incomes')} />
       </Switch>
