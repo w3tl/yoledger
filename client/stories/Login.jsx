@@ -22,4 +22,4 @@ storiesOf('Login/Page', module)
   .add('default', () => <LoginPageWithActions />)
   .add('filled', () => <LoginPageWithActions initialState={{ username: 'admin', password: 'password' }} />)
   .add('loading', () => <LoginPageWithActions loading />)
-  .add('with error', () => <LoginPageWithActions error={{ graphQLErrors: ['No user found!'] }} />);
+  .add('with error', () => <LoginPageWithActions error={{ graphQLErrors: [{ message: 'No user found!' }] }} />);

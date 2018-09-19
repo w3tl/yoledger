@@ -12,4 +12,4 @@ storiesOf('Profile', module)
   .add('with same new password', () => <ComponentWithActions initialState={{ oldPassword: '1', newPassword: '1' }} />)
   .add('with wrong repeated password', () => <ComponentWithActions initialState={{ oldPassword: '1', newPassword: '2', repeatNewPassword: '3' }} />)
   .add('loading', () => <ComponentWithActions loading />)
-  .add('with errors', () => <ComponentWithActions error={{ graphQLErrors: ['No user found!'] }} />);
+  .add('with errors', () => <ComponentWithActions error={{ graphQLErrors: [{ message: 'No user found!' }] }} />);

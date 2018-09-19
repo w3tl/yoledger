@@ -5,10 +5,10 @@ export const Transaction = {
   id: ({ _id }) => _id,
   date: ({ createdAt }) => createdAt,
   source({ source }, _, { dataloaders, userId }) {
-    return dataloaders.accountByName.load({ name: source.name, userId });
+    return dataloaders.accountByName.load({ ...source, userId });
   },
   destination({ destination }, _, { dataloaders, userId }) {
-    return dataloaders.accountByName.load({ name: destination.name, userId });
+    return dataloaders.accountByName.load({ ...destination, userId });
   },
 };
 

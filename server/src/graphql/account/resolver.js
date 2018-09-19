@@ -16,7 +16,7 @@ export const Query = {
 export const Mutation = {
   async addAccount(root, { input }, { models: { accountModel } }) {
     const { name, type, balance } = input;
-    const existsAccount = await accountModel.findByName(name);
+    const existsAccount = await accountModel.findOne({ name, type });
     if (existsAccount && existsAccount.type === type) {
       throw new GraphQLError(`${name} already exists`);
     }

@@ -1,16 +1,16 @@
 [{
-  "__typename": "Account",
   "id": "1",
   "name": "Bank Card",
-  "balance": 0
+  "balance": 0,
+  "type": "ASSET"
 }, {
-  "__typename": "Account",
   "id": "2",
   "name": "Cash",
-  "balance": 10
+  "balance": 10,
+  "type": "ASSET"
 }, {
-  "__typename": "Account",
   "id": "3",
   "name": "Bank Card 2",
-  "balance": 150
+  "balance": 150,
+  "type": "ASSET"
 }]

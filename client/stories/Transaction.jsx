@@ -31,7 +31,7 @@ storiesOf('Transaction/Form', module)
   .add('filled', () => <TransactionForm transaction={{ ...transactions[0], id: null }} />)
   .add('editing', () => <TransactionForm transaction={transactions[0]} />)
   .add('loading', () => <TransactionForm loading />)
-  .add('with errors', () => <TransactionForm error={{ graphQLErrors: ['Wrong account name!'] }} />);
+  .add('with errors', () => <TransactionForm error={{ graphQLErrors: [{ message: 'Wrong account name!' }] }} />);
 
 storiesOf('Transaction/List', module)
   .add('with data', () => <TransactionList transactions={transactions} />)

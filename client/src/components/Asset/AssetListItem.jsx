@@ -1,28 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { List } from 'semantic-ui-react';
 import { assetPropType } from './propTypes';
 
-function AssetListItem({ url, asset }) {
-  const { id, name } = asset;
+function AssetListItem({ asset, onClick }) {
   return (
-    <List.Item>
+    <List.Item as="a" onClick={onClick}>
       <List.Icon name="credit card" />
-      <List.Content verticalAlign="bottom">
-        <Link to={{ pathname: `${url}/view`, state: { id } }}>{name}</Link>
-      </List.Content>
+      <List.Content verticalAlign="bottom">{asset.name}</List.Content>
     </List.Item>
   );
 }
 
 AssetListItem.propTypes = {
-  url: PropTypes.string,
   asset: assetPropType.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
-AssetListItem.defaultProps = {
-  url: null,
-};
+AssetListItem.defaultProps = {};
 
 export default AssetListItem;

@@ -1,7 +1,6 @@
 import dateResolver from '../../../../server/src/graphql/date';
 import assets from '../Asset/mockData';
-import expenses from '../Expense/mockData';
-import incomes from '../Income/mockData';
+import { expenses, incomes } from '../Categories/mockData';
 import { accounts, budgets as rawBudgets } from '../Budget/mockData';
 import transactions from '../Transaction/mockData';
 
@@ -16,10 +15,7 @@ export default {
       return accountsArray.find(a => a.id === id);
     },
     accounts(root, { type }) {
-      if (type === 'ASSET') return assets;
-      if (type === 'EXPENSE') return expenses;
-      if (type === 'INCOME') return incomes;
-      return [];
+      return accountsArray.filter(a => a.type === type);
     },
     budgets() {
       return { accounts };
@@ -63,7 +59,7 @@ export default {
     },
     addAccount(root, { input }) {
       return {
-        account: { id: '666', name: input.name },
+        account: { id: '666', ...input },
       };
     },
     addTransaction(root, { input }) {

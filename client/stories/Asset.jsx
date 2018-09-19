@@ -1,17 +1,30 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import RawAssetPage from '../src/components/Asset/AssetPage';
 import AssetForm from '../src/components/Asset/AssetForm';
-import AssetList from '../src/components/Asset/AssetList';
 import assets from '../src/components/Asset/mockData';
 
-storiesOf('Asset/Form', module)
-  .add('creating new', () => <AssetForm onSave={action('onSave')} />)
-  .add('filled', () => <AssetForm asset={{ ...assets[0], id: null }} />)
-  .add('editing', () => <AssetForm onSave={action('onSave')} asset={assets[0]} />)
-  .add('loading', () => <AssetForm loading />)
-  .add('with errors', () => <AssetForm error={{ graphQLErrors: ['Wrong account name!'] }} />);
+const AssetPage = props => (
+  <RawAssetPage
+    assets={assets}
+    onCreate={action('onCreate')}
+    formComponent={AssetForm}
+    {...props}
+  />);
 
-storiesOf('Asset/List', module)
-  .add('with data', () => <AssetList assets={assets} />)
-  .add('empty list', () => <AssetList />);
+const error = { graphQLErrors: [{ message: 'Account already exists!' }] };
+
+storiesOf('Assets/Page', module)
+  .add('default', () => <AssetPage />)
+  .add('empty', () => <AssetPage assets={[]} />)
+  .add('loading', () => <AssetPage loading />)
+  .add('with error', () => <AssetPage error={error} />)
+  .add('while adding new asset', () => <AssetPage initialState={{ activeItem: '-1' }} />)
+  .add('with active asset', () => <AssetPage initialState={{ activeItem: assets[0].id }} />);
+
+storiesOf('Assets/Form', module)
+  .add('default', () => <AssetForm onCreate={action('onCreate')} />)
+  .add('loading', () => <AssetForm loading />)
+  .add('with error', () => <AssetForm error={error} />)
+  .add('with asset', () => <AssetForm asset={assets[0]} onCreate={action('onCreate')} />);

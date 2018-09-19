@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`writeQuery 1`] = `
+Object {
+  "expenses": Array [
+    Object {
+      "type": "EXPENSE",
+    },
+  ],
+  "incomes": Array [],
+}
+`;
+
+exports[`writeQuery 2`] = `
+Object {
+  "expenses": Array [],
+  "incomes": Array [
+    Object {
+      "type": "INCOME",
+    },
+  ],
+}
+`;

@@ -45,7 +45,12 @@ export const updateAfterUpdate = ({ transaction: trans, dateStart, dateEnd }) =>
 const withAdd = Wrapped => props => (
   <Mutation mutation={ADD_MUTATION} update={updateAfterAdd(props)}>
     {(addTransaction, { loading, error }) => (
-      <Wrapped onCreate={addTransaction} loading={loading} error={error} {...props} />)}
+      <Wrapped
+        onCreate={addTransaction}
+        {...props}
+        loading={loading || props.loading}
+        error={error || props.error}
+      />)}
   </Mutation>
 );
 
@@ -58,7 +63,12 @@ const withDelete = Wrapped => props => (
       }
       if (props.transaction) {
         return (
-          <Wrapped onDelete={deleteTransaction} loading={loading} error={error} {...props} />);
+          <Wrapped
+            onDelete={deleteTransaction}
+            {...props}
+            loading={loading || props.loading}
+            error={error || props.error}
+          />);
       }
       return <Wrapped {...props} />;
     }}
@@ -71,9 +81,13 @@ const withUpdate = Wrapped => props => (
       if (data && data.updateTransaction && props.onClose) { // COMBAK: use variable to pathname
         props.onClose();
       }
-
       return (
-        <Wrapped onSave={updateTransaction} loading={loading} error={error} {...props} />);
+        <Wrapped
+          onSave={updateTransaction}
+          {...props}
+          loading={loading || props.loading}
+          error={error || props.error}
+        />);
     }}
   </Mutation>
 );

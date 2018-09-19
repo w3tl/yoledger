@@ -29,5 +29,5 @@ const FormFilled = props => (
 storiesOf('Elements/Form', module)
   .add('default', () => <FormFilled />)
   .add('loading', () => <FormFilled loading />)
-  .add('with one error', () => <FormFilled error={{ graphQLErrors: ['Some error occured'] }} />)
-  .add('with two error', () => <FormFilled error={{ graphQLErrors: ['Some error occured', 'Second error'] }} />);
+  .add('with one error', () => <FormFilled error={{ graphQLErrors: [{ message: 'Some error occured' }] }} />)
+  .add('with two error', () => <FormFilled error={{ graphQLErrors: [{ message: 'Some error occured' }, { message: 'Second error' }] }} />);

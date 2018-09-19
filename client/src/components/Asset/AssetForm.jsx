@@ -7,20 +7,21 @@ import { assetPropType } from './propTypes';
 class AssetForm extends React.Component {
   static propTypes = {
     asset: assetPropType,
-    onSave: PropTypes.func,
+    onCreate: PropTypes.func,
+    onClose: PropTypes.func,
   }
 
   static defaultProps = {
     asset: { id: null, name: '', balance: 0 },
-    onSave: () => {},
+    onCreate: () => {},
+    onClose: () => {},
   }
 
   constructor(props) {
     super(props);
     this.state = {
       isCreate: !props.asset.id,
-      name: props.asset.name,
-      balance: props.asset.balance,
+      ...props.asset,
     };
   }
 
@@ -31,16 +32,18 @@ class AssetForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { name, balance } = this.state;
-    const { onSave } = this.props;
-    onSave({ variables: { input: { name, balance, type: 'ASSET' } } });
+    const { onCreate } = this.props;
+    onCreate({ variables: { input: { name, balance, type: 'ASSET' } } });
   }
 
   render() {
     const { isCreate, balance, name } = this.state;
+    const { onClose } = this.props;
     return (
       <Form onSubmit={this.handleSubmit} {...this.props}>
         <Form.Field control={Input} label="Name" name="name" value={name} onChange={this.handleChange} />
         <Form.Field control={AmountInput} label="Balance" name="balance" value={balance} onChange={this.handleChange} />
+        <Button onClick={onClose}>Cancel</Button>
         <Button disabled={name.length === 0 || !isCreate} type="submit">Save</Button>
       </Form>
     );
