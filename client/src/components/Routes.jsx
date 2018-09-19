@@ -1,12 +1,10 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { shouldHaveId } from './utils';
-import { AssetForm, AssetList, AssetMenu } from './Asset';
-import { ExpenseForm, ExpenseList, ExpenseMenu } from './Expense';
-import { IncomeForm, IncomeList, IncomeMenu } from './Income';
+import CategoriesPage from './Categories';
 import { TransactionPage } from './Transaction';
 import { BudgetPage } from './Budget';
+import AssetPage from './Asset';
 import { LoginPage } from './Login';
 import ProfilePage from './Profile';
 
@@ -23,7 +21,7 @@ function ProtectedRoute({
         ) : (
           <Redirect
             to={{
-              pathname: '/',
+              pathname: '/signin',
               state: {
                 prevLocation: path,
               },
@@ -38,31 +36,13 @@ function ProtectedRoute({
 function Routes({ loggedIn, signin }) {
   return (
     <main>
-      <div>
-        <Route path="/assets" component={AssetMenu} />
-        <Route path="/expenses" component={ExpenseMenu} />
-        <Route path="/incomes" component={IncomeMenu} />
-      </div>
       <Route exact path="/" component={() => <h1>Hello</h1>} />
       <Route path="/signin" component={() => <LoginPage signin={signin} />} />
       <ProtectedRoute path="/budgets" component={BudgetPage} loggedIn={loggedIn} />
       <ProtectedRoute path="/transactions" component={TransactionPage} loggedIn={loggedIn} />
       <ProtectedRoute path="/profile" component={ProfilePage} loggedIn={loggedIn} />
-      <Switch>
-        <ProtectedRoute exact path="/assets" component={AssetList} loggedIn={loggedIn} />
-        <Route path="/assets/create" component={AssetForm} />
-        <Route path="/assets/view" component={shouldHaveId(AssetForm, '/assets')} />
-      </Switch>
-      <Switch>
-        <ProtectedRoute exact path="/expenses" component={ExpenseList} loggedIn={loggedIn} />
-        <Route path="/expenses/create" component={ExpenseForm} />
-        <Route path="/expenses/view" component={shouldHaveId(ExpenseForm, '/expenses')} />
-      </Switch>
-      <Switch>
-        <ProtectedRoute exact path="/incomes" component={IncomeList} loggedIn={loggedIn} />
-        <Route path="/incomes/create" component={IncomeForm} />
-        <Route path="/incomes/view" component={shouldHaveId(IncomeForm, '/incomes')} />
-      </Switch>
+      <ProtectedRoute path="/categories" component={CategoriesPage} loggedIn={loggedIn} />
+      <ProtectedRoute path="/assets" component={AssetPage} loggedIn={loggedIn} />
     </main>
   );
 }

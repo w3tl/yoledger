@@ -6,12 +6,12 @@ describe('dataloaders', () => {
   const dl = dataloaders(connection);
 
   test('accountByName', async () => {
-    const load = await dl.accountByName.load({ name: 'Food', userId: 'admin' });
+    const load = await dl.accountByName.load({ name: 'Food', type: 'EXPENSE', userId: 'admin' });
     expect(load).toMatchSnapshot('Load Food for admin');
 
     const loadMany = await dl.accountByName.loadMany([
-      { name: 'Food', userId: 'admin' },
-      { name: 'Train', userId: 'admin' },
+      { name: 'Food', type: 'EXPENSE', userId: 'admin' },
+      { name: 'Train', type: 'EXPENSE', userId: 'admin' },
     ]);
     expect(loadMany).toMatchSnapshot('Load Food and Train for admin');
   });

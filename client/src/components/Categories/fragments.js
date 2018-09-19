@@ -1,10 +1,11 @@
 import gql from 'graphql-tag';
 
 export default {
-  expense: gql`
-    fragment ExpenseAccount on Account {
+  category: gql`
+    fragment Category on Account {
       id
       name
+      type
     }
   `,
 };

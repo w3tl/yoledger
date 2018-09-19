@@ -3,9 +3,9 @@ import { Account } from '../model';
 
 const getAccountByName = connection => ids => new Promise((resolve, reject) => {
   const promises = ids.map(
-    ({ name, userId }) => {
+    ({ name, type, userId }) => {
       const account = new Account(connection.db(), userId);
-      return account.findByName(name);
+      return account.findOne({ name, type });
     },
   );
   Promise.all(promises)

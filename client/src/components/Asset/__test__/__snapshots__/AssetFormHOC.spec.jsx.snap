@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`writeQuery 1`] = `
+Object {
+  "assets": Array [
+    Object {
+      "type": "ASSET",
+    },
+  ],
+}
+`;

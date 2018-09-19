@@ -1,7 +1,7 @@
 export const Budget = {
   id: ({ _id }) => _id,
   account({ account }, _, { dataloaders, userId }) {
-    return dataloaders.accountByName.load({ name: account.name, userId });
+    return dataloaders.accountByName.load({ ...account, userId });
   },
 };
 

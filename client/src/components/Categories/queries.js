@@ -2,21 +2,24 @@ import gql from 'graphql-tag';
 import fragments from './fragments';
 
 export const LIST_QUERY = gql`
-query AssetsQuery {
-  assets: accounts(type: ASSET) {
-    ...AssetFormAccount
+query CategoriesQuery {
+  expenses: accounts(type: EXPENSE) {
+    ...Category
+  }
+  incomes: accounts(type: INCOME) {
+    ...Category
   }
 }
-${fragments.asset}
+${fragments.category}
 `;
 
 export const ADD_MUTATION = gql`
 mutation addAccount($input: AddAccountInput!) {
   addAccount(input: $input) {
     account {
-      ...AssetFormAccount
+      ...Category
     }
   }
 }
-${fragments.asset}
+${fragments.category}
 `;
