@@ -41,4 +41,4 @@ services:
     depends_on:
       - graphql
     environment:
-      REACT_APP_GRAPHQL_ENDPOINT: http://graphql:3030/graphql
+      REACT_APP_GRAPHQL_ENDPOINT: http://localhost:3030/graphql

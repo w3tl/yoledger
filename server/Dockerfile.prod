@@ -2,12 +2,14 @@ FROM node:10.10-alpine
 
 WORKDIR /app
 COPY package*.json /app/
+COPY . .
 RUN apk --no-cache --virtual build-dependencies add \
     krb5-dev \
     python \
     make \
     g++ \
     && npm install --silent \
-    && apk del build-dependencies
-COPY . .
-RUN npm run build
+    && apk del build-dependencies \
+    && npm run build
+CMD ["npm", "run", "start"]
+EXPOSE 3030

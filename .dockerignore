@@ -3,4 +3,3 @@
 .gitignore
 scripts
 **/node_modules
-**/build

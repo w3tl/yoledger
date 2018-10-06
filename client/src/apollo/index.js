@@ -7,6 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import decode from 'jwt-decode';
 import { defaults, Mutation } from './resolvers';
 import typeDefs from './typeDefs';
+import { GRAPHQL_ENDPOINT } from './config';
 
 export default () => {
   const cache = new InMemoryCache();
@@ -14,7 +15,7 @@ export default () => {
   const stateLink = withClientState({
     resolvers: { Mutation }, defaults, cache, typeDefs,
   });
-  const httpLink = createHttpLink({ uri: process.env.REACT_APP_GRAPHQL_ENDPOINT });
+  const httpLink = createHttpLink({ uri: GRAPHQL_ENDPOINT });
 
   const authLink = setContext((_, { headers }) => {
     const token = localStorage.getItem('token');

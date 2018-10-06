@@ -31,4 +31,7 @@ startup().then(async () => {
   app.listen({ port }, () => {
     console.log(`🚀 Server ready at http://localhost:${port}${server.graphqlPath}`);
   });
+}).catch((err) => {
+  console.error(err);
+  process.error(1);
 });

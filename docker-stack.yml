@@ -1,0 +1,37 @@
+version: "3.2"
+services:
+  proxy:
+    image: nginx:1.14-alpine
+    ports:
+      - "80:80"
+    deploy:
+      replicas: 1
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/conf.d/proxy.conf
+    networks:
+      - default
+  graphql:
+    image: 127.0.0.1:5000/yoledger-graphql
+    build:
+      context: ./server/
+      dockerfile: Dockerfile.prod
+    entrypoint: ["npm", "start"]
+    deploy:
+      replicas: 1
+    env_file: ./server/.env.production.local
+    networks:
+      - mongonet
+      - default
+  web:
+    image: 127.0.0.1:5000/yoledger-web
+    build: .
+    depends_on:
+      - graphql
+    deploy:
+      replicas: 1
+    networks:
+      - default
+
+networks:
+  mongonet:
+    external: true

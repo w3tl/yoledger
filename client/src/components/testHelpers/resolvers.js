@@ -1,4 +1,4 @@
-import dateResolver from '../../../../server/src/graphql/date';
+import dateResolver from './date';
 import assets from '../Asset/mockData';
 import { expenses, incomes } from '../Categories/mockData';
 import { accounts, budgets as rawBudgets } from '../Budget/mockData';

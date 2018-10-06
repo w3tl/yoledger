@@ -71,9 +71,9 @@ const mockCollections = {
         if ($and) {
           return Promise.resolve(
             budgets.filter(b => (
-              b.account.name === other['account.name'] &&
-              b.date.getTime() >= $and[0].$date.$gte.getTime() &&
-              b.date.getTime() <= $and[1].$date.$lte.getTime()
+              b.account.name === other['account.name']
+              && b.date.getTime() >= $and[0].date.$gte.getTime()
+              && b.date.getTime() <= $and[1].date.$lte.getTime()
             )),
           );
         }

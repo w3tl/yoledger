@@ -4,7 +4,7 @@
   "description": "Yo ledger API",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d ./build",
+    "build": "babel src -d ./build --ignore \"**/coverage/*.js,src/**/*.spec.js,src/**/*.test.js\"",
     "clean": "rm -rf build && mkdir build",
     "start": "NODE_ENV=production node ./build/index.js",
     "dev": "nodemon --exec babel-node src/index.js",
@@ -15,6 +15,7 @@
   "author": "Vitaly Dostovalov",
   "license": "MIT",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "apollo-server-express": "^2.0.6",
     "argon2": "^0.19.3",
     "babel-plugin-inline-import": "^3.0.0",
@@ -29,7 +30,6 @@
     "mongodb-topology-manager": "^2.1.0"
   },
   "devDependencies": {
-    "@babel/polyfill": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
@@ -38,6 +38,9 @@
     "jest": "^23.6.0",
     "jest-environment-node": "^23.4.0",
     "nodemon": "^1.18.4"
+  },
+  "engines": {
+    "node": "10.x"
   },
   "jest": {
     "testEnvironment": "node",

@@ -1,0 +1,48 @@
+version: "3.2"
+services:
+  mongo1:
+    image: mongo
+    command:
+      - "--smallfiles"
+      - "--replSet"
+      - "rs"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /data/db/rs-1:/data/db
+    networks:
+      - backend
+  mongo2:
+    image: mongo
+    command:
+      - "--smallfiles"
+      - "--replSet"
+      - "rs"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /data/db/rs-2:/data/db
+    networks:
+      - backend
+  mongo3:
+    image: mongo
+    command:
+      - "--smallfiles"
+      - "--replSet"
+      - "rs"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    volumes:
+      - /data/db/rs-3:/data/db
+    networks:
+      - backend
+
+networks:
+  backend:
+    external: true
