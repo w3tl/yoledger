@@ -1,0 +1,5645 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots Assets/Form default 1`] = `
+<form
+  action={undefined}
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Name
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="name"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Balance
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="balance"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseUp={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="0"
+      />
+    </div>
+  </div>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+  >
+    Cancel
+  </button>
+  <button
+    className="ui disabled button"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+    tabIndex={-1}
+    type="submit"
+  >
+    Save
+  </button>
+  <div
+    className="ui error hidden message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Assets/Form loading 1`] = `
+<form
+  action={undefined}
+  className="ui loading form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Name
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="name"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Balance
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="balance"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseUp={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="0"
+      />
+    </div>
+  </div>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+  >
+    Cancel
+  </button>
+  <button
+    className="ui disabled button"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+    tabIndex={-1}
+    type="submit"
+  >
+    Save
+  </button>
+  <div
+    className="ui error hidden message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Assets/Form with asset 1`] = `
+<form
+  action={undefined}
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Name
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="name"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="Bank Card"
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Balance
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="balance"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseUp={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="0"
+      />
+    </div>
+  </div>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+  >
+    Cancel
+  </button>
+  <button
+    className="ui disabled button"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+    tabIndex={-1}
+    type="submit"
+  >
+    Save
+  </button>
+  <div
+    className="ui error hidden message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Assets/Form with error 1`] = `
+<form
+  action={undefined}
+  className="ui error form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Name
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="name"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Balance
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="balance"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onMouseUp={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="0"
+      />
+    </div>
+  </div>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+  >
+    Cancel
+  </button>
+  <button
+    className="ui disabled button"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+    tabIndex={-1}
+    type="submit"
+  >
+    Save
+  </button>
+  <div
+    className="ui error message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+      <ul
+        className="list"
+      >
+        <li
+          className="content"
+        >
+          Account already exists!
+        </li>
+      </ul>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Assets/Page default 1`] = `
+<div>
+  <div
+    className="ui divided two column grid"
+  >
+    <div
+      className="column"
+    >
+      <div
+        className="ui divided selection relaxed middle aligned list"
+        role="list"
+      >
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Bank Card
+            </div>
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Cash
+            </div>
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Bank Card 2
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="column"
+    >
+      <div
+        className="ui center aligned container"
+      >
+        <button
+          className="ui button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+          type="button"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Assets/Page empty 1`] = `
+<div>
+  <div
+    className="ui divided two column grid"
+  >
+    <div
+      className="column"
+    >
+      <div
+        className="ui divided selection relaxed middle aligned list"
+        role="list"
+      >
+        <h2
+          className="ui disabled center aligned header"
+        >
+          Empty
+        </h2>
+      </div>
+    </div>
+    <div
+      className="column"
+    >
+      <div
+        className="ui center aligned container"
+      >
+        <button
+          className="ui button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+          type="button"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Assets/Page loading 1`] = `
+<div
+  className="ui loading segment"
+/>
+`;
+
+exports[`Storyshots Assets/Page while adding new asset 1`] = `
+<div>
+  <div
+    className="ui divided two column grid"
+  >
+    <div
+      className="column"
+    >
+      <div
+        className="ui divided selection relaxed middle aligned list"
+        role="list"
+      >
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Bank Card
+            </div>
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Cash
+            </div>
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Bank Card 2
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="column"
+    >
+      <form
+        action={undefined}
+        className="ui form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="field"
+        >
+          <label
+            htmlFor={undefined}
+          >
+            Name
+          </label>
+          <div
+            className="ui input"
+            content={undefined}
+          >
+            <input
+              disabled={undefined}
+              name="name"
+              onChange={[Function]}
+              required={undefined}
+              tabIndex={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <label
+            htmlFor={undefined}
+          >
+            Balance
+          </label>
+          <div
+            className="ui input"
+            content={undefined}
+          >
+            <input
+              disabled={undefined}
+              name="balance"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseUp={[Function]}
+              required={undefined}
+              tabIndex={undefined}
+              type="text"
+              value="0"
+            />
+          </div>
+        </div>
+        <button
+          className="ui button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+        >
+          Cancel
+        </button>
+        <button
+          className="ui disabled button"
+          disabled={true}
+          onClick={[Function]}
+          role="button"
+          tabIndex={-1}
+          type="submit"
+        >
+          Save
+        </button>
+        <div
+          className="ui error hidden message"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Could you check something!
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Assets/Page with active asset 1`] = `
+<div>
+  <div
+    className="ui divided two column grid"
+  >
+    <div
+      className="column"
+    >
+      <div
+        className="ui divided selection relaxed middle aligned list"
+        role="list"
+      >
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="right floated content"
+          >
+            <i
+              aria-hidden="true"
+              className="angle right icon"
+            />
+          </div>
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Bank Card
+            </div>
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Cash
+            </div>
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Bank Card 2
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="column"
+    >
+      <form
+        action={undefined}
+        className="ui form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="field"
+        >
+          <label
+            htmlFor={undefined}
+          >
+            Name
+          </label>
+          <div
+            className="ui input"
+            content={undefined}
+          >
+            <input
+              disabled={undefined}
+              name="name"
+              onChange={[Function]}
+              required={undefined}
+              tabIndex={undefined}
+              type="text"
+              value="Bank Card"
+            />
+          </div>
+        </div>
+        <div
+          className="field"
+        >
+          <label
+            htmlFor={undefined}
+          >
+            Balance
+          </label>
+          <div
+            className="ui input"
+            content={undefined}
+          >
+            <input
+              disabled={undefined}
+              name="balance"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseUp={[Function]}
+              required={undefined}
+              tabIndex={undefined}
+              type="text"
+              value="0"
+            />
+          </div>
+        </div>
+        <button
+          className="ui button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+        >
+          Cancel
+        </button>
+        <button
+          className="ui disabled button"
+          disabled={true}
+          onClick={[Function]}
+          role="button"
+          tabIndex={-1}
+          type="submit"
+        >
+          Save
+        </button>
+        <div
+          className="ui error hidden message"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Could you check something!
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Assets/Page with error 1`] = `
+<div>
+  <div
+    className="ui divided two column grid"
+  >
+    <div
+      className="column"
+    >
+      <div
+        className="ui divided selection relaxed middle aligned list"
+        role="list"
+      >
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Bank Card
+            </div>
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Cash
+            </div>
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Bank Card 2
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="column"
+    >
+      <div
+        className="ui center aligned container"
+      >
+        <button
+          className="ui button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+          type="button"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Budget/Page with budget 1`] = `
+<div
+  className="ui loading segment"
+/>
+`;
+
+exports[`Storyshots Budget/Table default 1`] = `
+<table
+  className="ui fixed striped very basic seven column table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <div
+          className="ui icon buttons"
+        >
+          <button
+            className="ui icon button"
+            disabled={undefined}
+            id="prevButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={undefined}
+          >
+            <i
+              aria-hidden="true"
+              className="left chevron icon"
+            />
+          </button>
+          <button
+            className="ui icon button"
+            disabled={undefined}
+            id="nextButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={undefined}
+          >
+            <i
+              aria-hidden="true"
+              className="right chevron icon"
+            />
+          </button>
+        </div>
+      </th>
+      <th
+        className=""
+      >
+        10 Jun
+      </th>
+      <th
+        className=""
+      >
+        25 Jun
+      </th>
+      <th
+        className=""
+      >
+        10 Jul
+      </th>
+      <th
+        className=""
+      >
+        25 Jul
+      </th>
+      <th
+        className=""
+      >
+        10 Aug
+      </th>
+      <th
+        className=""
+      >
+        25 Aug
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <td
+        className=""
+      >
+        Food
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+    </tr>
+    <tr
+      className=""
+    >
+      <td
+        className=""
+      >
+        Train
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+    </tr>
+  </tbody>
+  <tfoot
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <button
+          className="ui primary button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+        >
+          Add
+        </button>
+      </th>
+      <th
+        className=""
+        colSpan={6}
+      />
+    </tr>
+  </tfoot>
+</table>
+`;
+
+exports[`Storyshots Budget/Table loading 1`] = `
+<table
+  className="ui fixed striped very basic seven column table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <div
+          className="ui icon buttons"
+        >
+          <button
+            className="ui icon button"
+            disabled={undefined}
+            id="prevButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={undefined}
+          >
+            <i
+              aria-hidden="true"
+              className="left chevron icon"
+            />
+          </button>
+          <button
+            className="ui icon button"
+            disabled={undefined}
+            id="nextButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={undefined}
+          >
+            <i
+              aria-hidden="true"
+              className="right chevron icon"
+            />
+          </button>
+        </div>
+      </th>
+      <th
+        className=""
+      >
+        10 Jun
+      </th>
+      <th
+        className=""
+      >
+        25 Jun
+      </th>
+      <th
+        className=""
+      >
+        10 Jul
+      </th>
+      <th
+        className=""
+      >
+        25 Jul
+      </th>
+      <th
+        className=""
+      >
+        10 Aug
+      </th>
+      <th
+        className=""
+      >
+        25 Aug
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <td
+        className=""
+      >
+        Food
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+    </tr>
+    <tr
+      className=""
+    >
+      <td
+        className=""
+      >
+        Train
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+      <td
+        className=""
+      >
+        Cell
+      </td>
+    </tr>
+  </tbody>
+  <tfoot
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+        colSpan={7}
+      >
+        <div
+          className="ui small active centered inline loader"
+        />
+      </th>
+    </tr>
+  </tfoot>
+</table>
+`;
+
+exports[`Storyshots Budget/Table without accounts 1`] = `
+<table
+  className="ui fixed striped very basic seven column table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <div
+          className="ui icon buttons"
+        >
+          <button
+            className="ui icon button"
+            disabled={undefined}
+            id="prevButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={undefined}
+          >
+            <i
+              aria-hidden="true"
+              className="left chevron icon"
+            />
+          </button>
+          <button
+            className="ui icon button"
+            disabled={undefined}
+            id="nextButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={undefined}
+          >
+            <i
+              aria-hidden="true"
+              className="right chevron icon"
+            />
+          </button>
+        </div>
+      </th>
+      <th
+        className=""
+      >
+        10 Jun
+      </th>
+      <th
+        className=""
+      >
+        25 Jun
+      </th>
+      <th
+        className=""
+      >
+        10 Jul
+      </th>
+      <th
+        className=""
+      >
+        25 Jul
+      </th>
+      <th
+        className=""
+      >
+        10 Aug
+      </th>
+      <th
+        className=""
+      >
+        25 Aug
+      </th>
+    </tr>
+  </thead>
+  <tbody
+    className=""
+  />
+  <tfoot
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <button
+          className="ui primary button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+        >
+          Add
+        </button>
+      </th>
+      <th
+        className=""
+        colSpan={6}
+      />
+    </tr>
+  </tfoot>
+</table>
+`;
+
+exports[`Storyshots Budget/Table/Footer default 1`] = `
+<table
+  className="ui fixed seven column table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        Food
+      </th>
+      <th
+        className=""
+      >
+        100
+      </th>
+      <th
+        className=""
+        colSpan={5}
+      />
+    </tr>
+  </thead>
+  <tfoot
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <button
+          className="ui primary button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+        >
+          Add
+        </button>
+      </th>
+      <th
+        className=""
+        colSpan={6}
+      />
+    </tr>
+  </tfoot>
+</table>
+`;
+
+exports[`Storyshots Budget/Table/Footer loading 1`] = `
+<table
+  className="ui fixed seven column table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        Food
+      </th>
+      <th
+        className=""
+      >
+        100
+      </th>
+      <th
+        className=""
+        colSpan={5}
+      />
+    </tr>
+  </thead>
+  <tfoot
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+        colSpan={7}
+      >
+        <div
+          className="ui small active centered inline loader"
+        />
+      </th>
+    </tr>
+  </tfoot>
+</table>
+`;
+
+exports[`Storyshots Budget/Table/Footer when click add 1`] = `
+<table
+  className="ui fixed seven column table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        Food
+      </th>
+      <th
+        className=""
+      >
+        100
+      </th>
+      <th
+        className=""
+        colSpan={5}
+      />
+    </tr>
+  </thead>
+  <tfoot
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <div
+          className="ui fluid input"
+        >
+          <input
+            disabled={undefined}
+            name="newAccount"
+            onChange={[Function]}
+            tabIndex={undefined}
+            type="text"
+            value=""
+          />
+        </div>
+      </th>
+      <th
+        className=""
+        colSpan={6}
+      >
+        <button
+          className="ui button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+        >
+          Cancel
+        </button>
+        <button
+          className="ui primary disabled button"
+          disabled={true}
+          id="addAccount"
+          onClick={[Function]}
+          role="button"
+          tabIndex={-1}
+        >
+          Add
+        </button>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+`;
+
+exports[`Storyshots Budget/Table/Footer when click add and enter existing account 1`] = `
+<table
+  className="ui fixed seven column table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        Food
+      </th>
+      <th
+        className=""
+      >
+        100
+      </th>
+      <th
+        className=""
+        colSpan={5}
+      />
+    </tr>
+  </thead>
+  <tfoot
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <div
+          className="ui fluid input"
+        >
+          <input
+            disabled={undefined}
+            name="newAccount"
+            onChange={[Function]}
+            tabIndex={undefined}
+            type="text"
+            value="Food"
+          />
+        </div>
+      </th>
+      <th
+        className=""
+        colSpan={6}
+      >
+        <button
+          className="ui button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+        >
+          Cancel
+        </button>
+        <button
+          className="ui primary disabled button"
+          disabled={true}
+          id="addAccount"
+          onClick={[Function]}
+          role="button"
+          tabIndex={-1}
+        >
+          Add
+        </button>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+`;
+
+exports[`Storyshots Budget/Table/Footer when click add and enter new account 1`] = `
+<table
+  className="ui fixed seven column table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        Food
+      </th>
+      <th
+        className=""
+      >
+        100
+      </th>
+      <th
+        className=""
+        colSpan={5}
+      />
+    </tr>
+  </thead>
+  <tfoot
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <div
+          className="ui fluid input"
+        >
+          <input
+            disabled={undefined}
+            name="newAccount"
+            onChange={[Function]}
+            tabIndex={undefined}
+            type="text"
+            value="New account"
+          />
+        </div>
+      </th>
+      <th
+        className=""
+        colSpan={6}
+      >
+        <button
+          className="ui button"
+          disabled={undefined}
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+        >
+          Cancel
+        </button>
+        <button
+          className="ui primary button"
+          disabled={undefined}
+          id="addAccount"
+          onClick={[Function]}
+          role="button"
+          tabIndex={undefined}
+        >
+          Add
+        </button>
+      </th>
+    </tr>
+  </tfoot>
+</table>
+`;
+
+exports[`Storyshots Budget/Table/Header default 1`] = `
+<table
+  className="ui fixed seven column table"
+>
+  <thead
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <th
+        className=""
+      >
+        <div
+          className="ui icon buttons"
+        >
+          <button
+            className="ui icon button"
+            disabled={undefined}
+            id="prevButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={undefined}
+          >
+            <i
+              aria-hidden="true"
+              className="left chevron icon"
+            />
+          </button>
+          <button
+            className="ui icon button"
+            disabled={undefined}
+            id="nextButton"
+            onClick={[Function]}
+            role="button"
+            tabIndex={undefined}
+          >
+            <i
+              aria-hidden="true"
+              className="right chevron icon"
+            />
+          </button>
+        </div>
+      </th>
+      <th
+        className=""
+      >
+        10 Jun
+      </th>
+      <th
+        className=""
+      >
+        25 Jun
+      </th>
+      <th
+        className=""
+      >
+        10 Jul
+      </th>
+      <th
+        className=""
+      >
+        25 Jul
+      </th>
+      <th
+        className=""
+      >
+        10 Aug
+      </th>
+      <th
+        className=""
+      >
+        25 Aug
+      </th>
+    </tr>
+  </thead>
+</table>
+`;
+
+exports[`Storyshots Budget/Table/Row default 1`] = `
+<table
+  className="ui fixed seven column table"
+>
+  <tbody
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <td
+        className=""
+      >
+        <h4
+          className="ui header"
+        >
+          <div
+            className="content"
+          >
+            Food
+            <div
+              className="sub header"
+            />
+          </div>
+        </h4>
+      </td>
+      <td
+        className=""
+      >
+        <div
+          className="ui transparent input"
+        >
+          <input
+            disabled={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            tabIndex={undefined}
+            type="text"
+            value="12"
+          />
+        </div>
+      </td>
+      <td
+        className=""
+      >
+        <div
+          className="ui transparent input"
+        >
+          <input
+            disabled={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            tabIndex={undefined}
+            type="text"
+            value="0"
+          />
+        </div>
+      </td>
+      <td
+        className=""
+      >
+        <div
+          className="ui transparent input"
+        >
+          <input
+            disabled={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            tabIndex={undefined}
+            type="text"
+            value="14"
+          />
+        </div>
+      </td>
+      <td
+        className=""
+      >
+        <div
+          className="ui transparent input"
+        >
+          <input
+            disabled={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            tabIndex={undefined}
+            type="text"
+            value="16"
+          />
+        </div>
+      </td>
+      <td
+        className=""
+      >
+        <div
+          className="ui transparent input"
+        >
+          <input
+            disabled={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            tabIndex={undefined}
+            type="text"
+            value="20"
+          />
+        </div>
+      </td>
+      <td
+        className=""
+      >
+        <div
+          className="ui transparent input"
+        >
+          <input
+            disabled={undefined}
+            name={undefined}
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            tabIndex={undefined}
+            type="text"
+            value="0"
+          />
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Budget/Table/Row loading 1`] = `
+<table
+  className="ui fixed seven column table"
+>
+  <tbody
+    className=""
+  >
+    <tr
+      className=""
+    >
+      <td
+        className=""
+      >
+        <h4
+          className="ui header"
+        >
+          <div
+            className="content"
+          >
+            Food
+            <div
+              className="sub header"
+            />
+          </div>
+        </h4>
+      </td>
+      <td
+        className=""
+        colSpan={6}
+      >
+        <div
+          className="ui small active centered inline loader"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Storyshots Categories/Page add tab 1`] = `
+<div>
+  <div>
+    <div
+      className="ui attached tabular menu"
+    >
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Expenses
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Incomes
+      </a>
+      <a
+        className="active item"
+        onClick={[Function]}
+      >
+        Add new
+      </a>
+    </div>
+    <div
+      className="ui bottom attached segment active tab"
+    >
+      <form
+        action={undefined}
+        className="ui form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="field"
+        >
+          <label
+            htmlFor={undefined}
+          >
+            Name
+          </label>
+          <div
+            className="ui input"
+            content={undefined}
+          >
+            <input
+              disabled={undefined}
+              name="name"
+              onChange={[Function]}
+              required={undefined}
+              tabIndex={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="fields"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="ui checked radio checkbox"
+              onChange={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <input
+                checked={true}
+                className="hidden"
+                disabled={undefined}
+                id={undefined}
+                name="type"
+                onClick={[Function]}
+                readOnly={true}
+                tabIndex={0}
+                type="radio"
+                value="EXPENSE"
+              />
+              <label
+                htmlFor={undefined}
+              >
+                Expense
+              </label>
+            </div>
+          </div>
+          <div
+            className="field"
+          >
+            <div
+              className="ui radio checkbox"
+              onChange={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <input
+                checked={false}
+                className="hidden"
+                disabled={undefined}
+                id={undefined}
+                name="type"
+                onClick={[Function]}
+                readOnly={true}
+                tabIndex={0}
+                type="radio"
+                value="INCOME"
+              />
+              <label
+                htmlFor={undefined}
+              >
+                Income
+              </label>
+            </div>
+          </div>
+        </div>
+        <button
+          className="ui disabled button"
+          disabled={true}
+          onClick={[Function]}
+          role="button"
+          tabIndex={-1}
+          type="submit"
+        >
+          Save
+        </button>
+        <div
+          className="ui error hidden message"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Could you check something!
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Categories/Page default 1`] = `
+<div>
+  <div>
+    <div
+      className="ui attached tabular menu"
+    >
+      <a
+        className="active item"
+        onClick={[Function]}
+      >
+        Expenses
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Incomes
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Add new
+      </a>
+    </div>
+    <div
+      className="ui bottom attached segment active tab"
+    >
+      <div
+        className="ui list"
+        role="list"
+      >
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Food
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Beer
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Train
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Categories/Page empty 1`] = `
+<div>
+  <div>
+    <div
+      className="ui attached tabular menu"
+    >
+      <a
+        className="active item"
+        onClick={[Function]}
+      >
+        Expenses
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Incomes
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Add new
+      </a>
+    </div>
+    <div
+      className="ui bottom attached segment active tab"
+    >
+      <div
+        className="ui list"
+        role="list"
+      >
+        <h2
+          className="ui disabled header"
+        >
+          Empty
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Categories/Page income tab 1`] = `
+<div>
+  <div>
+    <div
+      className="ui attached tabular menu"
+    >
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Expenses
+      </a>
+      <a
+        className="active item"
+        onClick={[Function]}
+      >
+        Incomes
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Add new
+      </a>
+    </div>
+    <div
+      className="ui bottom attached segment active tab"
+    >
+      <div
+        className="ui list"
+        role="list"
+      >
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Salary
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Debts
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Cashback
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Categories/Page loading mutation 1`] = `
+<div>
+  <div>
+    <div
+      className="ui attached tabular menu"
+    >
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Expenses
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Incomes
+      </a>
+      <a
+        className="active item"
+        onClick={[Function]}
+      >
+        Add new
+      </a>
+    </div>
+    <div
+      className="ui bottom attached segment active tab"
+    >
+      <form
+        action={undefined}
+        className="ui loading form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="field"
+        >
+          <label
+            htmlFor={undefined}
+          >
+            Name
+          </label>
+          <div
+            className="ui input"
+            content={undefined}
+          >
+            <input
+              disabled={undefined}
+              name="name"
+              onChange={[Function]}
+              required={undefined}
+              tabIndex={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="fields"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="ui checked radio checkbox"
+              onChange={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <input
+                checked={true}
+                className="hidden"
+                disabled={undefined}
+                id={undefined}
+                name="type"
+                onClick={[Function]}
+                readOnly={true}
+                tabIndex={0}
+                type="radio"
+                value="EXPENSE"
+              />
+              <label
+                htmlFor={undefined}
+              >
+                Expense
+              </label>
+            </div>
+          </div>
+          <div
+            className="field"
+          >
+            <div
+              className="ui radio checkbox"
+              onChange={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <input
+                checked={false}
+                className="hidden"
+                disabled={undefined}
+                id={undefined}
+                name="type"
+                onClick={[Function]}
+                readOnly={true}
+                tabIndex={0}
+                type="radio"
+                value="INCOME"
+              />
+              <label
+                htmlFor={undefined}
+              >
+                Income
+              </label>
+            </div>
+          </div>
+        </div>
+        <button
+          className="ui disabled button"
+          disabled={true}
+          onClick={[Function]}
+          role="button"
+          tabIndex={-1}
+          type="submit"
+        >
+          Save
+        </button>
+        <div
+          className="ui error hidden message"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Could you check something!
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Categories/Page loading query 1`] = `
+<div>
+  <div>
+    <div
+      className="ui attached tabular menu"
+    >
+      <a
+        className="active item"
+        onClick={[Function]}
+      >
+        Expenses
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Incomes
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Add new
+      </a>
+    </div>
+    <div
+      className="ui bottom attached segment active loading tab"
+    >
+      <div
+        className="ui list"
+        role="list"
+      >
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Food
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Beer
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Train
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Categories/Page with mutation error 1`] = `
+<div>
+  <div>
+    <div
+      className="ui attached tabular menu"
+    >
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Expenses
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Incomes
+      </a>
+      <a
+        className="active item"
+        onClick={[Function]}
+      >
+        Add new
+      </a>
+    </div>
+    <div
+      className="ui bottom attached segment active tab"
+    >
+      <form
+        action={undefined}
+        className="ui error form"
+        onSubmit={[Function]}
+      >
+        <div
+          className="field"
+        >
+          <label
+            htmlFor={undefined}
+          >
+            Name
+          </label>
+          <div
+            className="ui input"
+            content={undefined}
+          >
+            <input
+              disabled={undefined}
+              name="name"
+              onChange={[Function]}
+              required={undefined}
+              tabIndex={undefined}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          className="fields"
+        >
+          <div
+            className="field"
+          >
+            <div
+              className="ui checked radio checkbox"
+              onChange={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <input
+                checked={true}
+                className="hidden"
+                disabled={undefined}
+                id={undefined}
+                name="type"
+                onClick={[Function]}
+                readOnly={true}
+                tabIndex={0}
+                type="radio"
+                value="EXPENSE"
+              />
+              <label
+                htmlFor={undefined}
+              >
+                Expense
+              </label>
+            </div>
+          </div>
+          <div
+            className="field"
+          >
+            <div
+              className="ui radio checkbox"
+              onChange={[Function]}
+              onClick={[Function]}
+              onMouseDown={[Function]}
+            >
+              <input
+                checked={false}
+                className="hidden"
+                disabled={undefined}
+                id={undefined}
+                name="type"
+                onClick={[Function]}
+                readOnly={true}
+                tabIndex={0}
+                type="radio"
+                value="INCOME"
+              />
+              <label
+                htmlFor={undefined}
+              >
+                Income
+              </label>
+            </div>
+          </div>
+        </div>
+        <button
+          className="ui disabled button"
+          disabled={true}
+          onClick={[Function]}
+          role="button"
+          tabIndex={-1}
+          type="submit"
+        >
+          Save
+        </button>
+        <div
+          className="ui error message"
+        >
+          <div
+            className="content"
+          >
+            <div
+              className="header"
+            >
+              Could you check something!
+            </div>
+            <ul
+              className="list"
+            >
+              <li
+                className="content"
+              >
+                Account already exists!
+              </li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Categories/Page with query error 1`] = `
+<div>
+  <div>
+    <div
+      className="ui attached tabular menu"
+    >
+      <a
+        className="active item"
+        onClick={[Function]}
+      >
+        Expenses
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Incomes
+      </a>
+      <a
+        className="item"
+        onClick={[Function]}
+      >
+        Add new
+      </a>
+    </div>
+    <div
+      className="ui bottom attached segment active tab"
+    >
+      <div
+        className="ui list"
+        role="list"
+      >
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Food
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Beer
+          </div>
+        </div>
+        <div
+          className="item"
+          data-value={undefined}
+          onClick={[Function]}
+          role="listitem"
+        >
+          <div
+            className="header"
+          >
+            Train
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Elements/AccountInput default 1`] = `
+<div
+  className="ui input"
+>
+  <input
+    disabled={undefined}
+    onChange={[Function]}
+    tabIndex={undefined}
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`Storyshots Elements/AccountInput with value 1`] = `
+<div
+  className="ui input"
+>
+  <input
+    disabled={undefined}
+    onChange={[Function]}
+    tabIndex={undefined}
+    type="text"
+    value="Food"
+  />
+</div>
+`;
+
+exports[`Storyshots Elements/AmountInput default 1`] = `
+<div
+  className="ui input"
+>
+  <input
+    disabled={undefined}
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseUp={[Function]}
+    tabIndex={undefined}
+    type="text"
+    value="0"
+  />
+</div>
+`;
+
+exports[`Storyshots Elements/AmountInput with value 1`] = `
+<div
+  className="ui input"
+>
+  <input
+    disabled={undefined}
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onMouseUp={[Function]}
+    tabIndex={undefined}
+    type="text"
+    value="10,000.9"
+  />
+</div>
+`;
+
+exports[`Storyshots Elements/DateInput default 1`] = `
+<div
+  className="field"
+>
+  <div
+    className="ui icon input"
+    content={undefined}
+  >
+    <input
+      disabled={undefined}
+      name="DateInput"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      required={undefined}
+      tabIndex={undefined}
+      type="text"
+      value={undefined}
+    />
+    <i
+      aria-hidden="true"
+      className="calendar icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Elements/DateInput with label 1`] = `
+<div
+  className="field"
+>
+  <label
+    htmlFor={undefined}
+  >
+    Input here
+  </label>
+  <div
+    className="ui icon input"
+    content={undefined}
+  >
+    <input
+      disabled={undefined}
+      name="DateInput"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      required={undefined}
+      tabIndex={undefined}
+      type="text"
+      value={undefined}
+    />
+    <i
+      aria-hidden="true"
+      className="calendar icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Elements/DateInput with value 1`] = `
+<div
+  className="field"
+>
+  <div
+    className="ui icon input"
+    content={undefined}
+  >
+    <input
+      disabled={undefined}
+      name="DateInput"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      required={undefined}
+      tabIndex={undefined}
+      type="text"
+      value="2018-01-02"
+    />
+    <i
+      aria-hidden="true"
+      className="calendar icon"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Elements/Form default 1`] = `
+<form
+  action={undefined}
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Name
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="Name"
+      />
+    </div>
+  </div>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+    type="submit"
+  >
+    Submit
+  </button>
+  <div
+    className="ui error hidden message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Elements/Form loading 1`] = `
+<form
+  action={undefined}
+  className="ui loading form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Name
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="Name"
+      />
+    </div>
+  </div>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+    type="submit"
+  >
+    Submit
+  </button>
+  <div
+    className="ui error hidden message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Elements/Form with one error 1`] = `
+<form
+  action={undefined}
+  className="ui error form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Name
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="Name"
+      />
+    </div>
+  </div>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+    type="submit"
+  >
+    Submit
+  </button>
+  <div
+    className="ui error message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+      <ul
+        className="list"
+      >
+        <li
+          className="content"
+        >
+          Some error occured
+        </li>
+      </ul>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Elements/Form with two error 1`] = `
+<form
+  action={undefined}
+  className="ui error form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Name
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="Name"
+      />
+    </div>
+  </div>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+    type="submit"
+  >
+    Submit
+  </button>
+  <div
+    className="ui error message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+      <ul
+        className="list"
+      >
+        <li
+          className="content"
+        >
+          Some error occured
+        </li>
+        <li
+          className="content"
+        >
+          Second error
+        </li>
+      </ul>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Login/Bar logged in 1`] = `
+<div
+  className="ui menu"
+>
+  <div
+    className="right menu"
+  >
+    <a
+      className="item"
+      href="/profile"
+      onClick={[Function]}
+    >
+      Profile
+    </a>
+    <a
+      className="item"
+      onClick={[Function]}
+    >
+      Signout
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Login/Bar logged out 1`] = `
+<div
+  className="ui menu"
+>
+  <div
+    className="right menu"
+  >
+    <a
+      className="item"
+      href="/signin"
+      onClick={[Function]}
+    >
+      Sign In
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Login/Page default 1`] = `
+<form
+  action={undefined}
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Username
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="username"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Password
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="password"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="password"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    className="ui disabled button"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+    tabIndex={-1}
+    type="submit"
+  >
+    Sign in
+  </button>
+  <div
+    className="ui error hidden message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Login/Page filled 1`] = `
+<form
+  action={undefined}
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Username
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="username"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value="admin"
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Password
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="password"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="password"
+        value="password"
+      />
+    </div>
+  </div>
+  <button
+    className="ui button"
+    disabled={undefined}
+    onClick={[Function]}
+    role="button"
+    tabIndex={undefined}
+    type="submit"
+  >
+    Sign in
+  </button>
+  <div
+    className="ui error hidden message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Login/Page loading 1`] = `
+<form
+  action={undefined}
+  className="ui loading form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Username
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="username"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Password
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="password"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="password"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    className="ui disabled button"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+    tabIndex={-1}
+    type="submit"
+  >
+    Sign in
+  </button>
+  <div
+    className="ui error hidden message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Login/Page with error 1`] = `
+<form
+  action={undefined}
+  className="ui error form"
+  onSubmit={[Function]}
+>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Username
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="username"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="field"
+  >
+    <label
+      htmlFor={undefined}
+    >
+      Password
+    </label>
+    <div
+      className="ui input"
+      content={undefined}
+    >
+      <input
+        disabled={undefined}
+        name="password"
+        onChange={[Function]}
+        required={undefined}
+        tabIndex={undefined}
+        type="password"
+        value=""
+      />
+    </div>
+  </div>
+  <button
+    className="ui disabled button"
+    disabled={true}
+    onClick={[Function]}
+    role="button"
+    tabIndex={-1}
+    type="submit"
+  >
+    Sign in
+  </button>
+  <div
+    className="ui error message"
+  >
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        Could you check something!
+      </div>
+      <ul
+        className="list"
+      >
+        <li
+          className="content"
+        >
+          No user found!
+        </li>
+      </ul>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Navigation sign in 1`] = `
+<div
+  className="ui menu"
+>
+  <a
+    className="item"
+    href="/"
+    onClick={[Function]}
+  >
+    Yoledger
+  </a>
+  <a
+    className="item"
+    href="/assets"
+    onClick={[Function]}
+  >
+    Assets
+  </a>
+  <a
+    className="item"
+    href="/categories"
+    onClick={[Function]}
+  >
+    Categories
+  </a>
+  <a
+    className="item"
+    href="/budgets"
+    onClick={[Function]}
+  >
+    Budget
+  </a>
+  <a
+    className="item"
+    href="/transactions"
+    onClick={[Function]}
+  >
+    Transactions
+  </a>
+  <div
+    className="right menu"
+  >
+    <a
+      className="item"
+      href="/profile"
+      onClick={[Function]}
+    >
+      Profile
+    </a>
+    <a
+      className="item"
+      onClick={[Function]}
+    >
+      Signout
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Navigation sign out 1`] = `
+<div
+  className="ui menu"
+>
+  <a
+    className="item"
+    href="/"
+    onClick={[Function]}
+  >
+    Yoledger
+  </a>
+  <a
+    className="item"
+    href="/assets"
+    onClick={[Function]}
+  >
+    Assets
+  </a>
+  <a
+    className="item"
+    href="/categories"
+    onClick={[Function]}
+  >
+    Categories
+  </a>
+  <a
+    className="item"
+    href="/budgets"
+    onClick={[Function]}
+  >
+    Budget
+  </a>
+  <a
+    className="item"
+    href="/transactions"
+    onClick={[Function]}
+  >
+    Transactions
+  </a>
+  <div
+    className="right menu"
+  >
+    <a
+      className="item"
+      href="/signin"
+      onClick={[Function]}
+    >
+      Sign In
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Profile default 1`] = `
+<div>
+  <h4>
+    Change password
+  </h4>
+  <form
+    action={undefined}
+    className="ui form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Old password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="oldPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        New password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="newPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Repeat new password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="repeatNewPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <button
+      className="ui disabled button"
+      disabled={true}
+      onClick={[Function]}
+      role="button"
+      tabIndex={-1}
+      type="submit"
+    >
+      Change
+    </button>
+    <div
+      className="ui error hidden message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Profile loading 1`] = `
+<div>
+  <h4>
+    Change password
+  </h4>
+  <form
+    action={undefined}
+    className="ui loading form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Old password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="oldPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        New password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="newPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Repeat new password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="repeatNewPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <button
+      className="ui disabled button"
+      disabled={true}
+      onClick={[Function]}
+      role="button"
+      tabIndex={-1}
+      type="submit"
+    >
+      Change
+    </button>
+    <div
+      className="ui error hidden message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Profile with errors 1`] = `
+<div>
+  <h4>
+    Change password
+  </h4>
+  <form
+    action={undefined}
+    className="ui error form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Old password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="oldPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        New password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="newPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Repeat new password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="repeatNewPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <button
+      className="ui disabled button"
+      disabled={true}
+      onClick={[Function]}
+      role="button"
+      tabIndex={-1}
+      type="submit"
+    >
+      Change
+    </button>
+    <div
+      className="ui error message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+        <ul
+          className="list"
+        >
+          <li
+            className="content"
+          >
+            No user found!
+          </li>
+        </ul>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Profile with same new password 1`] = `
+<div>
+  <h4>
+    Change password
+  </h4>
+  <form
+    action={undefined}
+    className="ui form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Old password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="oldPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value="1"
+        />
+      </div>
+    </div>
+    <div
+      className="error required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        New password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="newPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value="1"
+        />
+      </div>
+    </div>
+    <div
+      className="error required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Repeat new password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="repeatNewPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value=""
+        />
+      </div>
+    </div>
+    <button
+      className="ui disabled button"
+      disabled={true}
+      onClick={[Function]}
+      role="button"
+      tabIndex={-1}
+      type="submit"
+    >
+      Change
+    </button>
+    <div
+      className="ui error hidden message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Profile with wrong repeated password 1`] = `
+<div>
+  <h4>
+    Change password
+  </h4>
+  <form
+    action={undefined}
+    className="ui form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Old password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="oldPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value="1"
+        />
+      </div>
+    </div>
+    <div
+      className="required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        New password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="newPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value="2"
+        />
+      </div>
+    </div>
+    <div
+      className="error required field"
+    >
+      <label
+        htmlFor={undefined}
+      >
+        Repeat new password
+      </label>
+      <div
+        className="ui input"
+        content={undefined}
+      >
+        <input
+          disabled={undefined}
+          name="repeatNewPassword"
+          onChange={[Function]}
+          required={true}
+          tabIndex={undefined}
+          type="password"
+          value="3"
+        />
+      </div>
+    </div>
+    <button
+      className="ui disabled button"
+      disabled={true}
+      onClick={[Function]}
+      role="button"
+      tabIndex={-1}
+      type="submit"
+    >
+      Change
+    </button>
+    <div
+      className="ui error hidden message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Transaction/Form creating new 1`] = `
+<div
+  className="ui small secondary segment"
+>
+  <form
+    action={undefined}
+    className="ui form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <div
+          className="ui radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={false}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="income"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Income
+          </label>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="ui checked radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={true}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="expense"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Expense
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="equal width fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          From
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="source"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          To
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="destination"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          Amount
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="amount"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="0"
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          When
+        </label>
+        <div
+          className="ui icon input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="date"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="2018-01-01"
+          />
+          <i
+            aria-hidden="true"
+            className="calendar icon"
+          />
+        </div>
+      </div>
+      <button
+        className="ui primary disabled button"
+        disabled={true}
+        onClick={[Function]}
+        role="button"
+        tabIndex={-1}
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+    <div
+      className="ui error hidden message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Transaction/Form editing 1`] = `
+<div
+  className="ui small secondary segment"
+>
+  <form
+    action={undefined}
+    className="ui form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <div
+          className="ui radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={false}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="income"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Income
+          </label>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="ui checked radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={true}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="expense"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Expense
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="equal width fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          From
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="source"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="Cash"
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          To
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="destination"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="Food"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          Amount
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="amount"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="10"
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          When
+        </label>
+        <div
+          className="ui icon input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="date"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="2018-01-01T00:00:00.000Z"
+          />
+          <i
+            aria-hidden="true"
+            className="calendar icon"
+          />
+        </div>
+      </div>
+      <button
+        className="ui button"
+        disabled={undefined}
+        id="delete"
+        onClick={[Function]}
+        role="button"
+        tabIndex={undefined}
+      >
+        Delete
+      </button>
+      <button
+        className="ui primary button"
+        disabled={undefined}
+        onClick={[Function]}
+        role="button"
+        tabIndex={undefined}
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+    <div
+      className="ui error hidden message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Transaction/Form filled 1`] = `
+<div
+  className="ui small secondary segment"
+>
+  <form
+    action={undefined}
+    className="ui form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <div
+          className="ui radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={false}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="income"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Income
+          </label>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="ui checked radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={true}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="expense"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Expense
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="equal width fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          From
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="source"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="Cash"
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          To
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="destination"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="Food"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          Amount
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="amount"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="10"
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          When
+        </label>
+        <div
+          className="ui icon input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="date"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="2018-01-01T00:00:00.000Z"
+          />
+          <i
+            aria-hidden="true"
+            className="calendar icon"
+          />
+        </div>
+      </div>
+      <button
+        className="ui primary button"
+        disabled={undefined}
+        onClick={[Function]}
+        role="button"
+        tabIndex={undefined}
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+    <div
+      className="ui error hidden message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Transaction/Form loading 1`] = `
+<div
+  className="ui small loading secondary segment"
+>
+  <form
+    action={undefined}
+    className="ui form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <div
+          className="ui radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={false}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="income"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Income
+          </label>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="ui checked radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={true}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="expense"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Expense
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="equal width fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          From
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="source"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          To
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="destination"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          Amount
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="amount"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="0"
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          When
+        </label>
+        <div
+          className="ui icon input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="date"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="2018-01-01"
+          />
+          <i
+            aria-hidden="true"
+            className="calendar icon"
+          />
+        </div>
+      </div>
+      <button
+        className="ui primary disabled button"
+        disabled={true}
+        onClick={[Function]}
+        role="button"
+        tabIndex={-1}
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+    <div
+      className="ui error hidden message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Transaction/Form with errors 1`] = `
+<div
+  className="ui small secondary segment"
+>
+  <form
+    action={undefined}
+    className="ui error form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <div
+          className="ui radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={false}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="income"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Income
+          </label>
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <div
+          className="ui checked radio checkbox"
+          onChange={[Function]}
+          onClick={[Function]}
+          onMouseDown={[Function]}
+        >
+          <input
+            checked={true}
+            className="hidden"
+            disabled={undefined}
+            id={undefined}
+            name="type"
+            onClick={[Function]}
+            readOnly={true}
+            tabIndex={0}
+            type="radio"
+            value="expense"
+          />
+          <label
+            htmlFor={undefined}
+          >
+            Expense
+          </label>
+        </div>
+      </div>
+    </div>
+    <div
+      className="equal width fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          From
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="source"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          To
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="destination"
+            onChange={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="inline fields"
+    >
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          Amount
+        </label>
+        <div
+          className="ui input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="amount"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onMouseUp={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="0"
+          />
+        </div>
+      </div>
+      <div
+        className="field"
+      >
+        <label
+          htmlFor={undefined}
+        >
+          When
+        </label>
+        <div
+          className="ui icon input"
+          content={undefined}
+        >
+          <input
+            disabled={undefined}
+            name="date"
+            onBlur={[Function]}
+            onChange={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            required={undefined}
+            tabIndex={undefined}
+            type="text"
+            value="2018-01-01"
+          />
+          <i
+            aria-hidden="true"
+            className="calendar icon"
+          />
+        </div>
+      </div>
+      <button
+        className="ui primary disabled button"
+        disabled={true}
+        onClick={[Function]}
+        role="button"
+        tabIndex={-1}
+        type="submit"
+      >
+        Save
+      </button>
+    </div>
+    <div
+      className="ui error message"
+    >
+      <div
+        className="content"
+      >
+        <div
+          className="header"
+        >
+          Could you check something!
+        </div>
+        <ul
+          className="list"
+        >
+          <li
+            className="content"
+          >
+            Wrong account name!
+          </li>
+        </ul>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Storyshots Transaction/List empty list 1`] = `
+<div
+  className="ui celled list"
+  role="list"
+/>
+`;
+
+exports[`Storyshots Transaction/List loading 1`] = `
+<div
+  className="ui celled list"
+  role="list"
+/>
+`;
+
+exports[`Storyshots Transaction/List with data 1`] = `
+<div
+  className="ui celled list"
+  role="list"
+>
+  <a
+    className="item"
+    data-value={undefined}
+    onClick={[Function]}
+    role="listitem"
+  >
+    <div
+      className="right floated content"
+    >
+      10
+    </div>
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        <b>
+          Cash
+        </b>
+         to 
+        <b>
+          Food
+        </b>
+      </div>
+      <div
+        className="description"
+      >
+        01 Jan 18
+      </div>
+    </div>
+  </a>
+  <a
+    className="item"
+    data-value={undefined}
+    onClick={[Function]}
+    role="listitem"
+  >
+    <div
+      className="right floated content"
+    >
+      10
+    </div>
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        <b>
+          Cash
+        </b>
+         to 
+        <b>
+          Bank Card
+        </b>
+      </div>
+      <div
+        className="description"
+      >
+        01 Apr 18
+      </div>
+    </div>
+  </a>
+  <a
+    className="item"
+    data-value={undefined}
+    onClick={[Function]}
+    role="listitem"
+  >
+    <div
+      className="right floated content"
+    >
+      10
+    </div>
+    <div
+      className="content"
+    >
+      <div
+        className="header"
+      >
+        <b>
+          Bank Card
+        </b>
+         to 
+        <b>
+          Food
+        </b>
+      </div>
+      <div
+        className="description"
+      >
+        06 Jan 18
+      </div>
+    </div>
+  </a>
+</div>
+`;
+
+exports[`Storyshots Transaction/Page default 1`] = `
+<div>
+  <div
+    className="ui menu"
+  >
+    <div
+      className="item"
+      onClick={[Function]}
+    >
+      <button
+        className="ui primary button"
+        disabled={undefined}
+        onClick={[Function]}
+        role="button"
+        tabIndex={undefined}
+      >
+        Add
+      </button>
+    </div>
+    <div
+      className="item"
+      onClick={[Function]}
+    >
+      <button
+        className="ui icon button"
+        disabled={undefined}
+        onClick={[Function]}
+        role="button"
+        tabIndex={undefined}
+      >
+        <i
+          aria-hidden="true"
+          className="left chevron icon"
+        />
+      </button>
+      <span
+        style={
+          Object {
+            "margin": "0 5px",
+          }
+        }
+      >
+        Oct 1st 18
+      </span>
+      <button
+        className="ui icon button"
+        disabled={undefined}
+        onClick={[Function]}
+        role="button"
+        tabIndex={undefined}
+      >
+        <i
+          aria-hidden="true"
+          className="right chevron icon"
+        />
+      </button>
+    </div>
+    <div
+      className="item"
+      onClick={[Function]}
+    >
+      <span>
+        Show per
+         
+        <div
+          aria-busy={undefined}
+          aria-disabled={undefined}
+          aria-expanded={false}
+          aria-multiselectable={undefined}
+          className="ui inline dropdown"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onMouseDown={[Function]}
+          role="listbox"
+          tabIndex={0}
+        >
+          <div
+            aria-live="polite"
+            className="text"
+            role="alert"
+          >
+            day
+          </div>
+          <i
+            aria-hidden="true"
+            className="dropdown icon"
+            onClick={[Function]}
+          />
+          <div
+            className="menu transition"
+          >
+            <div
+              aria-checked={true}
+              aria-disabled={undefined}
+              aria-selected={true}
+              className="active selected item"
+              onClick={[Function]}
+              role="option"
+              style={
+                Object {
+                  "pointerEvents": "all",
+                }
+              }
+            >
+              <span
+                className="text"
+              >
+                day
+              </span>
+            </div>
+            <div
+              aria-checked={false}
+              aria-disabled={undefined}
+              aria-selected={false}
+              className="item"
+              onClick={[Function]}
+              role="option"
+              style={
+                Object {
+                  "pointerEvents": "all",
+                }
+              }
+            >
+              <span
+                className="text"
+              >
+                week
+              </span>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+  Loading...
+</div>
+`;
+
+exports[`Storyshots Transaction/TypeSelect default 1`] = `
+<form
+  action={undefined}
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="inline fields"
+  >
+    <div
+      className="field"
+    >
+      <div
+        className="ui radio checkbox"
+        onChange={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+      >
+        <input
+          checked={false}
+          className="hidden"
+          disabled={undefined}
+          id={undefined}
+          name="transactionTypeSelect"
+          onClick={[Function]}
+          readOnly={true}
+          tabIndex={0}
+          type="radio"
+          value="income"
+        />
+        <label
+          htmlFor={undefined}
+        >
+          Income
+        </label>
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <div
+        className="ui checked radio checkbox"
+        onChange={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+      >
+        <input
+          checked={true}
+          className="hidden"
+          disabled={undefined}
+          id={undefined}
+          name="transactionTypeSelect"
+          onClick={[Function]}
+          readOnly={true}
+          tabIndex={0}
+          type="radio"
+          value="expense"
+        />
+        <label
+          htmlFor={undefined}
+        >
+          Expense
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Storyshots Transaction/TypeSelect with value 1`] = `
+<form
+  action={undefined}
+  className="ui form"
+  onSubmit={[Function]}
+>
+  <div
+    className="inline fields"
+  >
+    <div
+      className="field"
+    >
+      <div
+        className="ui checked radio checkbox"
+        onChange={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+      >
+        <input
+          checked={true}
+          className="hidden"
+          disabled={undefined}
+          id={undefined}
+          name="transactionTypeSelect"
+          onClick={[Function]}
+          readOnly={true}
+          tabIndex={0}
+          type="radio"
+          value="income"
+        />
+        <label
+          htmlFor={undefined}
+        >
+          Income
+        </label>
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <div
+        className="ui radio checkbox"
+        onChange={[Function]}
+        onClick={[Function]}
+        onMouseDown={[Function]}
+      >
+        <input
+          checked={false}
+          className="hidden"
+          disabled={undefined}
+          id={undefined}
+          name="transactionTypeSelect"
+          onClick={[Function]}
+          readOnly={true}
+          tabIndex={0}
+          type="radio"
+          value="expense"
+        />
+        <label
+          htmlFor={undefined}
+        >
+          Expense
+        </label>
+      </div>
+    </div>
+  </div>
+</form>
+`;

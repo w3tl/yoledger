@@ -1,0 +1,28 @@
+{
+  "expenses": [{
+    "id": "21",
+    "name": "Food",
+    "type": "EXPENSE"
+  }, {
+    "id": "22",
+    "name": "Beer",
+    "type": "EXPENSE"
+  }, {
+    "id": "23",
+    "name": "Train",
+    "type": "EXPENSE"
+  }],
+  "incomes": [{
+    "id": "31",
+    "name": "Salary",
+    "type": "INCOME"
+  }, {
+    "id": "32",
+    "name": "Debts",
+    "type": "INCOME"
+  }, {
+    "id": "33",
+    "name": "Cashback",
+    "type": "INCOME"
+  }]
+}

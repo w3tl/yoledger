@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should unset token and clear store after sign out 1`] = `
+Object {
+  "settings": Object {
+    "generated": true,
+    "id": "$ROOT_QUERY.settings",
+    "type": "id",
+    "typename": "AppSettings",
+  },
+}
+`;

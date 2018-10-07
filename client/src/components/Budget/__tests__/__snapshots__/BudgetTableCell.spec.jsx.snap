@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetTableCell should call update when blur 1`] = `undefined`;

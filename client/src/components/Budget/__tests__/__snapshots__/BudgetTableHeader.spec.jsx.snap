@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetTableHeader should call onPeriodChange when next or prev buttons was clicked: next click 1`] = `
+Array [
+  2018-06-25T00:00:00.000Z,
+]
+`;
+
+exports[`BudgetTableHeader should call onPeriodChange when next or prev buttons was clicked: prev click 1`] = `
+Array [
+  "2018-06-09T00:00:00.000Z",
+]
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetTableHOC updateAfterCreate should add new account: readQuery 1`] = `
+Object {
+  "dateEnd": "2018-07-10T00:00:00.000Z",
+  "dateStart": "2018-06-10T00:00:00.000Z",
+}
+`;
+
+exports[`BudgetTableHOC updateAfterCreate should add new account: writeQuery 1`] = `
+Object {
+  "budgets": Object {
+    "accounts": Array [
+      Object {
+        "__typename": "Account",
+        "id": "1",
+        "name": "Food",
+      },
+      Object {
+        "id": "new",
+        "name": "New account",
+      },
+    ],
+  },
+}
+`;

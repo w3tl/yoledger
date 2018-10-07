@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb",
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/stories/*.jsx", "**/*.test.jsx", "**/*test.js", "**/*.spec.jsx"]}],
+    "react/destructuring-assignment": ["error", "always", { "ignoreClassFields": true }]
+  },
+  "globals": {
+    "document": true,
+    "localStorage": true
+  }
+}

@@ -1,0 +1,16 @@
+[{
+  "id": "1",
+  "name": "Bank Card",
+  "balance": 0,
+  "type": "ASSET"
+}, {
+  "id": "2",
+  "name": "Cash",
+  "balance": 10,
+  "type": "ASSET"
+}, {
+  "id": "3",
+  "name": "Bank Card 2",
+  "balance": 150,
+  "type": "ASSET"
+}]

@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetTableRowHOC updateAfterUpsert should append new budget: readQuery 1`] = `
+Object {
+  "account": "Food",
+  "dateEnd": "2018-07-10T00:00:00.000Z",
+  "dateStart": "2018-06-10T00:00:00.000Z",
+}
+`;
+
+exports[`BudgetTableRowHOC updateAfterUpsert should append new budget: writeQuery 1`] = `
+Object {
+  "budget": Array [
+    Object {
+      "account": Object {
+        "id": "2",
+        "name": "Train",
+      },
+      "amount": 11,
+      "balance": 0,
+      "date": "2018-06-10",
+      "id": "1",
+    },
+    Object {
+      "account": Object {
+        "id": "2",
+        "name": "Train",
+      },
+      "amount": 11,
+      "balance": 0,
+      "date": "2018-06-10",
+      "id": "new",
+    },
+  ],
+}
+`;
+
+exports[`BudgetTableRowHOC updateAfterUpsert should write existing budget array if budget found: readQuery 1`] = `undefined`;
+
+exports[`BudgetTableRowHOC updateAfterUpsert should write existing budget array if budget found: writeQuery 1`] = `
+Object {
+  "budget": Array [
+    Object {
+      "account": Object {
+        "id": "2",
+        "name": "Train",
+      },
+      "amount": 11,
+      "balance": 0,
+      "date": "2018-06-10",
+      "id": "1",
+    },
+  ],
+}
+`;

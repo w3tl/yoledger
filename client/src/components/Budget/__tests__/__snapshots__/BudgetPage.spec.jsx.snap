@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BudgetPage should change dateStart when period change 1`] = `
+Array [
+  2019-09-08T00:00:00.000Z,
+  2019-09-08T00:00:00.000Z,
+  2019-09-08T00:00:00.000Z,
+  2019-09-08T00:00:00.000Z,
+  2019-09-08T00:00:00.000Z,
+  2019-09-08T00:00:00.000Z,
+]
+`;
+
+exports[`BudgetPage state should contain periods from current date 1`] = `
+Array [
+  2018-11-09T00:00:00.000Z,
+  2018-11-09T00:00:00.000Z,
+  2018-11-09T00:00:00.000Z,
+  2018-11-09T00:00:00.000Z,
+  2018-11-09T00:00:00.000Z,
+  2018-11-09T00:00:00.000Z,
+]
+`;

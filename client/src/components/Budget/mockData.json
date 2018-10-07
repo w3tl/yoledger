@@ -1,0 +1,96 @@
+{
+  "__typename": "BudgetPlan",
+  "accounts": [{
+    "__typename": "Account",
+    "id": "1",
+    "name": "Food"
+  }, {
+    "__typename": "Account",
+    "id": "2",
+    "name": "Train"
+  }],
+  "budgets": [
+    {
+      "id": "1",
+      "account": {
+        "id": "2",
+        "name": "Train"
+      },
+      "date": "2018-06-10",
+      "amount": 11,
+      "balance": 0
+    }, {
+      "id": "2",
+      "account": {
+        "id": "1",
+        "name": "Food"
+      },
+      "date": "2018-06-10",
+      "amount": 12,
+      "balance": 0
+    }, {
+      "id": "3",
+      "account": {
+        "id": "2",
+        "name": "Train"
+      },
+      "date": "2018-06-25",
+      "amount": 13,
+      "balance": 0
+    }, {
+      "id": "4",
+      "account": {
+        "id": "1",
+        "name": "Food"
+      },
+      "date": "2018-07-10",
+      "amount": 14,
+      "balance": 0
+    }, {
+      "id": "5",
+      "account": {
+        "id": "1",
+        "name": "Food"
+      },
+      "date": "2018-07-25",
+      "amount": 16,
+      "balance": 0
+    }, {
+      "id": "6",
+      "account": {
+        "id": "2",
+        "name": "Train"
+      },
+      "date": "2018-07-25",
+      "amount": 17,
+      "balance": 0
+    }, {
+      "id": "7",
+      "account": {
+        "id": "2",
+        "name": "Train"
+      },
+      "date": "2018-08-10",
+      "amount": 19,
+      "balance": 0
+    }, {
+      "id": "8",
+      "account": {
+        "id": "1",
+        "name": "Food"
+      },
+      "date": "2018-08-10",
+      "amount": 20,
+      "balance": 0
+    }, {
+      "id": "9",
+      "account": {
+        "id": "2",
+        "name": "Train"
+      },
+      "date": "2018-08-25",
+      "amount": 21,
+      "balance": 0
+    }
+  ]
+}

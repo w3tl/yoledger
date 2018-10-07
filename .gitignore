@@ -15,7 +15,7 @@ pids
 lib-cov
 
 # Coverage directory used by tools like istanbul
-coverage
+**/coverage
 
 # nyc test coverage
 .nyc_output
@@ -56,14 +56,15 @@ typings/
 
 # dotenv environment variables file
 .env
+.env*local
 
 # next.js build output
 .next
 
-.eslintrc
 dump/
 *title.*.tsv
 .DS_Store
 .mognodb_binaries
 **/data/db
 mongod
+**/build
