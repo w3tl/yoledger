@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { GraphQLError } from 'graphql';
 
 export const Transaction = {
-  id: ({ _id }) => _id,
+  id: ({ _id }) => _id.toString(),
   date: ({ createdAt }) => createdAt,
   source({ source }, _, { dataloaders, userId }) {
     return dataloaders.accountByName.load({ ...source, userId });

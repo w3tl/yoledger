@@ -1,5 +1,5 @@
 export const Budget = {
-  id: ({ _id }) => _id,
+  id: ({ _id }) => _id.toString(),
   account({ account }, _, { dataloaders, userId }) {
     return dataloaders.accountByName.load({ ...account, userId });
   },

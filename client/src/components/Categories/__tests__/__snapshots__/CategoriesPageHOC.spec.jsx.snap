@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`writeQuery 1`] = `
+exports[`CategoriesPageHOC updateAfterAdd should update expense cache: writeQuery 1`] = `
 Object {
   "expenses": Array [
     Object {
@@ -11,7 +11,7 @@ Object {
 }
 `;
 
-exports[`writeQuery 2`] = `
+exports[`CategoriesPageHOC updateAfterAdd should update income cache: writeQuery 1`] = `
 Object {
   "expenses": Array [],
   "incomes": Array [

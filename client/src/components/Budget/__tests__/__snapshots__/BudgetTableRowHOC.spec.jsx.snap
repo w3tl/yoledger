@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`readQuery 1`] = `
+exports[`BudgetTableRowHOC updateAfterUpsert should append new budget: readQuery 1`] = `
 Object {
   "account": "Food",
   "dateEnd": "2018-07-10T00:00:00.000Z",
@@ -8,9 +8,7 @@ Object {
 }
 `;
 
-exports[`readQuery 2`] = `undefined`;
-
-exports[`writeQuery 1`] = `
+exports[`BudgetTableRowHOC updateAfterUpsert should append new budget: writeQuery 1`] = `
 Object {
   "budget": Array [
     Object {
@@ -37,7 +35,9 @@ Object {
 }
 `;
 
-exports[`writeQuery 2`] = `
+exports[`BudgetTableRowHOC updateAfterUpsert should write existing budget array if budget found: readQuery 1`] = `undefined`;
+
+exports[`BudgetTableRowHOC updateAfterUpsert should write existing budget array if budget found: writeQuery 1`] = `
 Object {
   "budget": Array [
     Object {

@@ -1,8 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DAY 1`] = `"2018-01-01T00:00:00.000Z"`;
-
-exports[`WEEK 2018-01-01 1`] = `
+exports[`resolver Mutation changeTransactionPagePeriod should write to cache and return: WEEK 2018-01-01 1`] = `
 Object {
   "__typename": "TransactionSettings",
   "date": "2018-01-01T00:00:00.000Z",
@@ -10,13 +8,7 @@ Object {
 }
 `;
 
-exports[`start WEEK in 2018-01-01 1`] = `"2018-01-01T00:00:00.000Z"`;
-
-exports[`start WEEK in 2018-01-11 1`] = `"2018-01-08T00:00:00.000Z"`;
-
-exports[`start WEEK in 2018-06-13 1`] = `"2018-06-11T00:00:00.000Z"`;
-
-exports[`writeData 1`] = `
+exports[`resolver Mutation changeTransactionPagePeriod should write to cache and return: writeData 1`] = `
 Array [
   Object {
     "data": Object {
@@ -32,3 +24,11 @@ Array [
   },
 ]
 `;
+
+exports[`resolver getDateStart should return correct date for any period: DAY 1`] = `"2018-01-01T00:00:00.000Z"`;
+
+exports[`resolver getDateStart should return correct date for any period: start WEEK in 2018-01-01 1`] = `"2018-01-01T00:00:00.000Z"`;
+
+exports[`resolver getDateStart should return correct date for any period: start WEEK in 2018-01-11 1`] = `"2018-01-08T00:00:00.000Z"`;
+
+exports[`resolver getDateStart should return correct date for any period: start WEEK in 2018-06-13 1`] = `"2018-06-11T00:00:00.000Z"`;
