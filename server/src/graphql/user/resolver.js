@@ -8,7 +8,7 @@ const createToken = (userId, secret, expiresIn) => jwt.sign({
 });
 
 export const User = {
-  username: ({ _id }) => _id,
+  username: ({ _id }) => _id.toString(),
 };
 
 export const Query = {

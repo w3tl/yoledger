@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 
 export const Account = {
-  id: ({ _id }) => _id,
+  id: ({ _id }) => _id.toString(),
 };
 
 export const Query = {

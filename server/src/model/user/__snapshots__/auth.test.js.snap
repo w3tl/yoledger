@@ -2,10 +2,10 @@
 
 exports[`auth createCredentials 1`] = `
 Object {
-  "algorithm": "argon2",
+  "algorithm": "dev",
   "createdAt": 2018-06-20T00:00:00.000Z,
-  "hash": "12345678901234567890123456789012password",
-  "salt": "12345678901234567890123456789012",
+  "hash": "12345678password",
+  "salt": "12345678",
   "valid": true,
 }
 `;

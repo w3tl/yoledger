@@ -6,7 +6,7 @@ import AssetPage from './AssetPage';
 export default props => (
   <Query query={LIST_QUERY}>
     {({ loading, error, data }) => (
-      <AssetPage assets={data.assets} {...props} error={error} loading={loading} />
+      <AssetPage {...data} {...props} error={error} loading={loading} />
     )}
   </Query>
 );
