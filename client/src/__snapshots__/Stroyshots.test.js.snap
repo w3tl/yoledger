@@ -2,28 +2,21 @@
 
 exports[`Storyshots Assets/Form default 1`] = `
 <form
-  action={undefined}
   className="ui form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Name
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="name"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value=""
       />
@@ -32,25 +25,19 @@ exports[`Storyshots Assets/Form default 1`] = `
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Balance
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="balance"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onMouseUp={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="0"
       />
@@ -58,10 +45,8 @@ exports[`Storyshots Assets/Form default 1`] = `
   </div>
   <button
     className="ui button"
-    disabled={undefined}
     onClick={[Function]}
     role="button"
-    tabIndex={undefined}
   >
     Cancel
   </button>
@@ -93,28 +78,21 @@ exports[`Storyshots Assets/Form default 1`] = `
 
 exports[`Storyshots Assets/Form loading 1`] = `
 <form
-  action={undefined}
   className="ui loading form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Name
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="name"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value=""
       />
@@ -123,25 +101,19 @@ exports[`Storyshots Assets/Form loading 1`] = `
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Balance
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="balance"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onMouseUp={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="0"
       />
@@ -149,10 +121,8 @@ exports[`Storyshots Assets/Form loading 1`] = `
   </div>
   <button
     className="ui button"
-    disabled={undefined}
     onClick={[Function]}
     role="button"
-    tabIndex={undefined}
   >
     Cancel
   </button>
@@ -184,28 +154,21 @@ exports[`Storyshots Assets/Form loading 1`] = `
 
 exports[`Storyshots Assets/Form with asset 1`] = `
 <form
-  action={undefined}
   className="ui form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Name
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="name"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="Bank Card"
       />
@@ -214,25 +177,19 @@ exports[`Storyshots Assets/Form with asset 1`] = `
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Balance
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="balance"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onMouseUp={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="0"
       />
@@ -240,10 +197,8 @@ exports[`Storyshots Assets/Form with asset 1`] = `
   </div>
   <button
     className="ui button"
-    disabled={undefined}
     onClick={[Function]}
     role="button"
-    tabIndex={undefined}
   >
     Cancel
   </button>
@@ -275,28 +230,21 @@ exports[`Storyshots Assets/Form with asset 1`] = `
 
 exports[`Storyshots Assets/Form with error 1`] = `
 <form
-  action={undefined}
   className="ui error form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Name
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="name"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value=""
       />
@@ -305,25 +253,19 @@ exports[`Storyshots Assets/Form with error 1`] = `
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Balance
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="balance"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onMouseUp={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="0"
       />
@@ -331,10 +273,8 @@ exports[`Storyshots Assets/Form with error 1`] = `
   </div>
   <button
     className="ui button"
-    disabled={undefined}
     onClick={[Function]}
     role="button"
-    tabIndex={undefined}
   >
     Cancel
   </button>
@@ -387,7 +327,6 @@ exports[`Storyshots Assets/Page default 1`] = `
       >
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -403,7 +342,6 @@ exports[`Storyshots Assets/Page default 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -419,7 +357,6 @@ exports[`Storyshots Assets/Page default 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -443,10 +380,8 @@ exports[`Storyshots Assets/Page default 1`] = `
       >
         <button
           className="ui button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
           type="button"
         >
           Add
@@ -484,10 +419,8 @@ exports[`Storyshots Assets/Page empty 1`] = `
       >
         <button
           className="ui button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
           type="button"
         >
           Add
@@ -518,7 +451,6 @@ exports[`Storyshots Assets/Page while adding new asset 1`] = `
       >
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -534,7 +466,6 @@ exports[`Storyshots Assets/Page while adding new asset 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -550,7 +481,6 @@ exports[`Storyshots Assets/Page while adding new asset 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -570,28 +500,21 @@ exports[`Storyshots Assets/Page while adding new asset 1`] = `
       className="column"
     >
       <form
-        action={undefined}
         className="ui form"
         onSubmit={[Function]}
       >
         <div
           className="field"
         >
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Name
           </label>
           <div
             className="ui input"
-            content={undefined}
           >
             <input
-              disabled={undefined}
               name="name"
               onChange={[Function]}
-              required={undefined}
-              tabIndex={undefined}
               type="text"
               value=""
             />
@@ -600,25 +523,19 @@ exports[`Storyshots Assets/Page while adding new asset 1`] = `
         <div
           className="field"
         >
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Balance
           </label>
           <div
             className="ui input"
-            content={undefined}
           >
             <input
-              disabled={undefined}
               name="balance"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
               onMouseUp={[Function]}
-              required={undefined}
-              tabIndex={undefined}
               type="text"
               value="0"
             />
@@ -626,10 +543,8 @@ exports[`Storyshots Assets/Page while adding new asset 1`] = `
         </div>
         <button
           className="ui button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
         >
           Cancel
         </button>
@@ -676,7 +591,6 @@ exports[`Storyshots Assets/Page with active asset 1`] = `
       >
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -700,7 +614,6 @@ exports[`Storyshots Assets/Page with active asset 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -716,7 +629,6 @@ exports[`Storyshots Assets/Page with active asset 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -736,28 +648,21 @@ exports[`Storyshots Assets/Page with active asset 1`] = `
       className="column"
     >
       <form
-        action={undefined}
         className="ui form"
         onSubmit={[Function]}
       >
         <div
           className="field"
         >
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Name
           </label>
           <div
             className="ui input"
-            content={undefined}
           >
             <input
-              disabled={undefined}
               name="name"
               onChange={[Function]}
-              required={undefined}
-              tabIndex={undefined}
               type="text"
               value="Bank Card"
             />
@@ -766,25 +671,19 @@ exports[`Storyshots Assets/Page with active asset 1`] = `
         <div
           className="field"
         >
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Balance
           </label>
           <div
             className="ui input"
-            content={undefined}
           >
             <input
-              disabled={undefined}
               name="balance"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
               onMouseUp={[Function]}
-              required={undefined}
-              tabIndex={undefined}
               type="text"
               value="0"
             />
@@ -792,10 +691,8 @@ exports[`Storyshots Assets/Page with active asset 1`] = `
         </div>
         <button
           className="ui button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
         >
           Cancel
         </button>
@@ -842,7 +739,6 @@ exports[`Storyshots Assets/Page with error 1`] = `
       >
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -858,7 +754,6 @@ exports[`Storyshots Assets/Page with error 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -874,7 +769,6 @@ exports[`Storyshots Assets/Page with error 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -898,10 +792,8 @@ exports[`Storyshots Assets/Page with error 1`] = `
       >
         <button
           className="ui button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
           type="button"
         >
           Add
@@ -936,11 +828,9 @@ exports[`Storyshots Budget/Table default 1`] = `
         >
           <button
             className="ui icon button"
-            disabled={undefined}
             id="prevButton"
             onClick={[Function]}
             role="button"
-            tabIndex={undefined}
           >
             <i
               aria-hidden="true"
@@ -949,11 +839,9 @@ exports[`Storyshots Budget/Table default 1`] = `
           </button>
           <button
             className="ui icon button"
-            disabled={undefined}
             id="nextButton"
             onClick={[Function]}
             role="button"
-            tabIndex={undefined}
           >
             <i
               aria-hidden="true"
@@ -1087,10 +975,8 @@ exports[`Storyshots Budget/Table default 1`] = `
       >
         <button
           className="ui primary button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
         >
           Add
         </button>
@@ -1122,11 +1008,9 @@ exports[`Storyshots Budget/Table loading 1`] = `
         >
           <button
             className="ui icon button"
-            disabled={undefined}
             id="prevButton"
             onClick={[Function]}
             role="button"
-            tabIndex={undefined}
           >
             <i
               aria-hidden="true"
@@ -1135,11 +1019,9 @@ exports[`Storyshots Budget/Table loading 1`] = `
           </button>
           <button
             className="ui icon button"
-            disabled={undefined}
             id="nextButton"
             onClick={[Function]}
             role="button"
-            tabIndex={undefined}
           >
             <i
               aria-hidden="true"
@@ -1299,11 +1181,9 @@ exports[`Storyshots Budget/Table without accounts 1`] = `
         >
           <button
             className="ui icon button"
-            disabled={undefined}
             id="prevButton"
             onClick={[Function]}
             role="button"
-            tabIndex={undefined}
           >
             <i
               aria-hidden="true"
@@ -1312,11 +1192,9 @@ exports[`Storyshots Budget/Table without accounts 1`] = `
           </button>
           <button
             className="ui icon button"
-            disabled={undefined}
             id="nextButton"
             onClick={[Function]}
             role="button"
-            tabIndex={undefined}
           >
             <i
               aria-hidden="true"
@@ -1371,10 +1249,8 @@ exports[`Storyshots Budget/Table without accounts 1`] = `
       >
         <button
           className="ui primary button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
         >
           Add
         </button>
@@ -1425,10 +1301,8 @@ exports[`Storyshots Budget/Table/Footer default 1`] = `
       >
         <button
           className="ui primary button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
         >
           Add
         </button>
@@ -1526,10 +1400,8 @@ exports[`Storyshots Budget/Table/Footer when click add 1`] = `
           className="ui fluid input"
         >
           <input
-            disabled={undefined}
             name="newAccount"
             onChange={[Function]}
-            tabIndex={undefined}
             type="text"
             value=""
           />
@@ -1541,10 +1413,8 @@ exports[`Storyshots Budget/Table/Footer when click add 1`] = `
       >
         <button
           className="ui button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
         >
           Cancel
         </button>
@@ -1603,10 +1473,8 @@ exports[`Storyshots Budget/Table/Footer when click add and enter existing accoun
           className="ui fluid input"
         >
           <input
-            disabled={undefined}
             name="newAccount"
             onChange={[Function]}
-            tabIndex={undefined}
             type="text"
             value="Food"
           />
@@ -1618,10 +1486,8 @@ exports[`Storyshots Budget/Table/Footer when click add and enter existing accoun
       >
         <button
           className="ui button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
         >
           Cancel
         </button>
@@ -1680,10 +1546,8 @@ exports[`Storyshots Budget/Table/Footer when click add and enter new account 1`]
           className="ui fluid input"
         >
           <input
-            disabled={undefined}
             name="newAccount"
             onChange={[Function]}
-            tabIndex={undefined}
             type="text"
             value="New account"
           />
@@ -1695,20 +1559,16 @@ exports[`Storyshots Budget/Table/Footer when click add and enter new account 1`]
       >
         <button
           className="ui button"
-          disabled={undefined}
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
         >
           Cancel
         </button>
         <button
           className="ui primary button"
-          disabled={undefined}
           id="addAccount"
           onClick={[Function]}
           role="button"
-          tabIndex={undefined}
         >
           Add
         </button>
@@ -1736,11 +1596,9 @@ exports[`Storyshots Budget/Table/Header default 1`] = `
         >
           <button
             className="ui icon button"
-            disabled={undefined}
             id="prevButton"
             onClick={[Function]}
             role="button"
-            tabIndex={undefined}
           >
             <i
               aria-hidden="true"
@@ -1749,11 +1607,9 @@ exports[`Storyshots Budget/Table/Header default 1`] = `
           </button>
           <button
             className="ui icon button"
-            disabled={undefined}
             id="nextButton"
             onClick={[Function]}
             role="button"
-            tabIndex={undefined}
           >
             <i
               aria-hidden="true"
@@ -1830,14 +1686,11 @@ exports[`Storyshots Budget/Table/Row default 1`] = `
           className="ui transparent input"
         >
           <input
-            disabled={undefined}
-            name={undefined}
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            tabIndex={undefined}
             type="text"
             value="12"
           />
@@ -1850,14 +1703,11 @@ exports[`Storyshots Budget/Table/Row default 1`] = `
           className="ui transparent input"
         >
           <input
-            disabled={undefined}
-            name={undefined}
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            tabIndex={undefined}
             type="text"
             value="0"
           />
@@ -1870,14 +1720,11 @@ exports[`Storyshots Budget/Table/Row default 1`] = `
           className="ui transparent input"
         >
           <input
-            disabled={undefined}
-            name={undefined}
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            tabIndex={undefined}
             type="text"
             value="14"
           />
@@ -1890,14 +1737,11 @@ exports[`Storyshots Budget/Table/Row default 1`] = `
           className="ui transparent input"
         >
           <input
-            disabled={undefined}
-            name={undefined}
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            tabIndex={undefined}
             type="text"
             value="16"
           />
@@ -1910,14 +1754,11 @@ exports[`Storyshots Budget/Table/Row default 1`] = `
           className="ui transparent input"
         >
           <input
-            disabled={undefined}
-            name={undefined}
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            tabIndex={undefined}
             type="text"
             value="20"
           />
@@ -1930,14 +1771,11 @@ exports[`Storyshots Budget/Table/Row default 1`] = `
           className="ui transparent input"
         >
           <input
-            disabled={undefined}
-            name={undefined}
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            tabIndex={undefined}
             type="text"
             value="0"
           />
@@ -2016,28 +1854,21 @@ exports[`Storyshots Categories/Page add tab 1`] = `
       className="ui bottom attached segment active tab"
     >
       <form
-        action={undefined}
         className="ui form"
         onSubmit={[Function]}
       >
         <div
           className="field"
         >
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Name
           </label>
           <div
             className="ui input"
-            content={undefined}
           >
             <input
-              disabled={undefined}
               name="name"
               onChange={[Function]}
-              required={undefined}
-              tabIndex={undefined}
               type="text"
               value=""
             />
@@ -2058,8 +1889,6 @@ exports[`Storyshots Categories/Page add tab 1`] = `
               <input
                 checked={true}
                 className="hidden"
-                disabled={undefined}
-                id={undefined}
                 name="type"
                 onClick={[Function]}
                 readOnly={true}
@@ -2067,9 +1896,7 @@ exports[`Storyshots Categories/Page add tab 1`] = `
                 type="radio"
                 value="EXPENSE"
               />
-              <label
-                htmlFor={undefined}
-              >
+              <label>
                 Expense
               </label>
             </div>
@@ -2086,8 +1913,6 @@ exports[`Storyshots Categories/Page add tab 1`] = `
               <input
                 checked={false}
                 className="hidden"
-                disabled={undefined}
-                id={undefined}
                 name="type"
                 onClick={[Function]}
                 readOnly={true}
@@ -2095,9 +1920,7 @@ exports[`Storyshots Categories/Page add tab 1`] = `
                 type="radio"
                 value="INCOME"
               />
-              <label
-                htmlFor={undefined}
-              >
+              <label>
                 Income
               </label>
             </div>
@@ -2166,7 +1989,6 @@ exports[`Storyshots Categories/Page default 1`] = `
       >
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2178,7 +2000,6 @@ exports[`Storyshots Categories/Page default 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2190,7 +2011,6 @@ exports[`Storyshots Categories/Page default 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2283,7 +2103,6 @@ exports[`Storyshots Categories/Page income tab 1`] = `
       >
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2295,7 +2114,6 @@ exports[`Storyshots Categories/Page income tab 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2307,7 +2125,6 @@ exports[`Storyshots Categories/Page income tab 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2352,28 +2169,21 @@ exports[`Storyshots Categories/Page loading mutation 1`] = `
       className="ui bottom attached segment active tab"
     >
       <form
-        action={undefined}
         className="ui loading form"
         onSubmit={[Function]}
       >
         <div
           className="field"
         >
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Name
           </label>
           <div
             className="ui input"
-            content={undefined}
           >
             <input
-              disabled={undefined}
               name="name"
               onChange={[Function]}
-              required={undefined}
-              tabIndex={undefined}
               type="text"
               value=""
             />
@@ -2394,8 +2204,6 @@ exports[`Storyshots Categories/Page loading mutation 1`] = `
               <input
                 checked={true}
                 className="hidden"
-                disabled={undefined}
-                id={undefined}
                 name="type"
                 onClick={[Function]}
                 readOnly={true}
@@ -2403,9 +2211,7 @@ exports[`Storyshots Categories/Page loading mutation 1`] = `
                 type="radio"
                 value="EXPENSE"
               />
-              <label
-                htmlFor={undefined}
-              >
+              <label>
                 Expense
               </label>
             </div>
@@ -2422,8 +2228,6 @@ exports[`Storyshots Categories/Page loading mutation 1`] = `
               <input
                 checked={false}
                 className="hidden"
-                disabled={undefined}
-                id={undefined}
                 name="type"
                 onClick={[Function]}
                 readOnly={true}
@@ -2431,9 +2235,7 @@ exports[`Storyshots Categories/Page loading mutation 1`] = `
                 type="radio"
                 value="INCOME"
               />
-              <label
-                htmlFor={undefined}
-              >
+              <label>
                 Income
               </label>
             </div>
@@ -2502,7 +2304,6 @@ exports[`Storyshots Categories/Page loading query 1`] = `
       >
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2514,7 +2315,6 @@ exports[`Storyshots Categories/Page loading query 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2526,7 +2326,6 @@ exports[`Storyshots Categories/Page loading query 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2571,28 +2370,21 @@ exports[`Storyshots Categories/Page with mutation error 1`] = `
       className="ui bottom attached segment active tab"
     >
       <form
-        action={undefined}
         className="ui error form"
         onSubmit={[Function]}
       >
         <div
           className="field"
         >
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Name
           </label>
           <div
             className="ui input"
-            content={undefined}
           >
             <input
-              disabled={undefined}
               name="name"
               onChange={[Function]}
-              required={undefined}
-              tabIndex={undefined}
               type="text"
               value=""
             />
@@ -2613,8 +2405,6 @@ exports[`Storyshots Categories/Page with mutation error 1`] = `
               <input
                 checked={true}
                 className="hidden"
-                disabled={undefined}
-                id={undefined}
                 name="type"
                 onClick={[Function]}
                 readOnly={true}
@@ -2622,9 +2412,7 @@ exports[`Storyshots Categories/Page with mutation error 1`] = `
                 type="radio"
                 value="EXPENSE"
               />
-              <label
-                htmlFor={undefined}
-              >
+              <label>
                 Expense
               </label>
             </div>
@@ -2641,8 +2429,6 @@ exports[`Storyshots Categories/Page with mutation error 1`] = `
               <input
                 checked={false}
                 className="hidden"
-                disabled={undefined}
-                id={undefined}
                 name="type"
                 onClick={[Function]}
                 readOnly={true}
@@ -2650,9 +2436,7 @@ exports[`Storyshots Categories/Page with mutation error 1`] = `
                 type="radio"
                 value="INCOME"
               />
-              <label
-                htmlFor={undefined}
-              >
+              <label>
                 Income
               </label>
             </div>
@@ -2730,7 +2514,6 @@ exports[`Storyshots Categories/Page with query error 1`] = `
       >
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2742,7 +2525,6 @@ exports[`Storyshots Categories/Page with query error 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2754,7 +2536,6 @@ exports[`Storyshots Categories/Page with query error 1`] = `
         </div>
         <div
           className="item"
-          data-value={undefined}
           onClick={[Function]}
           role="listitem"
         >
@@ -2775,9 +2556,7 @@ exports[`Storyshots Elements/AccountInput default 1`] = `
   className="ui input"
 >
   <input
-    disabled={undefined}
     onChange={[Function]}
-    tabIndex={undefined}
     type="text"
     value=""
   />
@@ -2789,9 +2568,7 @@ exports[`Storyshots Elements/AccountInput with value 1`] = `
   className="ui input"
 >
   <input
-    disabled={undefined}
     onChange={[Function]}
-    tabIndex={undefined}
     type="text"
     value="Food"
   />
@@ -2803,14 +2580,11 @@ exports[`Storyshots Elements/AmountInput default 1`] = `
   className="ui input"
 >
   <input
-    disabled={undefined}
-    name={undefined}
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onMouseUp={[Function]}
-    tabIndex={undefined}
     type="text"
     value="0"
   />
@@ -2822,14 +2596,11 @@ exports[`Storyshots Elements/AmountInput with value 1`] = `
   className="ui input"
 >
   <input
-    disabled={undefined}
-    name={undefined}
     onBlur={[Function]}
     onChange={[Function]}
     onFocus={[Function]}
     onKeyDown={[Function]}
     onMouseUp={[Function]}
-    tabIndex={undefined}
     type="text"
     value="10,000.9"
   />
@@ -2842,10 +2613,8 @@ exports[`Storyshots Elements/DateInput default 1`] = `
 >
   <div
     className="ui icon input"
-    content={undefined}
   >
     <input
-      disabled={undefined}
       name="DateInput"
       onBlur={[Function]}
       onChange={[Function]}
@@ -2853,10 +2622,7 @@ exports[`Storyshots Elements/DateInput default 1`] = `
       onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      required={undefined}
-      tabIndex={undefined}
       type="text"
-      value={undefined}
     />
     <i
       aria-hidden="true"
@@ -2870,17 +2636,13 @@ exports[`Storyshots Elements/DateInput with label 1`] = `
 <div
   className="field"
 >
-  <label
-    htmlFor={undefined}
-  >
+  <label>
     Input here
   </label>
   <div
     className="ui icon input"
-    content={undefined}
   >
     <input
-      disabled={undefined}
       name="DateInput"
       onBlur={[Function]}
       onChange={[Function]}
@@ -2888,10 +2650,7 @@ exports[`Storyshots Elements/DateInput with label 1`] = `
       onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      required={undefined}
-      tabIndex={undefined}
       type="text"
-      value={undefined}
     />
     <i
       aria-hidden="true"
@@ -2907,10 +2666,8 @@ exports[`Storyshots Elements/DateInput with value 1`] = `
 >
   <div
     className="ui icon input"
-    content={undefined}
   >
     <input
-      disabled={undefined}
       name="DateInput"
       onBlur={[Function]}
       onChange={[Function]}
@@ -2918,8 +2675,6 @@ exports[`Storyshots Elements/DateInput with value 1`] = `
       onFocus={[Function]}
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      required={undefined}
-      tabIndex={undefined}
       type="text"
       value="2018-01-02"
     />
@@ -2933,27 +2688,20 @@ exports[`Storyshots Elements/DateInput with value 1`] = `
 
 exports[`Storyshots Elements/Form default 1`] = `
 <form
-  action={undefined}
   className="ui form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Name
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="Name"
       />
@@ -2961,10 +2709,8 @@ exports[`Storyshots Elements/Form default 1`] = `
   </div>
   <button
     className="ui button"
-    disabled={undefined}
     onClick={[Function]}
     role="button"
-    tabIndex={undefined}
     type="submit"
   >
     Submit
@@ -2987,27 +2733,20 @@ exports[`Storyshots Elements/Form default 1`] = `
 
 exports[`Storyshots Elements/Form loading 1`] = `
 <form
-  action={undefined}
   className="ui loading form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Name
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="Name"
       />
@@ -3015,10 +2754,8 @@ exports[`Storyshots Elements/Form loading 1`] = `
   </div>
   <button
     className="ui button"
-    disabled={undefined}
     onClick={[Function]}
     role="button"
-    tabIndex={undefined}
     type="submit"
   >
     Submit
@@ -3041,27 +2778,20 @@ exports[`Storyshots Elements/Form loading 1`] = `
 
 exports[`Storyshots Elements/Form with one error 1`] = `
 <form
-  action={undefined}
   className="ui error form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Name
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="Name"
       />
@@ -3069,10 +2799,8 @@ exports[`Storyshots Elements/Form with one error 1`] = `
   </div>
   <button
     className="ui button"
-    disabled={undefined}
     onClick={[Function]}
     role="button"
-    tabIndex={undefined}
     type="submit"
   >
     Submit
@@ -3104,27 +2832,20 @@ exports[`Storyshots Elements/Form with one error 1`] = `
 
 exports[`Storyshots Elements/Form with two error 1`] = `
 <form
-  action={undefined}
   className="ui error form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Name
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="Name"
       />
@@ -3132,10 +2853,8 @@ exports[`Storyshots Elements/Form with two error 1`] = `
   </div>
   <button
     className="ui button"
-    disabled={undefined}
     onClick={[Function]}
     role="button"
-    tabIndex={undefined}
     type="submit"
   >
     Submit
@@ -3214,28 +2933,21 @@ exports[`Storyshots Login/Bar logged out 1`] = `
 
 exports[`Storyshots Login/Page default 1`] = `
 <form
-  action={undefined}
   className="ui form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Username
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="username"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value=""
       />
@@ -3244,21 +2956,15 @@ exports[`Storyshots Login/Page default 1`] = `
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Password
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="password"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="password"
         value=""
       />
@@ -3292,28 +2998,21 @@ exports[`Storyshots Login/Page default 1`] = `
 
 exports[`Storyshots Login/Page filled 1`] = `
 <form
-  action={undefined}
   className="ui form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Username
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="username"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value="admin"
       />
@@ -3322,21 +3021,15 @@ exports[`Storyshots Login/Page filled 1`] = `
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Password
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="password"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="password"
         value="password"
       />
@@ -3344,10 +3037,8 @@ exports[`Storyshots Login/Page filled 1`] = `
   </div>
   <button
     className="ui button"
-    disabled={undefined}
     onClick={[Function]}
     role="button"
-    tabIndex={undefined}
     type="submit"
   >
     Sign in
@@ -3370,28 +3061,21 @@ exports[`Storyshots Login/Page filled 1`] = `
 
 exports[`Storyshots Login/Page loading 1`] = `
 <form
-  action={undefined}
   className="ui loading form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Username
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="username"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value=""
       />
@@ -3400,21 +3084,15 @@ exports[`Storyshots Login/Page loading 1`] = `
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Password
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="password"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="password"
         value=""
       />
@@ -3448,28 +3126,21 @@ exports[`Storyshots Login/Page loading 1`] = `
 
 exports[`Storyshots Login/Page with error 1`] = `
 <form
-  action={undefined}
   className="ui error form"
   onSubmit={[Function]}
 >
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Username
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="username"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="text"
         value=""
       />
@@ -3478,21 +3149,15 @@ exports[`Storyshots Login/Page with error 1`] = `
   <div
     className="field"
   >
-    <label
-      htmlFor={undefined}
-    >
+    <label>
       Password
     </label>
     <div
       className="ui input"
-      content={undefined}
     >
       <input
-        disabled={undefined}
         name="password"
         onChange={[Function]}
-        required={undefined}
-        tabIndex={undefined}
         type="password"
         value=""
       />
@@ -3651,28 +3316,22 @@ exports[`Storyshots Profile default 1`] = `
     Change password
   </h4>
   <form
-    action={undefined}
     className="ui form"
     onSubmit={[Function]}
   >
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Old password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="oldPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -3681,21 +3340,16 @@ exports[`Storyshots Profile default 1`] = `
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         New password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="newPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -3704,21 +3358,16 @@ exports[`Storyshots Profile default 1`] = `
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Repeat new password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="repeatNewPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -3757,28 +3406,22 @@ exports[`Storyshots Profile loading 1`] = `
     Change password
   </h4>
   <form
-    action={undefined}
     className="ui loading form"
     onSubmit={[Function]}
   >
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Old password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="oldPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -3787,21 +3430,16 @@ exports[`Storyshots Profile loading 1`] = `
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         New password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="newPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -3810,21 +3448,16 @@ exports[`Storyshots Profile loading 1`] = `
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Repeat new password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="repeatNewPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -3863,28 +3496,22 @@ exports[`Storyshots Profile with errors 1`] = `
     Change password
   </h4>
   <form
-    action={undefined}
     className="ui error form"
     onSubmit={[Function]}
   >
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Old password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="oldPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -3893,21 +3520,16 @@ exports[`Storyshots Profile with errors 1`] = `
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         New password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="newPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -3916,21 +3538,16 @@ exports[`Storyshots Profile with errors 1`] = `
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Repeat new password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="repeatNewPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -3978,28 +3595,22 @@ exports[`Storyshots Profile with same new password 1`] = `
     Change password
   </h4>
   <form
-    action={undefined}
     className="ui form"
     onSubmit={[Function]}
   >
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Old password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="oldPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value="1"
         />
@@ -4008,21 +3619,16 @@ exports[`Storyshots Profile with same new password 1`] = `
     <div
       className="error required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         New password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="newPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value="1"
         />
@@ -4031,21 +3637,16 @@ exports[`Storyshots Profile with same new password 1`] = `
     <div
       className="error required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Repeat new password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="repeatNewPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value=""
         />
@@ -4084,28 +3685,22 @@ exports[`Storyshots Profile with wrong repeated password 1`] = `
     Change password
   </h4>
   <form
-    action={undefined}
     className="ui form"
     onSubmit={[Function]}
   >
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Old password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="oldPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value="1"
         />
@@ -4114,21 +3709,16 @@ exports[`Storyshots Profile with wrong repeated password 1`] = `
     <div
       className="required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         New password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="newPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value="2"
         />
@@ -4137,21 +3727,16 @@ exports[`Storyshots Profile with wrong repeated password 1`] = `
     <div
       className="error required field"
     >
-      <label
-        htmlFor={undefined}
-      >
+      <label>
         Repeat new password
       </label>
       <div
         className="ui input"
-        content={undefined}
       >
         <input
-          disabled={undefined}
           name="repeatNewPassword"
           onChange={[Function]}
           required={true}
-          tabIndex={undefined}
           type="password"
           value="3"
         />
@@ -4189,7 +3774,6 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
   className="ui small secondary segment"
 >
   <form
-    action={undefined}
     className="ui form"
     onSubmit={[Function]}
   >
@@ -4208,8 +3792,6 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
           <input
             checked={false}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -4217,9 +3799,7 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
             type="radio"
             value="income"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Income
           </label>
         </div>
@@ -4236,8 +3816,6 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
           <input
             checked={true}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -4245,9 +3823,7 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
             type="radio"
             value="expense"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Expense
           </label>
         </div>
@@ -4259,21 +3835,15 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           From
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="source"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value=""
           />
@@ -4282,21 +3852,15 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           To
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="destination"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value=""
           />
@@ -4309,25 +3873,19 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           Amount
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="amount"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="0"
           />
@@ -4336,17 +3894,13 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           When
         </label>
         <div
           className="ui icon input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="date"
             onBlur={[Function]}
             onChange={[Function]}
@@ -4354,8 +3908,6 @@ exports[`Storyshots Transaction/Form creating new 1`] = `
             onFocus={[Function]}
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="2018-01-01"
           />
@@ -4398,7 +3950,6 @@ exports[`Storyshots Transaction/Form editing 1`] = `
   className="ui small secondary segment"
 >
   <form
-    action={undefined}
     className="ui form"
     onSubmit={[Function]}
   >
@@ -4417,8 +3968,6 @@ exports[`Storyshots Transaction/Form editing 1`] = `
           <input
             checked={false}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -4426,9 +3975,7 @@ exports[`Storyshots Transaction/Form editing 1`] = `
             type="radio"
             value="income"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Income
           </label>
         </div>
@@ -4445,8 +3992,6 @@ exports[`Storyshots Transaction/Form editing 1`] = `
           <input
             checked={true}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -4454,9 +3999,7 @@ exports[`Storyshots Transaction/Form editing 1`] = `
             type="radio"
             value="expense"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Expense
           </label>
         </div>
@@ -4468,21 +4011,15 @@ exports[`Storyshots Transaction/Form editing 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           From
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="source"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="Cash"
           />
@@ -4491,21 +4028,15 @@ exports[`Storyshots Transaction/Form editing 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           To
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="destination"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="Food"
           />
@@ -4518,25 +4049,19 @@ exports[`Storyshots Transaction/Form editing 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           Amount
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="amount"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="10"
           />
@@ -4545,17 +4070,13 @@ exports[`Storyshots Transaction/Form editing 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           When
         </label>
         <div
           className="ui icon input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="date"
             onBlur={[Function]}
             onChange={[Function]}
@@ -4563,8 +4084,6 @@ exports[`Storyshots Transaction/Form editing 1`] = `
             onFocus={[Function]}
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="2018-01-01T00:00:00.000Z"
           />
@@ -4576,20 +4095,16 @@ exports[`Storyshots Transaction/Form editing 1`] = `
       </div>
       <button
         className="ui button"
-        disabled={undefined}
         id="delete"
         onClick={[Function]}
         role="button"
-        tabIndex={undefined}
       >
         Delete
       </button>
       <button
         className="ui primary button"
-        disabled={undefined}
         onClick={[Function]}
         role="button"
-        tabIndex={undefined}
         type="submit"
       >
         Save
@@ -4617,7 +4132,6 @@ exports[`Storyshots Transaction/Form filled 1`] = `
   className="ui small secondary segment"
 >
   <form
-    action={undefined}
     className="ui form"
     onSubmit={[Function]}
   >
@@ -4636,8 +4150,6 @@ exports[`Storyshots Transaction/Form filled 1`] = `
           <input
             checked={false}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -4645,9 +4157,7 @@ exports[`Storyshots Transaction/Form filled 1`] = `
             type="radio"
             value="income"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Income
           </label>
         </div>
@@ -4664,8 +4174,6 @@ exports[`Storyshots Transaction/Form filled 1`] = `
           <input
             checked={true}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -4673,9 +4181,7 @@ exports[`Storyshots Transaction/Form filled 1`] = `
             type="radio"
             value="expense"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Expense
           </label>
         </div>
@@ -4687,21 +4193,15 @@ exports[`Storyshots Transaction/Form filled 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           From
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="source"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="Cash"
           />
@@ -4710,21 +4210,15 @@ exports[`Storyshots Transaction/Form filled 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           To
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="destination"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="Food"
           />
@@ -4737,25 +4231,19 @@ exports[`Storyshots Transaction/Form filled 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           Amount
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="amount"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="10"
           />
@@ -4764,17 +4252,13 @@ exports[`Storyshots Transaction/Form filled 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           When
         </label>
         <div
           className="ui icon input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="date"
             onBlur={[Function]}
             onChange={[Function]}
@@ -4782,8 +4266,6 @@ exports[`Storyshots Transaction/Form filled 1`] = `
             onFocus={[Function]}
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="2018-01-01T00:00:00.000Z"
           />
@@ -4795,10 +4277,8 @@ exports[`Storyshots Transaction/Form filled 1`] = `
       </div>
       <button
         className="ui primary button"
-        disabled={undefined}
         onClick={[Function]}
         role="button"
-        tabIndex={undefined}
         type="submit"
       >
         Save
@@ -4826,7 +4306,6 @@ exports[`Storyshots Transaction/Form loading 1`] = `
   className="ui small loading secondary segment"
 >
   <form
-    action={undefined}
     className="ui form"
     onSubmit={[Function]}
   >
@@ -4845,8 +4324,6 @@ exports[`Storyshots Transaction/Form loading 1`] = `
           <input
             checked={false}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -4854,9 +4331,7 @@ exports[`Storyshots Transaction/Form loading 1`] = `
             type="radio"
             value="income"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Income
           </label>
         </div>
@@ -4873,8 +4348,6 @@ exports[`Storyshots Transaction/Form loading 1`] = `
           <input
             checked={true}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -4882,9 +4355,7 @@ exports[`Storyshots Transaction/Form loading 1`] = `
             type="radio"
             value="expense"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Expense
           </label>
         </div>
@@ -4896,21 +4367,15 @@ exports[`Storyshots Transaction/Form loading 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           From
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="source"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value=""
           />
@@ -4919,21 +4384,15 @@ exports[`Storyshots Transaction/Form loading 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           To
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="destination"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value=""
           />
@@ -4946,25 +4405,19 @@ exports[`Storyshots Transaction/Form loading 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           Amount
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="amount"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="0"
           />
@@ -4973,17 +4426,13 @@ exports[`Storyshots Transaction/Form loading 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           When
         </label>
         <div
           className="ui icon input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="date"
             onBlur={[Function]}
             onChange={[Function]}
@@ -4991,8 +4440,6 @@ exports[`Storyshots Transaction/Form loading 1`] = `
             onFocus={[Function]}
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="2018-01-01"
           />
@@ -5035,7 +4482,6 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
   className="ui small secondary segment"
 >
   <form
-    action={undefined}
     className="ui error form"
     onSubmit={[Function]}
   >
@@ -5054,8 +4500,6 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
           <input
             checked={false}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -5063,9 +4507,7 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
             type="radio"
             value="income"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Income
           </label>
         </div>
@@ -5082,8 +4524,6 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
           <input
             checked={true}
             className="hidden"
-            disabled={undefined}
-            id={undefined}
             name="type"
             onClick={[Function]}
             readOnly={true}
@@ -5091,9 +4531,7 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
             type="radio"
             value="expense"
           />
-          <label
-            htmlFor={undefined}
-          >
+          <label>
             Expense
           </label>
         </div>
@@ -5105,21 +4543,15 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           From
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="source"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value=""
           />
@@ -5128,21 +4560,15 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           To
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="destination"
             onChange={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value=""
           />
@@ -5155,25 +4581,19 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           Amount
         </label>
         <div
           className="ui input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="amount"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
             onKeyDown={[Function]}
             onMouseUp={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="0"
           />
@@ -5182,17 +4602,13 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
       <div
         className="field"
       >
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           When
         </label>
         <div
           className="ui icon input"
-          content={undefined}
         >
           <input
-            disabled={undefined}
             name="date"
             onBlur={[Function]}
             onChange={[Function]}
@@ -5200,8 +4616,6 @@ exports[`Storyshots Transaction/Form with errors 1`] = `
             onFocus={[Function]}
             onMouseEnter={[Function]}
             onMouseLeave={[Function]}
-            required={undefined}
-            tabIndex={undefined}
             type="text"
             value="2018-01-01"
           />
@@ -5269,7 +4683,6 @@ exports[`Storyshots Transaction/List with data 1`] = `
 >
   <a
     className="item"
-    data-value={undefined}
     onClick={[Function]}
     role="listitem"
   >
@@ -5301,7 +4714,6 @@ exports[`Storyshots Transaction/List with data 1`] = `
   </a>
   <a
     className="item"
-    data-value={undefined}
     onClick={[Function]}
     role="listitem"
   >
@@ -5333,7 +4745,6 @@ exports[`Storyshots Transaction/List with data 1`] = `
   </a>
   <a
     className="item"
-    data-value={undefined}
     onClick={[Function]}
     role="listitem"
   >
@@ -5377,10 +4788,8 @@ exports[`Storyshots Transaction/Page default 1`] = `
     >
       <button
         className="ui primary button"
-        disabled={undefined}
         onClick={[Function]}
         role="button"
-        tabIndex={undefined}
       >
         Add
       </button>
@@ -5391,10 +4800,8 @@ exports[`Storyshots Transaction/Page default 1`] = `
     >
       <button
         className="ui icon button"
-        disabled={undefined}
         onClick={[Function]}
         role="button"
-        tabIndex={undefined}
       >
         <i
           aria-hidden="true"
@@ -5412,10 +4819,8 @@ exports[`Storyshots Transaction/Page default 1`] = `
       </span>
       <button
         className="ui icon button"
-        disabled={undefined}
         onClick={[Function]}
         role="button"
-        tabIndex={undefined}
       >
         <i
           aria-hidden="true"
@@ -5431,10 +4836,7 @@ exports[`Storyshots Transaction/Page default 1`] = `
         Show per
          
         <div
-          aria-busy={undefined}
-          aria-disabled={undefined}
           aria-expanded={false}
-          aria-multiselectable={undefined}
           className="ui inline dropdown"
           onBlur={[Function]}
           onChange={[Function]}
@@ -5461,7 +4863,6 @@ exports[`Storyshots Transaction/Page default 1`] = `
           >
             <div
               aria-checked={true}
-              aria-disabled={undefined}
               aria-selected={true}
               className="active selected item"
               onClick={[Function]}
@@ -5480,7 +4881,6 @@ exports[`Storyshots Transaction/Page default 1`] = `
             </div>
             <div
               aria-checked={false}
-              aria-disabled={undefined}
               aria-selected={false}
               className="item"
               onClick={[Function]}
@@ -5508,7 +4908,6 @@ exports[`Storyshots Transaction/Page default 1`] = `
 
 exports[`Storyshots Transaction/TypeSelect default 1`] = `
 <form
-  action={undefined}
   className="ui form"
   onSubmit={[Function]}
 >
@@ -5527,8 +4926,6 @@ exports[`Storyshots Transaction/TypeSelect default 1`] = `
         <input
           checked={false}
           className="hidden"
-          disabled={undefined}
-          id={undefined}
           name="transactionTypeSelect"
           onClick={[Function]}
           readOnly={true}
@@ -5536,9 +4933,7 @@ exports[`Storyshots Transaction/TypeSelect default 1`] = `
           type="radio"
           value="income"
         />
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           Income
         </label>
       </div>
@@ -5555,8 +4950,6 @@ exports[`Storyshots Transaction/TypeSelect default 1`] = `
         <input
           checked={true}
           className="hidden"
-          disabled={undefined}
-          id={undefined}
           name="transactionTypeSelect"
           onClick={[Function]}
           readOnly={true}
@@ -5564,9 +4957,7 @@ exports[`Storyshots Transaction/TypeSelect default 1`] = `
           type="radio"
           value="expense"
         />
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           Expense
         </label>
       </div>
@@ -5577,7 +4968,6 @@ exports[`Storyshots Transaction/TypeSelect default 1`] = `
 
 exports[`Storyshots Transaction/TypeSelect with value 1`] = `
 <form
-  action={undefined}
   className="ui form"
   onSubmit={[Function]}
 >
@@ -5596,8 +4986,6 @@ exports[`Storyshots Transaction/TypeSelect with value 1`] = `
         <input
           checked={true}
           className="hidden"
-          disabled={undefined}
-          id={undefined}
           name="transactionTypeSelect"
           onClick={[Function]}
           readOnly={true}
@@ -5605,9 +4993,7 @@ exports[`Storyshots Transaction/TypeSelect with value 1`] = `
           type="radio"
           value="income"
         />
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           Income
         </label>
       </div>
@@ -5624,8 +5010,6 @@ exports[`Storyshots Transaction/TypeSelect with value 1`] = `
         <input
           checked={false}
           className="hidden"
-          disabled={undefined}
-          id={undefined}
           name="transactionTypeSelect"
           onClick={[Function]}
           readOnly={true}
@@ -5633,9 +5017,7 @@ exports[`Storyshots Transaction/TypeSelect with value 1`] = `
           type="radio"
           value="expense"
         />
-        <label
-          htmlFor={undefined}
-        >
+        <label>
           Expense
         </label>
       </div>
